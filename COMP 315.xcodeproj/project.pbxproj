@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		93C2191A1AAED9CE0085642E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93C219191AAED9CE0085642E /* main.cpp */; };
+		93C219211AAEDA0C0085642E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C219201AAEDA0C0085642E /* OpenGL.framework */; };
+		93C219231AAEDA100085642E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C219221AAEDA100085642E /* GLUT.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,8 @@
 /* Begin PBXFileReference section */
 		93C219161AAED9CE0085642E /* COMP 315 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "COMP 315"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C219191AAED9CE0085642E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		93C219201AAEDA0C0085642E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
+		93C219221AAEDA100085642E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +36,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93C219231AAEDA100085642E /* GLUT.framework in Frameworks */,
+				93C219211AAEDA0C0085642E /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +47,8 @@
 		93C2190D1AAED9CE0085642E = {
 			isa = PBXGroup;
 			children = (
+				93C219221AAEDA100085642E /* GLUT.framework */,
+				93C219201AAEDA0C0085642E /* OpenGL.framework */,
 				93C219181AAED9CE0085642E /* COMP 315 */,
 				93C219171AAED9CE0085642E /* Products */,
 			);
@@ -202,6 +210,7 @@
 		93C2191E1AAED9CE0085642E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -209,6 +218,7 @@
 		93C2191F1AAED9CE0085642E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
