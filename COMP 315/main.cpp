@@ -1,10 +1,12 @@
-//
-//  main.cpp
-//  COMP 315
-//
-//  Created by Kreason Aaron Naidoo on 2015/03/10.
-//  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
-//
+//COMP 315 : Advanced Programming 2015
+
+
+//This project and all assosciated files are the property of the creators:
+//Kreason Aaron Naidoo
+//Liam Bernard
+//Shaherin Dehaloo
+//Muhammad Bassa
+//and of The University of Kwa-Zulu Natal
 
 #include <iostream>
 
