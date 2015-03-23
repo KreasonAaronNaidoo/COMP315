@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>50997B76-3FAC-4472-BF5D-E69E81F5333B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>COMP 315</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>401F3FE9B9E2E2F95A141A7F9C01D82B2C9E0E7B</key>
+		<string>https://github.com/KreasonAaronNaidoo/COMP315.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>COMP 315.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>401F3FE9B9E2E2F95A141A7F9C01D82B2C9E0E7B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/KreasonAaronNaidoo/COMP315.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>401F3FE9B9E2E2F95A141A7F9C01D82B2C9E0E7B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>401F3FE9B9E2E2F95A141A7F9C01D82B2C9E0E7B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>COMP%20315</string>
+		</dict>
+	</array>
+</dict>
+</plist>
