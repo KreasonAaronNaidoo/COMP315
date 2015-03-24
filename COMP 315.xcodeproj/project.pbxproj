@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		93ABCF581AC1608F009E8BF8 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF561AC1608F009E8BF8 /* point.cpp */; };
+		93ABCF5B1AC1609E009E8BF8 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF591AC1609E009E8BF8 /* player.cpp */; };
+		93ABCF5E1AC160AC009E8BF8 /* npc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF5C1AC160AC009E8BF8 /* npc.cpp */; };
+		93ABCF611AC160BA009E8BF8 /* planet.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF5F1AC160BA009E8BF8 /* planet.cpp */; };
+		93ABCF641AC160CA009E8BF8 /* world.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF621AC160CA009E8BF8 /* world.cpp */; };
+		93ABCF671AC160E5009E8BF8 /* physics_engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */; };
 		93C2191A1AAED9CE0085642E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93C219191AAED9CE0085642E /* main.cpp */; };
 		93C219211AAEDA0C0085642E /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C219201AAEDA0C0085642E /* OpenGL.framework */; };
 		93C219231AAEDA100085642E /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93C219221AAEDA100085642E /* GLUT.framework */; };
@@ -25,6 +31,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		93ABCF561AC1608F009E8BF8 /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
+		93ABCF571AC1608F009E8BF8 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
+		93ABCF591AC1609E009E8BF8 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
+		93ABCF5A1AC1609E009E8BF8 /* player.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = player.h; sourceTree = "<group>"; };
+		93ABCF5C1AC160AC009E8BF8 /* npc.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = npc.cpp; sourceTree = "<group>"; };
+		93ABCF5D1AC160AC009E8BF8 /* npc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = npc.h; sourceTree = "<group>"; };
+		93ABCF5F1AC160BA009E8BF8 /* planet.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = planet.cpp; sourceTree = "<group>"; };
+		93ABCF601AC160BA009E8BF8 /* planet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = planet.h; sourceTree = "<group>"; };
+		93ABCF621AC160CA009E8BF8 /* world.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = world.cpp; sourceTree = "<group>"; };
+		93ABCF631AC160CA009E8BF8 /* world.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = world.h; sourceTree = "<group>"; };
+		93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = physics_engine.cpp; sourceTree = "<group>"; };
+		93ABCF661AC160E5009E8BF8 /* physics_engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = physics_engine.h; sourceTree = "<group>"; };
 		93C219161AAED9CE0085642E /* COMP 315 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "COMP 315"; sourceTree = BUILT_PRODUCTS_DIR; };
 		93C219191AAED9CE0085642E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		93C219201AAEDA0C0085642E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
@@ -66,6 +84,18 @@
 			isa = PBXGroup;
 			children = (
 				93C219191AAED9CE0085642E /* main.cpp */,
+				93ABCF561AC1608F009E8BF8 /* point.cpp */,
+				93ABCF571AC1608F009E8BF8 /* point.h */,
+				93ABCF591AC1609E009E8BF8 /* player.cpp */,
+				93ABCF5A1AC1609E009E8BF8 /* player.h */,
+				93ABCF5C1AC160AC009E8BF8 /* npc.cpp */,
+				93ABCF5D1AC160AC009E8BF8 /* npc.h */,
+				93ABCF5F1AC160BA009E8BF8 /* planet.cpp */,
+				93ABCF601AC160BA009E8BF8 /* planet.h */,
+				93ABCF621AC160CA009E8BF8 /* world.cpp */,
+				93ABCF631AC160CA009E8BF8 /* world.h */,
+				93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */,
+				93ABCF661AC160E5009E8BF8 /* physics_engine.h */,
 			);
 			path = "COMP 315";
 			sourceTree = "<group>";
@@ -126,7 +156,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				93ABCF581AC1608F009E8BF8 /* point.cpp in Sources */,
+				93ABCF611AC160BA009E8BF8 /* planet.cpp in Sources */,
+				93ABCF5E1AC160AC009E8BF8 /* npc.cpp in Sources */,
 				93C2191A1AAED9CE0085642E /* main.cpp in Sources */,
+				93ABCF641AC160CA009E8BF8 /* world.cpp in Sources */,
+				93ABCF671AC160E5009E8BF8 /* physics_engine.cpp in Sources */,
+				93ABCF5B1AC1609E009E8BF8 /* player.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +278,7 @@
 				93C2191F1AAED9CE0085642E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
