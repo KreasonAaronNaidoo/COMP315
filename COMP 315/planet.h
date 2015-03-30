@@ -13,7 +13,6 @@ class planet{
     public:
         planet();
         planet(float x, float y, float z);
-        void rotate();
         void takeDamage();
         void render();
 
@@ -22,6 +21,7 @@ class planet{
         int angVelocity;
         int health;
         float angle;
+        void rotate();
 };
 
 
