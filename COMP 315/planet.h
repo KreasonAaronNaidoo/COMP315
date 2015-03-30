@@ -6,20 +6,23 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
-#ifndef __COMP_315__planet__
-#define __COMP_315__planet__
+#ifndef PLANET_H
+#define PLANET_H
 
-class planet {
-    
-private:
-    
-    
-public:
-    
-    planet();
-    
-    
-    
+class planet{
+    public:
+        planet();
+        planet(float x, float y, float z);
+        void rotate();
+        void takeDamage();
+        void render();
+
+    private:
+        float x,y,z;
+        int angVelocity;
+        int health;
+        float angle;
 };
 
-#endif /* defined(__COMP_315__planet__) */
+
+#endif // PLANET_H
