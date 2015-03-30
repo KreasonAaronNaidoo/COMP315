@@ -7,3 +7,22 @@
 //
 
 #include "physics_engine.h"
+#include <iostream>
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
+#include <stdlib.h>
+#include <cmath>
+#include <stdio.h>
+
+physics_engine::physics_engine(){
+    
+}
+
+
+
+void physics_engine::init_world(){
+
+glPushMatrix();
+uni -> int_empty_world(); //uses the world class
+glPopMatrix();
+
+}

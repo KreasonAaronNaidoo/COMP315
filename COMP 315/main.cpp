@@ -13,18 +13,10 @@
 #include <stdlib.h>
 #include <cmath>
 #include <stdio.h>
-#include "world.h"
+#include "physics_engine.h"
 
-float camx = 0;
-float camy = 1.1;
-float camz = -50;
-float lookx = 0;
-float looky = 1.1;
-float lookz = 0;
-float angle = -M_PI/2;
 
-world *uni = new world();
-
+physics_engine *engine = new physics_engine();
 
 
 
@@ -35,6 +27,8 @@ void initGL()
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
     
+    
+
 
     
     glEnable(GL_LIGHTING);
@@ -51,6 +45,8 @@ void initGL()
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient);
     
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
+
+    
 }
 
 
@@ -64,9 +60,7 @@ void render()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    glPushMatrix();
-        uni -> int_empty_world(); //uses the world class
-    glPopMatrix();
+    engine -> init_world();
 
     
     gluLookAt(0, 1, 0, // camera position
@@ -114,44 +108,16 @@ void key (unsigned char key, int xx, int yy){
     
     switch (key) {
             
-        case 'r':
-            camx = 0;
-            camz = -50;
-            camy = 1.1;
-            lookx = 0;
-            lookz = 0.0;
-            looky = 1.1;
-            angle = -M_PI/2;
-            break;
-            
-        case 'w':
-            looky = looky + 0.01;
-            break;
-            
-        case 's':
-            looky = looky - 0.01;
-            break;
             
         case 27:
             exit(1);
             break;
-            
-        case 'a':
-            camz = camz - sin(-angle + M_PI/2);
-            camx = camx - cos(-angle + M_PI/2);
-            break;
-            
-        case 'd':
-            camz = camz + sin(-angle + M_PI/2);
-            camx = camx + cos(-angle + M_PI/2);
-            break;
-            
+         
             
         default:
             break;
     }
-    lookx = cos(-angle) + camx;
-    lookz = sin(-angle) + camz;
+
     glutPostRedisplay();
 
     
@@ -160,33 +126,7 @@ void key (unsigned char key, int xx, int yy){
 
 
 void arrowKey(int key, int xx, int y){
-    switch (key) {
-        case GLUT_KEY_RIGHT :
-            
-            angle = angle - M_PI/200;
-            break;
-            
-        case GLUT_KEY_LEFT :
-            
-            angle = angle + M_PI/200;
-            break;
-            
-        case GLUT_KEY_DOWN :
-            
-            camz = camz - sin(-angle);
-            camx = camx - cos(-angle);
-            break;
-            
-        case GLUT_KEY_UP :
-            
-            camz = camz + sin(-angle);
-            camx = camx + cos(-angle);
-            break;
-    }
-    
-    
-    lookx = cos(-angle) + camx;
-    lookz = sin(-angle) + camz;
+
     
     glutPostRedisplay();
    

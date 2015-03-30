@@ -10,5 +10,26 @@
 #define __COMP_315__physics_engine__
 
 #include <stdio.h>
+#include "world.h"
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
+#include <vector>
+
+
+class physics_engine{
+    
+private:
+    
+public:
+  
+    
+    physics_engine();
+    void init_world();
+    
+   
+    
+    world *uni = new world();
+
+    
+};
 
 #endif /* defined(__COMP_315__physics_engine__) */
