@@ -17,7 +17,7 @@ private:
 public:
     
     planet();
-    
+    void draw();
     
     
 };

@@ -13,7 +13,7 @@
 #include "npc.h"
 #include "planet.h"
 #include "player.h"
-
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 
 
@@ -22,16 +22,19 @@ class world{
 private:
     
 public:
-    
     void int_empty_world();
     void draw_planet();
     void draw_player();
     void draw_NPCs();
     void kill_NPCs();
     
+    world(); 
+    
     std::vector<npc*> V_npc;
     planet *home;
     player *player1;
+    GLuint texture;
+
     
     
 };
