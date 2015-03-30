@@ -9,6 +9,17 @@
 #ifndef __COMP_315__planet__
 #define __COMP_315__planet__
 
-#include <stdio.h>
+class planet {
+    
+private:
+    
+    
+public:
+    
+    planet();
+    
+    
+    
+};
 
 #endif /* defined(__COMP_315__planet__) */

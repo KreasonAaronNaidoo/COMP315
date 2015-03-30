@@ -7,3 +7,9 @@
 //
 
 #include "planet.h"
+#include <iostream>
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
+#include <stdlib.h>
+#include <cmath>
+#include <stdio.h>
+

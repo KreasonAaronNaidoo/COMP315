@@ -10,5 +10,30 @@
 #define __COMP_315__world__
 
 #include <stdio.h>
+#include "npc.h"
+#include "planet.h"
+#include "player.h"
+
+#include <vector>
+
+
+class world{
+    
+private:
+    
+public:
+    
+    void int_empty_world();
+    void draw_planet();
+    void draw_player();
+    void draw_NPCs();
+    void kill_NPCs();
+    
+    std::vector<npc*> V_npc;
+    planet *home;
+    player *player1;
+    
+    
+};
 
 #endif /* defined(__COMP_315__world__) */

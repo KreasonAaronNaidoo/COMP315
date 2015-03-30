@@ -21,11 +21,11 @@ void initGL()
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
     
-    glEnable(GL_LIGHTING);
-    glEnable(GL_LIGHT0);
+    //glEnable(GL_LIGHTING);
+    //glEnable(GL_LIGHT0);
     
-    GLfloat lightpos[] = {0, 0, -70, 0};
-    glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
+    //GLfloat lightpos[] = {0, 0, -70, 0};
+    //glLightfv(GL_LIGHT0, GL_POSITION, lightpos);
     
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 }

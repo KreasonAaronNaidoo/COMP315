@@ -11,4 +11,17 @@
 
 #include <stdio.h>
 
+class player {
+    
+private:
+    
+    
+public:
+    
+    player();
+    
+    
+    
+};
+
 #endif /* defined(__COMP_315__player__) */

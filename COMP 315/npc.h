@@ -11,4 +11,18 @@
 
 #include <stdio.h>
 
+
+class npc {
+    
+    private:
+    
+    
+    public:
+    
+        npc();
+    
+    
+    
+};
+
 #endif /* defined(__COMP_315__npc__) */
