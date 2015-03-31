@@ -30,9 +30,7 @@ public:
     
     world(); 
     
-    std::vector<npc*> V_npc;
-    planet *home;
-    player *player1;
+    
     GLuint texture;
 
     

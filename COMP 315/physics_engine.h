@@ -23,11 +23,32 @@ public:
   
     
     physics_engine();
-    void init_world();
     
-   
+    void init_world(); // sets up the basic empty world.
+    
+    void move_player(float *px, float *py, float *pz); //co - ordinates to move too
+    void move_camera(float *cx, float *cy, float *cz); //co - ordinates of the cam
+    void move_look(float *lx, float *ly, float *lz);   //look at of the cam
+    
+    void kill(); //destroys an asteroid
+    
+    void update_with_time(); //spinning of the planet and asteroids and health bars 
+    
+    void check_all_dead(); //check if all asteroids are destroid
+    
+    void spawn (int *level); //spawns asteroids according to the level
+    
+    void collide_with_player(); //checks for and handles collisions with the player
+    
+    void collide_with_home(); // checks for and handles collisions with home planet
     
     world *uni = new world();
+    std::vector<npc*> V_npc;
+    planet *home = new planet();
+    player *player1 = new player();
+    int *level = new int(); //set this to one initialy
+    
+    bool *all_dead = new bool(); //set this to false
 
     
 };
