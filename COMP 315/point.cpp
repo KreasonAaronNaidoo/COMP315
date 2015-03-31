@@ -7,3 +7,10 @@
 //
 
 #include "point.h"
+
+point::point (int x, int y, int z){
+    x = x;
+    y = y;
+    z = z;
+}
+

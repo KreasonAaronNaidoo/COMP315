@@ -16,6 +16,16 @@
 #include "physics_engine.h"
 
 
+float camx = 0;
+float camy = 0;
+float camz = 0;
+float lookx = 0;
+float looky = 0;
+float lookz = 10;
+float angle = -M_PI/2;
+
+
+
 physics_engine *engine = new physics_engine();
 
 
@@ -27,7 +37,8 @@ void initGL()
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
     
-    
+    gluOrtho2D(-10.,10.,-10.,10.);
+
 
 
     
@@ -38,13 +49,13 @@ void initGL()
     
     GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat mat_shininess[] = { 50.0 };
-    GLfloat light_ambient[] = { 0.0, 0.0, -100.0, 0.0000001 };
+    GLfloat light_ambient[] = { 0.0, 0.0, 10.0, 0.0000001 };
     
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient);
     
-    glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
+    //glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
     
 }
@@ -60,15 +71,15 @@ void render()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     
-    engine -> init_world();
 
     
-    gluLookAt(0, 1, 0, // camera position
-              0, 1, 0, // look at position, line of sight
+    gluLookAt(camx, camy, camz, // camera position
+              lookx, looky, lookz, // look at position, line of sight
               0, 1, 0); // up direction (vector) for camera tilt
     
 
-  
+    engine -> init_world();
+
     
   
     
@@ -79,6 +90,8 @@ void render()
 void display()
 {
     render();
+    glutPostRedisplay();
+
 }
 
 void reshape(int w, int h)
@@ -98,9 +111,10 @@ void reshape(int w, int h)
     glLoadIdentity();
     
     // Set the clipping volume
-    gluPerspective(45, ratio, 0.1, 100);
+    gluPerspective(45, ratio, 0.1, 500);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+    
 }
 
 
@@ -113,6 +127,11 @@ void key (unsigned char key, int xx, int yy){
             exit(1);
             break;
          
+        case 'l':
+            angle = angle + M_PI/500;
+            lookx = cos(-angle) + camx;
+            lookz = sin(-angle) + camz;
+            render();
             
         default:
             break;
@@ -134,6 +153,8 @@ void arrowKey(int key, int xx, int y){
 }
 
 void idle(){
+    
+    engine -> update_with_time();
     glutPostRedisplay();
 }
 

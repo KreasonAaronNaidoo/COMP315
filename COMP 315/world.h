@@ -11,8 +11,7 @@
 
 #include <stdio.h>
 #include "npc.h"
-#include "planet.h"
-#include "player.h"
+
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 

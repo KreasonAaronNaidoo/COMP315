@@ -11,7 +11,6 @@
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
-#include <stdio.h>
 
 physics_engine::physics_engine(){
     
@@ -22,7 +21,16 @@ physics_engine::physics_engine(){
 void physics_engine::init_world(){
 
 glPushMatrix();
-uni -> int_empty_world(); //uses the world class
+    uni -> int_empty_world(); //uses the world class
+glPopMatrix();
+    
+glPushMatrix();
+    home -> render();
 glPopMatrix();
 
+}
+
+void physics_engine::update_with_time(){
+    home -> rotate();
+    home -> update();
 }

@@ -11,4 +11,24 @@
 
 #include <stdio.h>
 
+class point {
+    
+private:
+    
+    
+    
+public:
+    
+    int x = 0;
+    int y = 0;
+    int z = 0;
+    
+    point (int x, int y, int z);
+    
+    
+    
+    
+    
+};
+
 #endif /* defined(__COMP_315__point__) */

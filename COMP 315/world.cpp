@@ -48,7 +48,7 @@ void world::int_empty_world(){
     
    // gluSphere(quadric,100,50,50);
     
-    glutWireSphere(100, 50, 50);
+    glutWireSphere(1, 50, 50);
 
     
     

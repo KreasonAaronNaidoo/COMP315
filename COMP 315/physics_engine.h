@@ -11,6 +11,8 @@
 
 #include <stdio.h>
 #include "world.h"
+#include "planet.h"
+#include "player.h"
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 
@@ -44,7 +46,7 @@ public:
     
     world *uni = new world();
     std::vector<npc*> V_npc;
-    planet *home = new planet();
+    planet *home = new planet(0, -0.04, 0.1);
     player *player1 = new player();
     int *level = new int(); //set this to one initialy
     

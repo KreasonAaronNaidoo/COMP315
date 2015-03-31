@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		932D5FFE1ACB18EA00981688 /* PCamera.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 932D5FFC1ACB18EA00981688 /* PCamera.cpp */; };
 		93ABCF581AC1608F009E8BF8 /* point.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF561AC1608F009E8BF8 /* point.cpp */; };
 		93ABCF5B1AC1609E009E8BF8 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF591AC1609E009E8BF8 /* player.cpp */; };
 		93ABCF5E1AC160AC009E8BF8 /* npc.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 93ABCF5C1AC160AC009E8BF8 /* npc.cpp */; };
@@ -31,6 +32,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		932D5FFC1ACB18EA00981688 /* PCamera.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PCamera.cpp; sourceTree = "<group>"; };
+		932D5FFD1ACB18EA00981688 /* PCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCamera.h; sourceTree = "<group>"; };
 		93ABCF561AC1608F009E8BF8 /* point.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = point.cpp; sourceTree = "<group>"; };
 		93ABCF571AC1608F009E8BF8 /* point.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = point.h; sourceTree = "<group>"; };
 		93ABCF591AC1609E009E8BF8 /* player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = player.cpp; sourceTree = "<group>"; };
@@ -96,6 +99,8 @@
 				93ABCF631AC160CA009E8BF8 /* world.h */,
 				93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */,
 				93ABCF661AC160E5009E8BF8 /* physics_engine.h */,
+				932D5FFC1ACB18EA00981688 /* PCamera.cpp */,
+				932D5FFD1ACB18EA00981688 /* PCamera.h */,
 			);
 			path = "COMP 315";
 			sourceTree = "<group>";
@@ -161,6 +166,7 @@
 				93ABCF5E1AC160AC009E8BF8 /* npc.cpp in Sources */,
 				93C2191A1AAED9CE0085642E /* main.cpp in Sources */,
 				93ABCF641AC160CA009E8BF8 /* world.cpp in Sources */,
+				932D5FFE1ACB18EA00981688 /* PCamera.cpp in Sources */,
 				93ABCF671AC160E5009E8BF8 /* physics_engine.cpp in Sources */,
 				93ABCF5B1AC1609E009E8BF8 /* player.cpp in Sources */,
 			);
@@ -246,6 +252,7 @@
 		93C2191E1AAED9CE0085642E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -254,6 +261,7 @@
 		93C2191F1AAED9CE0085642E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
