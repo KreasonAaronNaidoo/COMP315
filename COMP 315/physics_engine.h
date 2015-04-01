@@ -46,7 +46,7 @@ public:
     
     world *uni = new world();
     std::vector<npc*> V_npc;
-    planet *home = new planet(0, -0.04, 0.1);
+    planet *home = new planet(0, -0.05, 0.1);
     player *player1 = new player();
     int *level = new int(); //set this to one initialy
     

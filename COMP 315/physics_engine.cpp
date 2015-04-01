@@ -13,6 +13,8 @@
 #include <cmath>
 
 physics_engine::physics_engine(){
+   
+    *level = 1;
     
 }
 
@@ -20,13 +22,13 @@ physics_engine::physics_engine(){
 
 void physics_engine::init_world(){
 
-glPushMatrix();
-    uni -> int_empty_world(); //uses the world class
-glPopMatrix();
+    glPushMatrix();
+        uni -> int_empty_world(); //uses the world class
+    glPopMatrix();
     
-glPushMatrix();
-    home -> render();
-glPopMatrix();
+    glPushMatrix();
+        home -> render();
+    glPopMatrix();
 
 }
 
