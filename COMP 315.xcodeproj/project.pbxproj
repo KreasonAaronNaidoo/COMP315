@@ -50,6 +50,7 @@
 		93C219191AAED9CE0085642E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		93C219201AAEDA0C0085642E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93C219221AAEDA100085642E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
+		93DDF1701ACDA20900004D25 /* space.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = space.bmp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +97,7 @@
 				93ABCF5F1AC160BA009E8BF8 /* planet.cpp */,
 				93ABCF601AC160BA009E8BF8 /* planet.h */,
 				93ABCF621AC160CA009E8BF8 /* world.cpp */,
+				93DDF1701ACDA20900004D25 /* space.bmp */,
 				93ABCF631AC160CA009E8BF8 /* world.h */,
 				93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */,
 				93ABCF661AC160E5009E8BF8 /* physics_engine.h */,
@@ -253,6 +255,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/COMP",
+					315,
+					"$(PROJECT_DIR)/COMP",
+					315,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -261,6 +270,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/COMP",
+					315,
+					"$(PROJECT_DIR)/COMP",
+					315,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

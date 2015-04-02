@@ -7,7 +7,7 @@
 //
 
 #include "world.h"
-#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
+#include <GLUT/glut.h> // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include<iostream>
 #include <cmath>
@@ -41,10 +41,11 @@ void world::int_empty_world(){
     quadric=gluNewQuadric();
     gluQuadricNormals(quadric, GLU_SMOOTH);
     gluQuadricTexture(quadric, GL_TRUE);
+   
     
     glEnable(GL_TEXTURE_2D);
     
-   // glBindTexture(GL_TEXTURE_2D, texture); //will add the texture once i figure out how...
+    //glBindTexture(GL_TEXTURE_2D, texture); //will add the texture once i figure out how...
     
     gluSphere(quadric,10, 50, 50);
     
@@ -54,19 +55,7 @@ void world::int_empty_world(){
     
 }
 
-void world::draw_planet(){
-    
-    
-}
 
-void world::draw_player(){
-    
-}
 
-void world::draw_NPCs(){
-    
-}
 
-void world::kill_NPCs(){
-    
-}
+

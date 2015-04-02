@@ -22,10 +22,10 @@ private:
     
 public:
     void int_empty_world();
-    void draw_planet();
-    void draw_player();
-    void draw_NPCs();
-    void kill_NPCs();
+
+    
+    GLuint LoadTexture( const char * filename );
+
     
     world(); 
     
