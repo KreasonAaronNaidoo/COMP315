@@ -51,8 +51,8 @@ void planet::render(){
     GLfloat mat_shininess[] = { 50.0 };
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     
-    //glutSolidSphere(0.02,25,25);//radius 0.5, 25 slices and stacks
-    glutWireSphere(0.02,25,25); //using the wire for demo reasons, untill textures are done
+    //glutSolidSphere(0.04,25,25);//radius 0.5, 25 slices and stacks
+    glutWireSphere(0.04,25,25); //using the wire for demo reasons, untill textures are done
     glPopMatrix();
 }
 

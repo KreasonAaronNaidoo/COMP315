@@ -15,6 +15,7 @@
 #include "player.h"
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
+#include "map"
 
 
 class physics_engine{
@@ -25,6 +26,9 @@ public:
   
     
     physics_engine();
+    
+    void init_level_map();
+    void init_npc_loc();
     
     void init_world(); // sets up the basic empty world.
     
@@ -38,19 +42,27 @@ public:
     
     void check_all_dead(); //check if all asteroids are destroid
     
-    void spawn (int *level); //spawns asteroids according to the level
+    void spawn (); //spawns asteroids according to the level
     
     void collide_with_player(); //checks for and handles collisions with the player
     
     void collide_with_home(); // checks for and handles collisions with home planet
     
     world *uni = new world();
-    std::vector<npc*> V_npc;
-    planet *home = new planet(0, -0.05, 0.1);
+    
+    
+    //std::vector <std::vector<npc*> > V_npc; // 2d vector
+    //void init_vector();
+    
+    npc *v [7][5];
+    
+    planet *home = new planet(0, -0.07, 0.1);
     player *player1 = new player();
     int *level = new int(); //set this to one initialy
-    
     bool *all_dead = new bool(); //set this to false
+    
+    std::map <int, int> level_npc_num;
+    std::map <int, point*> npc_loc;
 
     
 };

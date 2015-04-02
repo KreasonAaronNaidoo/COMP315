@@ -8,9 +8,17 @@
 
 #include "point.h"
 
-point::point (int x, int y, int z){
-    x = x;
-    y = y;
-    z = z;
+point::point (float x, float y, float z){
+    this->x = x;
+    this->y = y;
+    this->z = z;
+}
+
+point::point(){
+    
+    this->x = 0;
+    this->y = 0;
+    this->z = 0;
+    
 }
 

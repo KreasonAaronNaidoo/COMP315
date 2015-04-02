@@ -79,7 +79,7 @@ void render()
     
 
     engine -> init_world();
-
+    engine -> spawn();
     
   
     
@@ -165,7 +165,7 @@ int main(int argc, char * argv[]) {
     
     glutInit(&argc, argv);          // Initialize GLUT
     
-    glutInitWindowSize(640, 500);   // Set the window's initial width & height - non-square
+    glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
     glutCreateWindow("Astro Crisis");  // Create window with the given title
     glutIdleFunc(idle);

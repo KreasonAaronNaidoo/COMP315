@@ -10,6 +10,7 @@
 #define __COMP_315__npc__
 
 #include <stdio.h>
+#include "point.h"
 
 
 class npc {
@@ -19,10 +20,10 @@ class npc {
     
     public:
     
+        npc(float a, float b, float c);
         npc();
-    
-    
-    
+        float x,y,z;
+        void render();
 };
 
 #endif /* defined(__COMP_315__npc__) */
