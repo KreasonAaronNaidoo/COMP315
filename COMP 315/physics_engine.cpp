@@ -122,7 +122,7 @@ void physics_engine::spawn(){
         
         float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(0.1));
         float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(0.1));
-        float tz = init_npc_point -> z;
+        float tz = init_npc_point -> z ;
 
         
         if(((init_npc_point -> x) + (npc_loc[n]->x)*(0.1)) == 0){

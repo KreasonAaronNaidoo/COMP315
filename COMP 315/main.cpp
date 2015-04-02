@@ -125,12 +125,14 @@ void key (unsigned char key, int xx, int yy){
         case 27:
             exit(1);
             break;
-         
-        case 'l':
-            angle = angle + M_PI/500;
-            lookx = cos(-angle) + camx;
-            lookz = sin(-angle) + camz;
-            render();
+            
+        case 'w':
+            camz = camz + 0.1;
+            break;
+            
+        case 'a':
+            camz = camz - 0.1;
+            break;
             
         default:
             break;
