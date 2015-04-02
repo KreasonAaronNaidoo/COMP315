@@ -19,9 +19,10 @@ npc *x = new npc(-0.02,0.02,0.2);
 
 physics_engine::physics_engine(){
    
-    *level = 1;
+    *level = 20;
     this -> init_level_map();
     this -> init_npc_loc();
+    this -> start_new_level();
     
 }
 
@@ -86,7 +87,7 @@ void physics_engine::init_level_map(){
     level_npc_num[17] = 30;
     level_npc_num[18] = 31;
     level_npc_num[19] = 33;
-    level_npc_num[20] = 34;
+    level_npc_num[20] = 35;
     
 }
 
@@ -102,6 +103,7 @@ void physics_engine::init_world(){
     glPopMatrix();
     
     glPushMatrix();
+        render_npc();
     glPopMatrix();
 
 }
@@ -109,20 +111,78 @@ void physics_engine::init_world(){
 void physics_engine::update_with_time(){
     home -> rotate();
     home -> update();
+    render_npc();
 }
 
 void physics_engine::spawn(){
    
     
-    for(int n = 1; n <= level_npc_num[*level]; x++ ){
+    for(int n = 1; n <= level_npc_num[*level]; n++ ){
+        cout << "n: "<< n <<endl;
         
-        *v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = *new npc();
+        float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(0.1));
+        float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(0.1));
+        float tz = init_npc_point -> z;
+
+        
+        if(((init_npc_point -> x) + (npc_loc[n]->x)*(0.1)) == 0){
+            tx = 0.0;
+        }
+        
+        if (((init_npc_point -> y) + (4-(npc_loc[n]->y))*(0.1)) == 0) {
+            ty = 0;
+        }
+        
+        
+        v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz);
+        
+        
+        cout << "x: " << npc_loc[n]->x<< " y: " << 4-(npc_loc[n] ->y)<< endl;
+        
+        cout << "x: "<< tx <<" y: "<< ty <<" z: "<< tz <<endl;
+        
+        
+
+    }
+}
+
+void physics_engine::start_new_level(){
+    
+    
+    for (int n = 0; n < 7; n++) {
+        
+        for (int m = 0; m < 5; m++) {
+            
+            
+            delete v[n][m];
+            v[n][m] = NULL;
+        }
         
     }
-    
-    
-    
-    
+
+    this -> spawn();
     
 }
 
+void physics_engine::render_npc(){
+    
+    for (int n = 0; n < 7; n++) {
+        
+        for (int m = 0; m < 5; m++) {
+            
+            
+            if(v[n][m] == NULL){
+                
+            }
+            
+            else{
+                
+                v[n][m] -> render();
+
+                
+            }
+        }
+        
+    }
+    
+}

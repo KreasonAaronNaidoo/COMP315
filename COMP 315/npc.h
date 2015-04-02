@@ -22,7 +22,11 @@ class npc {
     
         npc(float a, float b, float c);
         npc();
-        float x,y,z;
+        float x = 0;
+        float y = 0;
+        float z = 0;
+    
+        void setAll(float a, float b, float c);
         void render();
 };
 

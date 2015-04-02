@@ -14,9 +14,9 @@ using namespace std;
 
 npc::npc(float a, float b, float c){
     
-    x = a;
-    y = b;
-    z = c;
+    this -> x = a;
+    this -> y = b;
+    this -> z = c;
 
 
     
@@ -24,6 +24,13 @@ npc::npc(float a, float b, float c){
 
 npc::npc(){
     
+}
+
+void npc::setAll(float a, float b, float c){
+    
+    this -> x = a;
+    this -> y = b;
+    this -> z = c;
 }
 
 void npc::render(){
@@ -44,7 +51,9 @@ void npc::render(){
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     
     
-    glutWireSphere(0.005, 20, 20);
+    glutSolidSphere(0.005, 20, 20);
+    //glutWireSphere(0.005, 20, 20);
+
     
     glPopMatrix();
     cout << "x " << x <<" y "<< y<<" z "<<z<< endl;

@@ -65,7 +65,6 @@ void planet::update(){
 }
 
 void planet::rotate(){  //we need to slow this down
-    cout <<"we are rotating" <<endl;
     angle+=angVelocity;
     
     if(angle>360.f)

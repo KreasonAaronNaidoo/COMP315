@@ -79,7 +79,6 @@ void render()
     
 
     engine -> init_world();
-    engine -> spawn();
     
   
     
