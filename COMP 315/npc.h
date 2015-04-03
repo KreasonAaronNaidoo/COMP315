@@ -13,21 +13,46 @@
 #include "point.h"
 
 
-class npc {
+class npc{
+public:
+    //constructors
+    npc();
+    npc(double x, double y, double z, int size, double velocity);
+    //void
+    void render();
+    void update();
+    void move();
+    void regCollision();
+    void takeDamage();
+    void split(int size);
+    void die();
+    //get
+    int getSize();
+    double* getLocation();
+    double getRadius();
+    double getVelocity();
+    double* getToPoint();
+    //set
+    bool collisionState();
+    void setToPoint(float to_x, float to_y, float to_z);
     
-    private:
     
-    
-    public:
-    
-        npc(float a, float b, float c);
-        npc();
-        float x = 0;
-        float y = 0;
-        float z = 0;
-    
-        void setAll(float a, float b, float c);
-        void render();
+private:
+    double radius;
+    double x, y, z;        //initial point
+    double to_x,to_y,to_z; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
+    int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
+    double velocity;
+    double vX,vY,vZ;       //components of velocity  -in order to maintain motion at a constant angle
+    double angVelocity;    //rotation speed
+    double angle;          //iterate and reset
+    double time;
+    int health;
+    bool collision;        //until hit detection is finalized
+    bool alive = true;            //default true. When false cease rendering
+    double dist;           //distance between asteroid position and destination
+    void rotate();         //rotate not called externally
 };
+
 
 #endif /* defined(__COMP_315__npc__) */

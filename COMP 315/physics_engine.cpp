@@ -15,7 +15,6 @@
 
 using namespace std;
 
-npc *x = new npc(-0.02,0.02,0.2);
 
 physics_engine::physics_engine(){
    
@@ -134,7 +133,7 @@ void physics_engine::spawn(){
         }
         
         
-        v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz);
+        v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz,0.001,1);
         
         
         cout << "x: " << npc_loc[n]->x<< " y: " << 4-(npc_loc[n] ->y)<< endl;
