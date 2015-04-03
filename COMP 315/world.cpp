@@ -47,9 +47,9 @@ void world::int_empty_world(){
     
     //glBindTexture(GL_TEXTURE_2D, texture); //will add the texture once i figure out how...
     
-    gluSphere(quadric,10, 50, 50);
+    //gluSphere(quadric,10, 50, 50);
     
-    //glutWireSphere(1, 50, 50);
+    glutWireSphere(10, 50, 50);
 
     
     
