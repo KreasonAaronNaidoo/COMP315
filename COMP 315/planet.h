@@ -22,7 +22,7 @@ public:
     
 private:
     float x,y,z;
-    int angVelocity;
+    float angVelocity;
     int health;
     float angle;
     bool collision;

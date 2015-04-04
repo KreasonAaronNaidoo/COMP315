@@ -25,7 +25,7 @@ planet::planet(float x, float y, float z){
     this->z = z;
     
     angle=0.0;
-    angVelocity=1.0;
+    angVelocity=0.2;
     health=100;
     collision=false;
 }
