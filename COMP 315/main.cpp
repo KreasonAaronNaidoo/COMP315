@@ -17,8 +17,8 @@
 
 
 float camx = 0;
-float camy = 0;
-float camz = 0;
+float camy = 0.05;
+float camz = -0.05;
 float lookx = 0;
 float looky = 0;
 float lookz = 10;
@@ -110,7 +110,7 @@ void reshape(int w, int h)
     glLoadIdentity();
     
     // Set the clipping volume
-    gluPerspective(45, ratio, 0.1, 500);
+    gluPerspective(45, ratio, 0.00001, 500);
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
     

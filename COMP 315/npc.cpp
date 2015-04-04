@@ -17,10 +17,10 @@
 using namespace std;
 
 npc::npc(){
-    npc(0,0,0,1,1); //spawns an asteroid at the very core of our home planet
+    npc(0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
-npc::npc(double x, double y, double z, int size, double velocity ){
+npc::npc(double x, double y, double z){
     //passed by asteroid genetator
     this->x = x;
     this->y = y;
@@ -31,7 +31,9 @@ npc::npc(double x, double y, double z, int size, double velocity ){
     this->to_y = 0;
     this->to_z = 0;
     
-    this->velocity=velocity;
+    
+    
+   //this->velocity=velocity;
     
     dist=sqrt(pow((x-to_x),2)+pow((y-to_y),2)+pow((z-to_z),2));   //this is the distance between start location and origin
     time=dist/velocity;                                           //time is a multiplicative constant applied to resolved vector velocities

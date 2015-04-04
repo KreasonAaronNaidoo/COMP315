@@ -54,6 +54,8 @@ public:
     void render_npc();
     
     world *uni = new world();
+    planet *home = new planet(0, 0, 0);
+    player *player1 = new player();
     
     
     //std::vector <std::vector<npc*> > V_npc; // 2d vector
@@ -64,8 +66,7 @@ public:
     point *init_npc_point = new point(-0.3, -0.08, 0.9229);
     float *npc_init_loc_inc = new float();
 
-    planet *home = new planet(0, -0.07, 0.1);
-    player *player1 = new player();
+    
     int *level = new int(); //set this to one initialy
     bool *all_dead = new bool(); //set this to false
     
