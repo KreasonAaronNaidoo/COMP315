@@ -42,7 +42,7 @@ private:
     double x, y, z;        //initial point
     double to_x,to_y,to_z; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
-    double velocity = 0.001;
+    float velocity;
     double vX,vY,vZ;       //components of velocity  -in order to maintain motion at a constant angle
     double angVelocity;    //rotation speed
     double angle;          //iterate and reset

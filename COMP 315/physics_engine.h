@@ -53,8 +53,11 @@ public:
     
     void render_npc();
     
+    int getLevel();
+    void setLevel(int l);
+    
     world *uni = new world();
-    planet *home = new planet(0, 0, 0);
+    planet *home = new planet(0, -0.04, 0.01);
     player *player1 = new player();
     
     

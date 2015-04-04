@@ -18,11 +18,20 @@ using namespace std;
 
 physics_engine::physics_engine(){
    
-    *level = 20;
+    *level = 5;
+    
     this -> init_level_map();
     this -> init_npc_loc();
     this -> start_new_level();
     
+}
+
+int physics_engine::getLevel(){
+    return *level;
+}
+
+void physics_engine::setLevel(int l){
+    *level = l;
 }
 
 void physics_engine::init_npc_loc(){

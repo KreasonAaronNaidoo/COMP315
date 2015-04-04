@@ -255,13 +255,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/COMP",
-					315,
-					"$(PROJECT_DIR)/COMP",
-					315,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -270,13 +263,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				GCC_WARN_ABOUT_DEPRECATED_FUNCTIONS = NO;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/COMP",
-					315,
-					"$(PROJECT_DIR)/COMP",
-					315,
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;

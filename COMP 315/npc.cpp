@@ -33,7 +33,13 @@ npc::npc(double x, double y, double z){
     
     
     
-   //this->velocity=velocity;
+    float t = rand() %10;
+    this->velocity = t/10000;
+    if (this -> velocity < 0.0003) {
+        this -> velocity = 0.0003;
+    }
+    cout << this->velocity << endl;
+
     
     dist=sqrt(pow((x-to_x),2)+pow((y-to_y),2)+pow((z-to_z),2));   //this is the distance between start location and origin
     time=dist/velocity;                                           //time is a multiplicative constant applied to resolved vector velocities

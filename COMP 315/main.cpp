@@ -15,10 +15,12 @@
 #include <stdio.h>
 #include "physics_engine.h"
 
+using namespace std;
+
 
 float camx = 0;
-float camy = 0.05;
-float camz = -0.05;
+float camy = 0.01;
+float camz = -0.03;
 float lookx = 0;
 float looky = 0;
 float lookz = 10;
@@ -133,6 +135,11 @@ void key (unsigned char key, int xx, int yy){
         case 'a':
             camz = camz - 0.1;
             break;
+            
+        case 'l': //OMFG WTH is happening here 
+            cout << "moving level: "<< (engine -> getLevel()) << endl;
+            (engine -> setLevel((engine -> getLevel()) +1));
+            engine -> start_new_level();
             
         default:
             break;
