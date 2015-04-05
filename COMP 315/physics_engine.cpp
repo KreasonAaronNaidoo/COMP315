@@ -18,7 +18,7 @@ using namespace std;
 
 physics_engine::physics_engine(){
    
-    *level = 5;
+    *level = 15;
     
     this -> init_level_map();
     this -> init_npc_loc();

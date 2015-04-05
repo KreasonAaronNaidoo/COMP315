@@ -11,6 +11,7 @@
 #include <math.h>
 #include <cstdlib>
 #include "npc.h"
+#include "time.h"
 
 #define PI 3.14159265
 
@@ -31,14 +32,17 @@ npc::npc(double x, double y, double z){
     this->to_y = 0;
     this->to_z = 0;
     
-    
+
     
     float t = rand() %10;
     this->velocity = t/10000;
+    
     if (this -> velocity < 0.0003) {
         this -> velocity = 0.0003;
     }
-    cout << this->velocity << endl;
+    
+    size = 1 + rand() % 3;
+    
 
     
     dist=sqrt(pow((x-to_x),2)+pow((y-to_y),2)+pow((z-to_z),2));   //this is the distance between start location and origin
@@ -57,12 +61,13 @@ npc::npc(double x, double y, double z){
     
     /*Sets radius based on size. Size could  be randomised when called generator*/
     if(size==1)
-        radius=0.25;
+        radius=0.001;
     else if(size==2)
-        radius=0.5;
+        radius=0.002;
     else if(size==3)
-        radius=1;
-    
+        radius=0.003;
+    cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
+
     
 }
 

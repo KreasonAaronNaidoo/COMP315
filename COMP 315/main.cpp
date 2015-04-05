@@ -18,6 +18,7 @@
 using namespace std;
 
 
+
 float camx = 0;
 float camy = 0.01;
 float camz = -0.03;
@@ -36,6 +37,10 @@ physics_engine *engine = new physics_engine();
 /* Initialize OpenGL Graphics */
 void initGL()
 {
+    
+    srand(time(NULL));
+
+    
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
     
@@ -136,7 +141,7 @@ void key (unsigned char key, int xx, int yy){
             camz = camz - 0.1;
             break;
             
-        case 'l': //OMFG WTH is happening here 
+        case 'l': //OMFG WTH is happening here!!!
             cout << "moving level: "<< (engine -> getLevel()) << endl;
             (engine -> setLevel((engine -> getLevel()) +1));
             engine -> start_new_level();
