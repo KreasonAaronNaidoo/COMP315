@@ -14,19 +14,12 @@
 #include <cmath>
 #include <stdio.h>
 #include "physics_engine.h"
+#include "cam.h"
 
 using namespace std;
 
 
-
-float camx = 0;
-float camy = 0.01;
-float camz = -0.03;
-float lookx = 0;
-float looky = 0;
-float lookz = 10;
-float angle = -M_PI/2;
-
+cam *kam = new cam(0.0, 0.01, -0.04, 0, 0.1, 10);
 
 
 physics_engine *engine = new physics_engine();
@@ -38,7 +31,7 @@ physics_engine *engine = new physics_engine();
 void initGL()
 {
     
-    srand(time(NULL));
+    srand((int)time(NULL));
 
     
     // Set "clearing" or background color
@@ -80,9 +73,7 @@ void render()
     
 
     
-    gluLookAt(camx, camy, camz, // camera position
-              lookx, looky, lookz, // look at position, line of sight
-              0, 1, 0); // up direction (vector) for camera tilt
+    kam -> place();
     
 
     engine -> init_world();
@@ -134,11 +125,11 @@ void key (unsigned char key, int xx, int yy){
             break;
             
         case 'w':
-            camz = camz + 0.1;
+            kam -> z = kam -> z + 0.1;
             break;
             
         case 'a':
-            camz = camz - 0.1;
+            kam -> z = kam -> z - 0.1;
             break;
             
         case 'l': //OMFG WTH is happening here!!!
@@ -165,6 +156,30 @@ void arrowKey(int key, int xx, int y){
 
 }
 
+void mouseMove(int x, int y){
+    kam -> lx = glutGet(GLUT_WINDOW_WIDTH)/2 - x;
+    
+    cout <<"look x: " << kam -> lx << endl;
+    if (kam -> lx > 1) {
+        kam -> lx = 1;
+    }
+    
+    if (kam -> lx < -1) {
+        kam -> lx = -1;
+    }
+    
+    kam -> ly = glutGet(GLUT_WINDOW_HEIGHT)/2 - y;
+
+    if (kam -> ly > 1) {
+        kam -> ly = 1;
+    }
+    
+    if (kam -> ly < -1) {
+        kam -> ly = -1;
+    }
+
+}
+
 void idle(){
     
     engine -> update_with_time();
@@ -186,6 +201,7 @@ int main(int argc, char * argv[]) {
     glutReshapeFunc(reshape);
     glutKeyboardFunc(key);
     glutSpecialFunc(arrowKey);
+    glutPassiveMotionFunc(mouseMove);
     
     initGL();                       // Our own OpenGL initialization
     
