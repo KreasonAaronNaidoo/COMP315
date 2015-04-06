@@ -35,10 +35,10 @@ npc::npc(double x, double y, double z){
 
     
     float t = rand() %10;
-    this->velocity = t/10000;
+    this->velocity = t/100;
     
-    if (this -> velocity < 0.0003) {
-        this -> velocity = 0.0003;
+    if (this -> velocity < 0.03) {
+        this -> velocity = 0.03;
     }
     
     size = 1 + rand() % 3;
@@ -61,11 +61,11 @@ npc::npc(double x, double y, double z){
     
     /*Sets radius based on size. Size could  be randomised when called generator*/
     if(size==1)
-        radius=0.001;
+        radius=0.1;
     else if(size==2)
-        radius=0.002;
+        radius=0.2;
     else if(size==3)
-        radius=0.003;
+        radius=0.3;
     cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
 
     

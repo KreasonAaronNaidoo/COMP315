@@ -49,7 +49,7 @@ void world::int_empty_world(){
     
     //gluSphere(quadric,10, 50, 50);
     
-    glutWireSphere(10, 50, 50);
+    glutWireSphere(100, 50, 50);
 
     
     

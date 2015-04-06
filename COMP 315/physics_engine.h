@@ -57,7 +57,7 @@ public:
     void setLevel(int l);
     
     world *uni = new world();
-    planet *home = new planet(0, -0.04, 0.01);
+    planet *home = new planet(0, -4, 0.01);
     player *player1 = new player();
     
     
@@ -66,7 +66,7 @@ public:
     
     npc *v [7][5];
 
-    point *init_npc_point = new point(-0.3, -0.08, 0.9229);
+    point *init_npc_point = new point(-30, -15, 92.29);
     float *npc_init_loc_inc = new float();
 
     

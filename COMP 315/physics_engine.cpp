@@ -128,8 +128,8 @@ void physics_engine::spawn(){
     for(int n = 1; n <= level_npc_num[*level]; n++ ){
         cout << "n: "<< n <<endl;
         
-        float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(0.1));
-        float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(0.1));
+        float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(10));
+        float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(10));
         float tz = init_npc_point -> z ;
 
         
@@ -138,7 +138,7 @@ void physics_engine::spawn(){
         }
         
         if (((init_npc_point -> y) + (4-(npc_loc[n]->y))*(0.1)) == 0) {
-            ty = 0;
+            ty = 0.0;
         }
         
         

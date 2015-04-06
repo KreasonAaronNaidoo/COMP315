@@ -19,7 +19,7 @@
 using namespace std;
 
 
-cam *kam = new cam(0.0, 0.01, -0.04, 0, 0.1, 10);
+cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 
 
 physics_engine *engine = new physics_engine();
@@ -159,8 +159,8 @@ void arrowKey(int key, int xx, int y){
 void mouseMove(int x, int y){
     kam -> lx = glutGet(GLUT_WINDOW_WIDTH)/2 - x;
     
-    cout <<"look x: " << kam -> lx << endl;
-    if (kam -> lx > 1) {
+    cout <<"look x: " << x << endl;
+    /*if (kam -> lx > 1) {
         kam -> lx = 1;
     }
     
@@ -176,7 +176,7 @@ void mouseMove(int x, int y){
     
     if (kam -> ly < -1) {
         kam -> ly = -1;
-    }
+    } */
 
 }
 
