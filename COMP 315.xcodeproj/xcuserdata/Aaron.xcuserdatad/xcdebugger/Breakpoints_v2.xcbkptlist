@@ -63,7 +63,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
             endingLineNumber = "122"
-            landmarkName = "key (unsigned char key, int xx, int yy)"
+            landmarkName = "mouseClick(int button, int state, int x, int y)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
