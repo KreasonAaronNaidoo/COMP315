@@ -1,27 +1,17 @@
-//
-//  player.h
-//  COMP 315
-//
-//  Created by Kreason Aaron Naidoo on 2015/03/24.
-//  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
-//
+#ifndef player_h
+#define player_h
 
-#ifndef __COMP_315__player__
-#define __COMP_315__player__
 
-#include <stdio.h>
+class player
+{
+    public:
+        player();
+        player(float x, float y, float z);
+        void render();
 
-class player {
-    
-private:
-    
-    
-public:
-    
-    player();
-    
-    
-    
+    private:
+        float x, y, z; // position
+        void drawplayer();
 };
 
-#endif /* defined(__COMP_315__player__) */
+#endif
