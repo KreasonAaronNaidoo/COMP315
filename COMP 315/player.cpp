@@ -17,29 +17,48 @@ player::player(float x, float y, float z){
     this->z = z;
 }
 
+void player::shoot(){
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    drawBullet();
+}
 
 void player::render(){
 
     glPushMatrix();
     glTranslatef(x, y, z); // move to this position
-    drawplayer();
+    drawPlayer();
     glPopMatrix();
 }
 
-void player::drawplayer(){
-    glScalef(0.5f,0.5f,0.5f);
-	glTranslatef(0.0f,1.0f,0.0f);
+void player::drawBullet(){
+    glScalef(1.0f,1.0f,1.0f);
+    glPushMatrix();
+    glTranslatef(x+3, y+3, z+3); // move to this position
+    glColor3d(255,255,255);
+    glutSolidSphere(1,10, 10);
+    glPopMatrix();
+
+}
+
+void player::drawPlayer(){
+    glScalef(0.1f,0.1f,0.1f);
     glBegin(GL_TRIANGLES);
-        glVertex3f( 0.5f, 1.0f, -2.0f);
+        glColor3d(255,0,255);
+		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f,-1.0f, 1.0f);
 		glVertex3f( 1.0f,-1.0f, 1.0f);
-		glVertex3f( 0.50f, 1.0f, -2.0f);
+		glColor3d(0,255,0);
+		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f( 1.0f,-1.0f, 1.0f);
 		glVertex3f( 1.0f,-1.0f, -1.0f);
-		glVertex3f( 0.5f, 1.0f, -2.0f);
+		glColor3d(255,255,0);
+		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f( 1.0f,-1.0f, -1.0f);
 		glVertex3f(-1.0f,-1.0f, -1.0f);
-		glVertex3f( 0.5f, 1.0f, -2.0f);
+		glColor3d(0,0,255);
+		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f,-1.0f,-1.0f);
 		glVertex3f(-1.0f,-1.0f, 1.0f);
 	glEnd();
