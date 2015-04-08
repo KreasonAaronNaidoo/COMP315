@@ -8,10 +8,12 @@ class player
         player();
         player(float x, float y, float z);
         void render();
+        void shoot();
 
     private:
         float x, y, z; // position
-        void drawplayer();
+        void drawPlayer();
+        void drawBullet();
 };
 
 #endif
