@@ -1,6 +1,5 @@
 #include "player.h"
-#include <windows.h>
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <iostream>
 #include<math.h>
 
@@ -18,10 +17,7 @@ player::player(float x, float y, float z){
 }
 
 void player::shoot(){
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-    drawBullet();
+    mag.push_back(new bullet(x,y,z,0,0,500.0)); // change to mouse position
 }
 
 void player::render(){
@@ -32,15 +28,10 @@ void player::render(){
     glPopMatrix();
 }
 
-void player::drawBullet(){
-    glScalef(1.0f,1.0f,1.0f);
-    glPushMatrix();
-    glTranslatef(x+3, y+3, z+3); // move to this position
-    glColor3d(255,255,255);
-    glutSolidSphere(1,10, 10);
-    glPopMatrix();
+/*void player::drawBullet(){
+    
 
-}
+}*/
 
 void player::drawPlayer(){
     glScalef(0.1f,0.1f,0.1f);

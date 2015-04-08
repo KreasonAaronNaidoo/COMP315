@@ -9,37 +9,32 @@
 //and of The University of Kwa-Zulu Natal
 
 #include <iostream>
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
 #include <stdio.h>
 #include "physics_engine.h"
 #include "cam.h"
+#include "player.h"
+#include<vector>
+#include "time.h"
 
 using namespace std;
 
 
 cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
-
-
 physics_engine *engine = new physics_engine();
-
-vector<player> v_player;
-
-float px = 0.0f;
-float py = 0.01f;
-float pz = 0.0f;
-
+player *p = new player(0.0f, 0.01f, 0.0f);
 
 
 
 /* Initialize OpenGL Graphics */
 void initGL()
 {
-    
+
     srand((int)time(NULL));
 
-    
+
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
 
@@ -61,8 +56,6 @@ void initGL()
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient);
 
-    player *p = new player(0.0f, 10.0f, 0.0f);
-    v_player.push_back(*p);
     //glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
 
@@ -83,11 +76,11 @@ void render()
     kam -> place();
     
 
+
     engine -> init_world();
 
-    v_player[0] = player(px,py,pz);
     glColor3ub(0,  0, 255);
-    v_player[0].render();
+    p-> render();
 
     glFlush();   // ******** DO NOT FORGET THIS **********
 
@@ -132,20 +125,25 @@ void key (unsigned char key, int xx, int yy){
         case 27:
             exit(1);
             break;
-            
-        case 'w':
+
+        case 'q':
             kam -> z = kam -> z + 0.1;
             break;
-            
-        case 'a':
+
+        case 'e':
             kam -> z = kam -> z - 0.1;
             break;
-            
+
         case 'l': //OMFG WTH is happening here!!!
             cout << "moving level: "<< (engine -> getLevel()) << endl;
             (engine -> setLevel((engine -> getLevel()) +1));
             engine -> start_new_level();
-            
+
+        case 'w': (p->y)+=0.01; break;
+		case 's': (p->y)-=0.01; break;
+		case 'a': (p->x)+=0.01; break;
+		case 'd': (p->x)-=0.01; break;
+
         default:
             break;
     }
@@ -168,38 +166,9 @@ void arrowKey(int key, int xx, int y){
 void mouseClick(int button, int state, int x, int y){
 
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-    v_player[0].shoot();
+    p -> shoot();
 
     glutPostRedisplay();
-
-}
-
-void mouseMove(int x, int y){
-    kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
-    //^this value denotes the speed of the camera rotation in the x-direction
-    kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
-    //^this value denotes the speed of the camera rotation in the y-direction
-
-    cout <<"look x: " << x << endl;
-
-
-    /*if (kam -> lx > 1) {
-        kam -> lx = 1;
-    }
-
-    if (kam -> lx < -1) {
-        kam -> lx = -1;
-    }
-
-    kam -> ly = glutGet(GLUT_WINDOW_HEIGHT)/2 - y;
-
-    if (kam -> ly > 1) {
-        kam -> ly = 1;
-    }
-
-    if (kam -> ly < -1) {
-        kam -> ly = -1;
-    } */
 
 }
 
@@ -238,6 +207,7 @@ int main(int argc, char * argv[]) {
     glutReshapeFunc(reshape);
     glutKeyboardFunc(key);
     glutSpecialFunc(arrowKey);
+    glutMouseFunc(mouseClick);
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
     glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
