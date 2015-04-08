@@ -166,24 +166,7 @@ void mouseMove(int x, int y){
 
     cout <<"look x: " << x << " look y : "<< y <<endl;
   
-    
-    /*if (kam -> lx > 1) {
-        kam -> lx = 1;
-    }
-    
-    if (kam -> lx < -1) {
-        kam -> lx = -1;
-    }
-    
-    kam -> ly = glutGet(GLUT_WINDOW_HEIGHT)/2 - y;
 
-    if (kam -> ly > 1) {
-        kam -> ly = 1;
-    }
-    
-    if (kam -> ly < -1) {
-        kam -> ly = -1;
-    } */
 
 }
 
