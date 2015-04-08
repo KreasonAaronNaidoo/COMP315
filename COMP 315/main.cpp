@@ -157,12 +157,14 @@ void arrowKey(int key, int xx, int y){
 }
 
 void mouseMove(int x, int y){
-    kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
-    //^this value denotes the speed of the camera rotation in the x-direction
-    kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
-    //^this value denotes the speed of the camera rotation in the y-direction
     
-    cout <<"look x: " << x << endl;
+    
+    kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
+                //^this value denotes the speed of the camera rotation in the x-direction
+    kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
+                //^this value denotes the speed of the camera rotation in the y-direction
+
+    cout <<"look x: " << x << " look y : "<< y <<endl;
   
     
     /*if (kam -> lx > 1) {
@@ -208,6 +210,7 @@ int main(int argc, char * argv[]) {
     glutSpecialFunc(arrowKey);
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
+    glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
     
     initGL();                       // Our own OpenGL initialization
     
