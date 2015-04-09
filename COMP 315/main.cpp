@@ -9,7 +9,7 @@
 //and of The University of Kwa-Zulu Natal
 
 #include <iostream>
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
+#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
 #include <stdio.h>
@@ -72,10 +72,9 @@ void render()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-
-
+    
     kam -> place();
-
+    
 
 
     engine -> init_world();

@@ -3,6 +3,7 @@
 #include <iostream>
 #include<math.h>
 
+using namespace std;
 
 
 
@@ -18,6 +19,7 @@ player::player(float x, float y, float z){
 
 void player::shoot(){
     mag.push_back(new bullet(x,y,z,0,0,500.0)); // change to mouse position
+    cout << "shots fired" << endl;
 }
 
 void player::render(){
