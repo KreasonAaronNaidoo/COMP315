@@ -7,15 +7,128 @@
 //
 
 #include "bullet.h"
+#include <GL/glut.h>
+#include <stdio.h>
+#include <iostream>
+#include <math.h>
+#include <cstdlib>
+
+using namespace std;
 
 bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
-    
+
     this -> sx = sx;
     this -> sy = sy;
     this -> sz = sz;
-    this -> fx = sx;
+    this -> fx = fx;
     this -> fy = fy;
     this -> fz = fz;
-    
-    
+//cout<<fx<<endl;
+    this->velocity=0.02;
+    this->alive=true;
+
+   // getMovement();
+    dist=sqrt(pow((sx-fx),2)+pow((sy-fy),2)+pow((sz-fz),2));
+
+    theta=atan(fabs(sz-fz)/fabs(sx-fx));
+    phi=acos(fabs(sy-fy)/dist);
+//cout<<"phi: "<<phi<<endl;
+//cout<<"theta: "<<theta<<endl;
+//cout<<"phi: "<<phi<<endl;
+
+    Vx=velocity*cos(theta)*cos(phi);
+    Vz=velocity*sin(theta)*cos(phi);
+    Vy=velocity*sin(phi);
+    //cout<<"Vz: "<<Vx<<endl;
+
+}
+
+void bullet::render(){
+    //if alive is false render will cease and the object will cease
+    if(alive){
+        glPushMatrix();
+        glTranslated(sx, sy, sz); // move to initial position
+
+        move();   //move toward
+
+        //sets colour of material
+        GLfloat ambient[] = { 0.0, 1.0, 0.0, 1};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+
+        // sets specular properties of the material
+        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 50.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+        glutWireSphere(0.1,25,25);
+        //glutWireSphere(radius,25,25);
+        glPopMatrix();
+    }
+}
+
+void bullet::update(){
+
+}
+
+void bullet::move(){
+    //getMovement();
+
+    //x translation
+    //if(sx!=fx){
+        if(sx>fx){
+            sx-=Vx;
+            //if(sx<fx)
+            //    sx=fx;
+        }
+        else if(sx<fx){
+            sx+=Vx;
+            //if(sx>fx)
+             //   sx=fx;
+        }
+   // }
+
+    //y translation
+    //if(sy!=fy){
+        if(sy>fy){
+            sy-=Vy;
+            //if(sy<fy)
+               // sy=fy;
+        }
+        else if(sy<fy){
+            sy+=Vy;
+            //if(sy>fy)
+                //sy=fy;
+        }
+    //}
+
+    //z traslation
+    //if(sz!=fz){
+        if(sz>fz){
+            sz-=Vz;
+           // if(sz<fz)
+          //      sz=fz;
+        }
+        else if(sz<fz){
+            sz+=Vz;
+           // if(sz>fz)
+          //      sz=fz;
+        }
+    //}
+
+
+}
+
+void bullet::getMovement(){
+
+    dist=sqrt(pow((sx-fx),2)+pow((sy-fy),2)+pow((sz-fz),2));
+
+    theta=atan(fabs(sz-fz)/fabs(sx-fx));
+    phi=acos(fabs((sy-fy)/dist));
+
+    Vx=velocity*cos(theta)*cos(phi);
+    Vz=velocity*sin(theta)*cos(phi);
+    Vy=velocity*sin(phi);
 }
