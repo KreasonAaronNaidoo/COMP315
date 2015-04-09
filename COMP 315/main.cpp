@@ -7,7 +7,7 @@
 //Shaherin Dehaloo
 //Muhammad Bassa
 //and of The University of Kwa-Zulu Natal
-#include <windows.h>
+
 #include <iostream>
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
@@ -22,7 +22,7 @@ using namespace std;
 
 cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
-player *p = new player(0.0f, 0.01f, 0.0f);
+player *p = new player(0.0f, 0.01f, 0.0f, kam);
 
 
 /* Initialize OpenGL Graphics */

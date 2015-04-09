@@ -6,12 +6,13 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
-#include "bullet.h"
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <stdio.h>
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
+#include "bullet.h"
+
 
 using namespace std;
 
@@ -24,7 +25,7 @@ bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
     this -> fy = fy;
     this -> fz = fz;
 //cout<<fx<<endl;
-    this->velocity=0.02;
+    this->velocity=0.06;
     this->alive=true;
 
    // getMovement();
@@ -40,7 +41,6 @@ bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
     Vz=velocity*sin(theta)*cos(phi);
     Vy=velocity*sin(phi);
     //cout<<"Vz: "<<Vx<<endl;
-
 }
 
 void bullet::render(){
@@ -63,7 +63,8 @@ void bullet::render(){
         GLfloat mat_shininess[] = { 50.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glutWireSphere(0.1,25,25);
+        
+        glutWireSphere(0.01,25,25);
         //glutWireSphere(radius,25,25);
         glPopMatrix();
     }

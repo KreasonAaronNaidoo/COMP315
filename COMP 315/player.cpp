@@ -1,7 +1,8 @@
 #include "player.h"
-#include <GL/glut.h>
+#include <GLUT/glut.h>
 #include <iostream>
 #include<math.h>
+#include "npc.h"
 
 using namespace std;
 
@@ -11,15 +12,22 @@ player::player(){
 
 }
 
-player::player(float x, float y, float z){
+player::player(float x, float y, float z, cam *P){
     this->x = x;
     this->y = y;
     this->z = z;
+    q = P;
+    
 }
 
 void player::shoot(){
-    mag.push_back(new bullet(x,y,z,0,0,500.0)); // change to mouse position
-    cout << "shots fired" << endl;
+    //mag.push_back(new bullet(x,y,z,0,0,500.0)); // change to mouse position
+    //mag.push_back(new bullet(x,y,z,0,10,5));//player position to mouse position
+   
+    
+    
+    mag.push_back(new bullet(x,y,z,1,1,1000));
+    //cout<<"true";
 }
 
 void player::render(){

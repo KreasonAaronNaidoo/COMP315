@@ -74,11 +74,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "COMP 315/player.cpp"
-            timestampString = "450253600.861882"
+            timestampString = "450255447.561665"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
             landmarkName = "player::shoot()"
             landmarkType = "5">
          </BreakpointContent>

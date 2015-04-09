@@ -38,4 +38,3 @@ private:
 };
 
 #endif /* defined(__COMP_315__bullet__) */
-#endif /* defined(__COMP_315__bullet__) */
