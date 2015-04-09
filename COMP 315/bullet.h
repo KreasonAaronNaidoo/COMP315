@@ -11,18 +11,31 @@
 
 #include <stdio.h>
 
+
 class bullet {
-    
-private:
-    
+
 public:
-    
-    float sx, sy, sz, fx ,fy, fz;
     bullet(float sx,float sy,float sz,float fx ,float fy,float fz);
-    
+
     void render();
     void update();
-    
+    void move();
+
+
+private:
+    float sx, sy, sz;
+    float fx ,fy, fz;
+    float velocity;
+    bool alive;
+    float Vx, Vy, Vz;
+    float theta;
+    float phi;
+    float dist;
+
+    void getMovement();
+
+
 };
 
+#endif /* defined(__COMP_315__bullet__) */
 #endif /* defined(__COMP_315__bullet__) */
