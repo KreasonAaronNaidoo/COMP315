@@ -14,12 +14,15 @@ class player
         void render();
         void shoot();
         float x, y, z; // position
-    
+
     vector<bullet*> mag;
 
 
     private:
         void drawPlayer();
+        void drawBullet();
+        void collisionCheck();
 };
 
 #endif
+

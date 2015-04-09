@@ -7,7 +7,7 @@
 //Shaherin Dehaloo
 //Muhammad Bassa
 //and of The University of Kwa-Zulu Natal
-
+#include <windows.h>
 #include <iostream>
 #include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
@@ -15,8 +15,6 @@
 #include <stdio.h>
 #include "physics_engine.h"
 #include "cam.h"
-#include "player.h"
-#include<vector>
 #include "time.h"
 
 using namespace std;
@@ -25,7 +23,6 @@ using namespace std;
 cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
 player *p = new player(0.0f, 0.01f, 0.0f);
-
 
 
 /* Initialize OpenGL Graphics */
@@ -166,22 +163,22 @@ void arrowKey(int key, int xx, int y){
 void mouseClick(int button, int state, int x, int y){
 
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-    p -> shoot();
+        p -> shoot();
 
     glutPostRedisplay();
 
 }
 
 void mouseMove(int x, int y){
-    
-    
+
+
     kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
                 //^this value denotes the speed of the camera rotation in the x-direction
     kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
                 //^this value denotes the speed of the camera rotation in the y-direction
 
     cout <<"look x: " << x << " look y : "<< y <<endl;
-  
+
 
 
 }
@@ -211,7 +208,7 @@ int main(int argc, char * argv[]) {
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
     glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
-    
+
     initGL();                       // Our own OpenGL initialization
 
     glutMainLoop();                 // Enter the infinite event-processing loop

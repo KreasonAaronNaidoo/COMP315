@@ -1,5 +1,5 @@
 #include "player.h"
-#include <GLUT/glut.h>
+#include <GL/glut.h>
 #include <iostream>
 #include<math.h>
 
@@ -28,12 +28,17 @@ void player::render(){
     glTranslatef(x, y, z); // move to this position
     drawPlayer();
     glPopMatrix();
+
+//    collisionCheck();
+    drawBullet();
+
 }
 
-/*void player::drawBullet(){
-    
-
-}*/
+void player::drawBullet(){
+    for(int i=0 ; i<mag.size() ; i++){
+        mag[i]->render();
+    }
+}
 
 void player::drawPlayer(){
     glScalef(0.1f,0.1f,0.1f);
@@ -55,4 +60,8 @@ void player::drawPlayer(){
 		glVertex3f(-1.0f,-1.0f,-1.0f);
 		glVertex3f(-1.0f,-1.0f, 1.0f);
 	glEnd();
+}
+
+void collisionCheck(){
+
 }
