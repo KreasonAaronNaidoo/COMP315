@@ -22,7 +22,7 @@ using namespace std;
 
 cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
-player *p = new player(0.0f, 0.01f, 0.0f);
+//player *p = new player(0.0f, 0.01f, 0.0f);
 
 
 /* Initialize OpenGL Graphics */
@@ -78,7 +78,7 @@ void render()
     engine -> init_world();
 
     glColor3ub(0,  0, 255);
-    p-> render();
+   // p-> render();
 
     glFlush();   // ******** DO NOT FORGET THIS **********
 
@@ -137,10 +137,19 @@ void key (unsigned char key, int xx, int yy){
             (engine -> setLevel((engine -> getLevel()) +1));
             engine -> start_new_level();
 
-        case 'w': (p->y)+=0.01; break;
+        /*case 'w': (p->y)+=0.01; break;
 		case 's': (p->y)-=0.01; break;
 		case 'a': (p->x)+=0.01; break;
-		case 'd': (p->x)-=0.01; break;
+		case 'd': (p->x)-=0.01; break;*/
+
+		case 'w': (engine->player1->y)+=0.01;
+		           break;
+		case 's': (engine->player1->y)-=0.01;
+		           break;
+		case 'a': (engine->player1->x)+=0.01;
+		           break;
+		case 'd': (engine->player1->x)-=0.01;
+		           break;
 
         default:
             break;
@@ -164,7 +173,7 @@ void arrowKey(int key, int xx, int y){
 void mouseClick(int button, int state, int x, int y){
 
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-        p -> shoot();
+        engine -> player1->shoot();
 
     glutPostRedisplay();
 
