@@ -3,6 +3,7 @@
 #include <iostream>
 #include<math.h>
 #include "npc.h"
+#include "point.h"
 
 player::player(){
 
@@ -15,10 +16,14 @@ player::player(float x, float y, float z){
 }
 
 void player::shoot(){
-    //mag.push_back(new bullet(x,y,z,0,0,500.0)); // change to mouse position
-    //mag.push_back(new bullet(x,y,z,0,10,5));//player position to mouse position
-    mag.push_back(new bullet(x,y,z,0,5,5));
-    //cout<<"true";
+    //cout<<"click"<<endl;
+    mag.push_back(*new bullet(x,y,z,x,y,10));//player position to mouse position
+
+    /*POINT pt;
+    bool result=GetCursorPos(&pt);
+    cout<<pt.x<<endl;
+    mag.push_back(new bullet(x,y,z,pt.x-650,pt.y-400,50));*/
+
 }
 
 void player::render(){
@@ -29,13 +34,13 @@ void player::render(){
     glPopMatrix();
 
 //    collisionCheck();
-    drawBullet();
+    drawBullets();
 
 }
 
-void player::drawBullet(){
+void player::drawBullets(){
     for(int i=0 ; i<mag.size() ; i++){
-        mag[i]->render();
+        mag[i].render();
     }
 }
 
@@ -63,4 +68,8 @@ void player::drawPlayer(){
 
 void collisionCheck(){
 
+}
+
+vector<bullet>* player::getBulletVector(){
+    return &mag;
 }
