@@ -20,6 +20,8 @@ public:
     void render();
     void update();
     void move();
+    double* getLocation();
+    void die();
 
 
 private:
@@ -37,5 +39,4 @@ private:
 
 };
 
-#endif /* defined(__COMP_315__bullet__) */
 #endif /* defined(__COMP_315__bullet__) */
