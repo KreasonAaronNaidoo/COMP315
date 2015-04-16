@@ -21,7 +21,7 @@ using namespace std;
 /*For whatever reason I can't declare these in the header file. Immediate crash. C++ pls*/
 vector<npc> v_asteroid;
 double dist;
-vector<bullet> v_bullet;
+//<bullet> v_bullet;
 double bulletDist;
 
 physics_engine::physics_engine(){
@@ -128,7 +128,7 @@ void physics_engine::init_world(){
 }
 
 void physics_engine::update_with_time(){
-    home -> rotate();
+    //home -> rotate();
     home -> update();
     //asteroidToAsteroidCollision();
     bulletToAsteroidCollision();
@@ -161,7 +161,7 @@ void physics_engine::spawn(){
 
         v_asteroid.push_back(*new npc(tx,ty,tz)); //adding all asteroids to a vector
 
-        player1= new player(0.0f, 0.01f, 0.0f);
+        player1= new player(0.0f, 0.0f, -1.0f);
 
         cout << "x: " << npc_loc[n]->x<< " y: " << 4-(npc_loc[n] ->y)<< endl;
 
@@ -245,34 +245,31 @@ void physics_engine::split(npc ast1, npc ast2, int i, int j){
 }
 
 void physics_engine::bulletToAsteroidCollision(){
-     v_bullet=*player1->getBulletVector();
 
-     for(int i=0; i<v_bullet.size() ;i++){
-       for(int j=i; j<v_asteroid.size() ;j++){
+     for(int i=0; i<player1->v_bullet.size() ;i++){
+       for(int j=0; j<v_asteroid.size() ;j++){
               //get co-ordinates of bullet i
-              double x_loc_i=*(v_bullet[i].getLocation());
-              double y_loc_i=*(v_bullet[i].getLocation()+1);
-              double z_loc_i=*(v_bullet[i].getLocation()+2);
+              double x_loc_i=*(player1->v_bullet[i].getLocation());
+              double y_loc_i=*(player1->v_bullet[i].getLocation()+1);
+              double z_loc_i=*(player1->v_bullet[i].getLocation()+2);
               //get co-ordinates of asteroid j
               double x_loc_j=*(v_asteroid[j].getLocation());
               double y_loc_j=*(v_asteroid[j].getLocation()+1);
               double z_loc_j=*(v_asteroid[j].getLocation()+2);
               //calculate distance between them
-              dist=sqrt(pow(x_loc_i-x_loc_j,2)
+              bulletDist=sqrt(pow(x_loc_i-x_loc_j,2)
                        +pow(y_loc_i-y_loc_j,2)
                        +pow(z_loc_i-z_loc_j,2));
 
-              if( dist< (0.1+v_asteroid[j].getRadius()) ){   //dist less than bullet radius+asteroid radius
-                  v_bullet[i].die();
+              if( bulletDist< (0.1+v_asteroid[j].getRadius()) ){   //dist less than bullet radius+asteroid radius
+                  player1->v_bullet[i].die();
                   v_asteroid[j].regCollision();
 
-                  //v_bullet.erase(v_bullet.begin()+j);
-                  //v_asteroid.erase(v_asteroid.begin()+i);
-                  //i--;
-                 // j--;
+                  player1->v_bullet.erase(player1->v_bullet.begin()+j);
+                  v_asteroid.erase(v_asteroid.begin()+i);
+                  i--;
+                  j--;
               }
        }
      }
 }
-
-
