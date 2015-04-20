@@ -9,11 +9,16 @@
 #ifndef __COMP_315__physics_engine__
 #define __COMP_315__physics_engine__
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
 #include <stdio.h>
 #include "world.h"
 #include "planet.h"
 #include "player.h"
-#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 #include "map"
 #include "point.h"

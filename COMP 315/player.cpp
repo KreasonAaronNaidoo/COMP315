@@ -1,5 +1,10 @@
-#include "player.h"
+#ifdef __APPLE__
 #include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
+#include "player.h"
 #include <iostream>
 #include<math.h>
 #include "npc.h"

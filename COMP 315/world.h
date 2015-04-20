@@ -6,13 +6,16 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
 #ifndef __COMP_315__world__
 #define __COMP_315__world__
-
 #include <stdio.h>
 #include "npc.h"
-
-#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 
 

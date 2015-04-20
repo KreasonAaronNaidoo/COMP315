@@ -6,8 +6,13 @@
 //  Copyright (c) 2015 Shaherin Dehaloo. All rights reserved.
 //
 
-//#include <windows.h>
+#ifdef __APPLE__
 #include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
+//#include <windows.h>
 #include <iostream>
 #include <math.h>
 #include "planet.h"
