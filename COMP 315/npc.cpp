@@ -5,8 +5,8 @@
 //  Created by Kreason Aaron Naidoo on 2015/03/24.
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
-
-#include <GLUT/glut.h>
+#include <windows.h>
+#include <GL/glut.h>
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
@@ -31,44 +31,44 @@ npc::npc(double x, double y, double z){
     this->to_x = 0;
     this->to_y = 0;
     this->to_z = 0;
-    
 
-    
+
+
     float t = rand() %10;
     this->velocity = t/100;
-    
+
     if (this -> velocity < 0.03) {
         this -> velocity = 0.03;
     }
-    
-    size = 1 + rand() % 3;
-    
 
-    
+    size = 1 + rand() % 3;
+
+
+
     dist=sqrt(pow((x-to_x),2)+pow((y-to_y),2)+pow((z-to_z),2));   //this is the distance between start location and origin
     time=dist/velocity;                                           //time is a multiplicative constant applied to resolved vector velocities
-    
+
     vX=fabs((x-to_x)/time);        //x-component of velocity
     vY=fabs((y-to_y)/time);        //y-component of velocity
     vZ=fabs((z-to_z)/time);        //z-component of velocity
-    
+
     angle=0.0;
     angVelocity=rand()%5+1; //random vaue between 1 and 5
-    
+
     health=size;            //1-3  -subject to change
     collision=false;        //interacts with collision detection. flag
     alive=true;             //cease render flag
-    
-    /*Sets radius based on size. Size could  be randomised when called generator*/
+
+    /*Sets radius based on size. Size could  be randomised when called by generator*/
     if(size==1)
         radius=0.1;
     else if(size==2)
         radius=0.2;
     else if(size==3)
         radius=0.3;
-    cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
+    //cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
 
-    
+
 }
 
 void npc::render(){
@@ -76,23 +76,23 @@ void npc::render(){
     if(alive){
         glPushMatrix();
         glTranslated(x, y, z); // move to initial position
-        
+
         rotate(); //asteroid rotates on its own axis
         move();   //move toward
         takeDamage();
-        
+
         //sets colour of material
         GLfloat ambient[] = { 0.8, 0.0, 0.0, 1};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
-        
+
         // sets specular properties of the material
         GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        
+
         // sets the shininess of the material
         GLfloat mat_shininess[] = { 50.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-        
+
         glutWireSphere(radius,25,25);
         //glutWireSphere(radius,25,25);
         glPopMatrix();
@@ -109,12 +109,12 @@ void npc::update(){
 void npc::rotate(){
     //increment the angle and call rotate function
     angle+=angVelocity;
-    
+
     if(angle>360.f)
     {
-        angle-=360;
+        angle-=360;//this is to stop angle from incrementing infinitely and wasting space with large values
     }
-    
+
     //rotates to current angle value on y-axis
     glRotatef(angle,0,1,0); //randomise axes? included cstdlib
 }
@@ -168,7 +168,7 @@ void npc::takeDamage(){
         health-=1;
         if(health==0)  //if health was 1 then a collision must kill the asteroid
             die();
-        
+
         collision=false; //stops  if statement from looping next cycle
     }
 }
@@ -177,7 +177,7 @@ void npc::split(int size){
     /*Splitting an asteroid should result in generation of two more asteroids which should
      register as seperate objects in the world therefore this split method should be handled
      in the asteroid generation engine or main?*/
-    
+
     /*_NOTE:_ The splitting method is currently patrially functional only for asteroid to asteroid collisions, and resides in main  */
 }
 
@@ -199,12 +199,13 @@ double npc::getVelocity(){
 
 double* npc::getLocation(){
     double point[3]={x,y,z};
-    
+
     return point;
 }
 
 void npc::regCollision(){
     collision=true;
+    //alive =false;
 }
 
 void npc::setToPoint(float to_x, float to_y, float to_z){
@@ -215,7 +216,7 @@ void npc::setToPoint(float to_x, float to_y, float to_z){
 
 double* npc::getToPoint(){
     double point[3]={to_x,to_y,to_z};
-    
+
     return point;
 }
 bool npc::collisionState(){
