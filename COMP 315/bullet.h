@@ -20,6 +20,8 @@ public:
     void render();
     void update();
     void move();
+    double* getLocation();
+    void die();
 
 
 private:

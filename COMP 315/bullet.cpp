@@ -75,50 +75,13 @@ void bullet::update(){
 }
 
 void bullet::move(){
-    //getMovement();
 
     //x translation
-    //if(sx!=fx){
-        if(sx>fx){
-            sx-=Vx;
-            //if(sx<fx)
-            //    sx=fx;
-        }
-        else if(sx<fx){
-            sx+=Vx;
-            //if(sx>fx)
-             //   sx=fx;
-        }
-   // }
-
+      sx+=Vx;
     //y translation
-    //if(sy!=fy){
-        if(sy>fy){
-            sy-=Vy;
-            //if(sy<fy)
-               // sy=fy;
-        }
-        else if(sy<fy){
-            sy+=Vy;
-            //if(sy>fy)
-                //sy=fy;
-        }
-    //}
-
+      sy+=Vy;
     //z traslation
-    //if(sz!=fz){
-        if(sz>fz){
-            sz-=Vz;
-           // if(sz<fz)
-          //      sz=fz;
-        }
-        else if(sz<fz){
-            sz+=Vz;
-           // if(sz>fz)
-          //      sz=fz;
-        }
-    //}
-
+      sz+=Vz;
 
 }
 
@@ -129,7 +92,30 @@ void bullet::getMovement(){
     theta=atan(fabs(sz-fz)/fabs(sx-fx));
     phi=acos(fabs((sy-fy)/dist));
 
-    Vx=velocity*cos(theta)*cos(phi);
-    Vz=velocity*sin(theta)*cos(phi);
-    Vy=velocity*sin(phi);
+    if(sx<fx)
+        Vx=velocity*cos(theta)*sin(phi);
+    else if(sx>fx)
+        Vx=-velocity*cos(theta)*sin(phi);
+
+    if(sz<fz)
+        Vz=velocity*sin(theta)*sin(phi);
+    else if(sz>fz)
+        Vz=-velocity*sin(theta)*sin(phi);
+
+    if(sy<fy)
+        Vy=velocity*cos(phi);
+    else if(sy>fy)
+        Vy=-velocity*cos(phi);
+
+        //cout<<Vx<<endl; //Vx is sometimes incorrect for some mysterious reason. Values passed are always the same
+}
+
+double* bullet::getLocation(){
+    double point[3]={sx,sy,sz};
+
+    return point;
+}
+
+void bullet::die(){
+    alive=false;
 }

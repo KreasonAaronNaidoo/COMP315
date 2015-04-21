@@ -3,6 +3,7 @@
 #include <iostream>
 #include<math.h>
 #include "npc.h"
+#include "point.h"
 
 using namespace std;
 
@@ -38,13 +39,13 @@ void player::render(){
     glPopMatrix();
 
 //    collisionCheck();
-    drawBullet();
+    drawBullets();
 
 }
 
-void player::drawBullet(){
+void player::drawBullets(){
     for(int i=0 ; i<mag.size() ; i++){
-        mag[i]->render();
+        mag[i].render();
     }
 }
 
@@ -72,4 +73,8 @@ void player::drawPlayer(){
 
 void collisionCheck(){
 
+}
+
+vector<bullet>* player::getBulletVector(){
+    return &mag;
 }

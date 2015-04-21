@@ -14,17 +14,17 @@ class player
         player(float x, float y, float z, cam *p);
         void render();
         void shoot();
+        vector<bullet>* getBulletVector();
         float x, y, z; // position
         cam *q;
 
-    vector<bullet*> mag;
+    vector<bullet> mag;
 
 
     private:
         void drawPlayer();
-        void drawBullet();
-        void collisionCheck();
+        void drawBullets();
+
 };
 
 #endif
-
