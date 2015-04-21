@@ -1,0 +1,587 @@
+# depslib dependency file v1.0
+1428331872 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\cam.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"cam.h"
+
+1368272960 f:\codeblocks\mingw\include\gl\glut.h
+	"freeglut_std.h"
+
+1368272960 f:\codeblocks\mingw\include\gl\freeglut_std.h
+	<windows.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1301111162 f:\codeblocks\mingw\include\windows.h
+	<winresrc.h>
+	<stdarg.h>
+	<windef.h>
+	<wincon.h>
+	<winbase.h>
+	<wingdi.h>
+	<winuser.h>
+	<winnls.h>
+	<winver.h>
+	<winnetwk.h>
+	<winreg.h>
+	<winsvc.h>
+	<cderr.h>
+	<dde.h>
+	<ddeml.h>
+	<dlgs.h>
+	<imm.h>
+	<lzexpand.h>
+	<mmsystem.h>
+	<nb30.h>
+	<rpc.h>
+	<shellapi.h>
+	<winperf.h>
+	<commdlg.h>
+	<winspool.h>
+	<winsock2.h>
+	<winsock.h>
+	<ole2.h>
+
+1301111162 f:\codeblocks\mingw\include\winresrc.h
+	<winuser.h>
+	<winnt.h>
+	<winver.h>
+	<dde.h>
+	<dlgs.h>
+	<commctrl.h>
+
+1301111164 f:\codeblocks\mingw\include\winuser.h
+
+1301111162 f:\codeblocks\mingw\include\winnt.h
+	<winerror.h>
+	<string.h>
+	<basetsd.h>
+	<pshpack4.h>
+	<poppack.h>
+
+1301111162 f:\codeblocks\mingw\include\winerror.h
+
+1341010376 f:\codeblocks\mingw\include\string.h
+	<_mingw.h>
+	<stddef.h>
+
+1341010370 f:\codeblocks\mingw\include\_mingw.h
+
+1301111148 f:\codeblocks\mingw\include\basetsd.h
+
+1301111156 f:\codeblocks\mingw\include\pshpack4.h
+
+1301111156 f:\codeblocks\mingw\include\poppack.h
+
+1301111164 f:\codeblocks\mingw\include\winver.h
+
+1301111148 f:\codeblocks\mingw\include\dde.h
+
+1301111150 f:\codeblocks\mingw\include\dlgs.h
+
+1301111148 f:\codeblocks\mingw\include\commctrl.h
+	<prsht.h>
+
+1301111156 f:\codeblocks\mingw\include\prsht.h
+
+1301111162 f:\codeblocks\mingw\include\windef.h
+	<winnt.h>
+
+1301111162 f:\codeblocks\mingw\include\wincon.h
+
+1301111160 f:\codeblocks\mingw\include\winbase.h
+
+1301111162 f:\codeblocks\mingw\include\wingdi.h
+
+1301111162 f:\codeblocks\mingw\include\winnls.h
+
+1301111162 f:\codeblocks\mingw\include\winnetwk.h
+
+1301111162 f:\codeblocks\mingw\include\winreg.h
+
+1301111164 f:\codeblocks\mingw\include\winsvc.h
+
+1301111148 f:\codeblocks\mingw\include\cderr.h
+
+1301111148 f:\codeblocks\mingw\include\ddeml.h
+
+1301111150 f:\codeblocks\mingw\include\imm.h
+
+1301111154 f:\codeblocks\mingw\include\lzexpand.h
+
+1301111154 f:\codeblocks\mingw\include\mmsystem.h
+
+1301111154 f:\codeblocks\mingw\include\nb30.h
+
+1301111158 f:\codeblocks\mingw\include\rpc.h
+	<windows.h>
+	<rpcdce.h>
+	<rpcnsi.h>
+	<rpcnterr.h>
+	<winerror.h>
+	<excpt.h>
+
+1301111158 f:\codeblocks\mingw\include\rpcdce.h
+	<basetyps.h>
+	<rpcdcep.h>
+
+1301111148 f:\codeblocks\mingw\include\basetyps.h
+
+1301111158 f:\codeblocks\mingw\include\rpcdcep.h
+
+1301111158 f:\codeblocks\mingw\include\rpcnsi.h
+
+1301111158 f:\codeblocks\mingw\include\rpcnterr.h
+
+1341010372 f:\codeblocks\mingw\include\excpt.h
+	<_mingw.h>
+	<windef.h>
+
+1301111160 f:\codeblocks\mingw\include\shellapi.h
+	<pshpack2.h>
+	<poppack.h>
+
+1301111156 f:\codeblocks\mingw\include\pshpack2.h
+
+1301111162 f:\codeblocks\mingw\include\winperf.h
+
+1301111148 f:\codeblocks\mingw\include\commdlg.h
+	<unknwn.h>
+	<prsht.h>
+
+1301111160 f:\codeblocks\mingw\include\unknwn.h
+	<windows.h>
+	<objfwd.h>
+	<wtypes.h>
+
+1301111156 f:\codeblocks\mingw\include\objfwd.h
+	<basetyps.h>
+
+1301111164 f:\codeblocks\mingw\include\wtypes.h
+	<rpc.h>
+	<rpcndr.h>
+
+1301111158 f:\codeblocks\mingw\include\rpcndr.h
+	<rpcnsip.h>
+	<objfwd.h>
+
+1301111158 f:\codeblocks\mingw\include\rpcnsip.h
+
+1301111162 f:\codeblocks\mingw\include\winspool.h
+
+1301111162 f:\codeblocks\mingw\include\winsock2.h
+	<windows.h>
+
+1301111162 f:\codeblocks\mingw\include\winsock.h
+	<windows.h>
+	<mswsock.h>
+
+1301111154 f:\codeblocks\mingw\include\mswsock.h
+
+1301111156 f:\codeblocks\mingw\include\ole2.h
+	<winerror.h>
+	<objbase.h>
+	<olectlid.h>
+	<oleauto.h>
+	<oleidl.h>
+
+1301111154 f:\codeblocks\mingw\include\objbase.h
+	<rpc.h>
+	<rpcndr.h>
+	<stdlib.h>
+	<basetyps.h>
+	<wtypes.h>
+	<unknwn.h>
+	<objidl.h>
+	<cguid.h>
+
+1341010376 f:\codeblocks\mingw\include\stdlib.h
+	<_mingw.h>
+	<stddef.h>
+
+1301111156 f:\codeblocks\mingw\include\objidl.h
+	<objfwd.h>
+
+1301111148 f:\codeblocks\mingw\include\cguid.h
+
+1301111156 f:\codeblocks\mingw\include\olectlid.h
+
+1301111156 f:\codeblocks\mingw\include\oleauto.h
+	<oaidl.h>
+
+1301111154 f:\codeblocks\mingw\include\oaidl.h
+	<windows.h>
+	<ole2.h>
+
+1301111156 f:\codeblocks\mingw\include\oleidl.h
+	<objfwd.h>
+
+1301111164 f:\codeblocks\mingw\include\gl\gl.h
+
+1301111164 f:\codeblocks\mingw\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1341010376 f:\codeblocks\mingw\include\stdio.h
+	<_mingw.h>
+	<stddef.h>
+	<stdarg.h>
+	<sys/types.h>
+
+1341010380 f:\codeblocks\mingw\include\sys\types.h
+	<_mingw.h>
+	<stddef.h>
+
+1428327601 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\cam.h
+	<stdio.h>
+
+1429129816 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\main.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"physics_engine.h"
+	"cam.h"
+	"time.h"
+
+1429130411 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\physics_engine.h
+	<windows.h>
+	<stdio.h>
+	"world.h"
+	"planet.h"
+	"player.h"
+	<GL/glut.h>
+	<vector>
+	"map"
+	"point.h"
+
+1428330940 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\world.h
+	<stdio.h>
+	"npc.h"
+	<GL/glut.h>
+	<vector>
+
+1428525599 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\npc.h
+	<stdio.h>
+	"point.h"
+
+1428327601 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\point.h
+	<stdio.h>
+
+1428331859 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\planet.h
+	<windows.h>
+	"npc.h"
+
+1429095488 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\player.h
+	"bullet.h"
+	<vector>
+
+1341010376 f:\codeblocks\mingw\include\time.h
+	<_mingw.h>
+	<stddef.h>
+
+1429098416 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\npc.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"npc.h"
+	"time.h"
+
+1341010374 f:\codeblocks\mingw\include\math.h
+	<_mingw.h>
+
+1429130445 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\physics_engine.cpp
+	"physics_engine.h"
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	"vector"
+	"npc.h"
+	"bullet.h"
+	"player.h"
+
+1429098161 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\planet.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"planet.h"
+	"npc.h"
+
+1429174641 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\player.cpp
+	"player.h"
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"npc.h"
+	"point.h"
+
+1428327601 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\point.cpp
+	"point.h"
+
+1429129119 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\world.cpp
+	<windows.h>
+	"world.h"
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<cmath>
+	<stdio.h>
+	<iostream>
+
+1428331872 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\cam.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"cam.h"
+
+1428327601 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\cam.h
+	<stdio.h>
+
+1428585559 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\main.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"physics_engine.h"
+	"cam.h"
+	"time.h"
+
+1428583610 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\physics_engine.h
+	<windows.h>
+	<stdio.h>
+	"world.h"
+	"planet.h"
+	"player.h"
+	<GL/glut.h>
+	<vector>
+	"map"
+	"point.h"
+
+1428330940 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\world.h
+	<stdio.h>
+	"npc.h"
+	<GL/glut.h>
+	<vector>
+
+1428525599 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\npc.h
+	<stdio.h>
+	"point.h"
+
+1428327601 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\point.h
+	<stdio.h>
+
+1428331859 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\planet.h
+	<windows.h>
+	"npc.h"
+
+1428585815 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\player.h
+	"bullet.h"
+	<vector>
+
+1428544812 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\npc.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"npc.h"
+	"time.h"
+
+1428585941 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\physics_engine.cpp
+	"physics_engine.h"
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	"vector"
+	"npc.h"
+	"bullet.h"
+	"player.h"
+
+1428334462 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\planet.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"planet.h"
+	"npc.h"
+
+1428585829 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\player.cpp
+	"player.h"
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"npc.h"
+	"point.h"
+
+1428327601 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\point.cpp
+	"point.h"
+
+1428331859 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\world.cpp
+	<windows.h>
+	"world.h"
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<cmath>
+	<stdio.h>
+	<iostream>
+
+1428585009 c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\bullet.h
+	<stdio.h>
+
+1429129280 source:c:\users\user\dropbox\2015 semester 1\comp315\project\astro crisis final\bullet.cpp
+	"bullet.h"
+	<GL/glut.h>
+	<stdio.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"point.h"
+
+1428585019 source:c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\bullet.cpp
+	"bullet.h"
+	<GL/glut.h>
+	<stdio.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"point.h"
+
+1428585009 c:\users\shaherin\dropbox\2015 semester 1\comp315\project\astro crisis final\bullet.h
+	<stdio.h>
+
+1429129280 source:\\psf\home\desktop\astro crisis final\bullet.cpp
+	"bullet.h"
+	<GL/glut.h>
+	<stdio.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"point.h"
+
+1428585009 \\psf\home\desktop\astro crisis final\bullet.h
+	<stdio.h>
+
+1428327601 \\psf\home\desktop\astro crisis final\point.h
+	<stdio.h>
+
+1428331872 source:\\psf\home\desktop\astro crisis final\cam.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"cam.h"
+
+1428327601 \\psf\home\desktop\astro crisis final\cam.h
+	<stdio.h>
+
+1429653787 source:\\psf\home\desktop\astro crisis final\main.cpp
+	<windows.h>
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	<stdio.h>
+	"physics_engine.h"
+	"cam.h"
+	"time.h"
+
+1429130411 \\psf\home\desktop\astro crisis final\physics_engine.h
+	<windows.h>
+	<stdio.h>
+	"world.h"
+	"planet.h"
+	"player.h"
+	<GL/glut.h>
+	<vector>
+	"map"
+	"point.h"
+
+1428330940 \\psf\home\desktop\astro crisis final\world.h
+	<stdio.h>
+	"npc.h"
+	<GL/glut.h>
+	<vector>
+
+1428525599 \\psf\home\desktop\astro crisis final\npc.h
+	<stdio.h>
+	"point.h"
+
+1428331859 \\psf\home\desktop\astro crisis final\planet.h
+	<windows.h>
+	"npc.h"
+
+1429653765 \\psf\home\desktop\astro crisis final\player.h
+	"bullet.h"
+	<vector>
+
+1429649667 source:\\psf\home\desktop\astro crisis final\npc.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	<cstdlib>
+	"npc.h"
+	"time.h"
+
+1429649375 source:\\psf\home\desktop\astro crisis final\physics_engine.cpp
+	"physics_engine.h"
+	<iostream>
+	<GL/glut.h>
+	<stdlib.h>
+	<cmath>
+	"vector"
+	"npc.h"
+	"bullet.h"
+	"player.h"
+
+1429649516 source:\\psf\home\desktop\astro crisis final\planet.cpp
+	<windows.h>
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"planet.h"
+	"npc.h"
+
+1429653765 source:\\psf\home\desktop\astro crisis final\player.cpp
+	"player.h"
+	<GL/glut.h>
+	<iostream>
+	<math.h>
+	"npc.h"
+	"point.h"
+
+1428327601 source:\\psf\home\desktop\astro crisis final\point.cpp
+	"point.h"
+
+1429653369 source:\\psf\home\desktop\astro crisis final\world.cpp
+	<windows.h>
+	"world.h"
+	<GL/glut.h>
+	<stdlib.h>
+	<iostream>
+	<cmath>
+	<stdio.h>
+	<iostream>
+
