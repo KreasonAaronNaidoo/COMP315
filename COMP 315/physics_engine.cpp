@@ -25,9 +25,9 @@ double dist;
 double bulletDist;
 
 physics_engine::physics_engine(){
-   
+
     *level = 20;
-    
+
     this -> init_level_map();
     this -> init_npc_loc();
     this -> start_new_level();
