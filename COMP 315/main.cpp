@@ -7,9 +7,9 @@
 //Shaherin Dehaloo
 //Muhammad Bassa
 //and of The University of Kwa-Zulu Natal
-
+#include <windows.h>
 #include <iostream>
-#include <GLUT/glut.h>  // GLUT, include glu.h and gl.h
+#include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
 #include <stdio.h>
@@ -22,7 +22,7 @@ using namespace std;
 
 cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
-player *p = new player(0.0f, 0.01f, 0.0f, kam);
+//player *p = new player(0.0f, 0.01f, 0.0f);
 
 
 /* Initialize OpenGL Graphics */
@@ -35,9 +35,7 @@ void initGL()
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // White and opaque
 
-    gluOrtho2D(-10.,10.,-10.,10.);
-
-
+    gluOrtho2D(-10.0,10.0,-10.0,10.0);
 
 
     glEnable(GL_LIGHTING);
@@ -47,14 +45,13 @@ void initGL()
 
     GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
     GLfloat mat_shininess[] = { 50.0 };
-    GLfloat light_ambient[] = { 0.0, 0.0, 10.0, 0.0000001 };
+    GLfloat light_ambient[] = { 0.0, 0.0, 10.0, 0.0000001 };//position
 
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient);
 
-    //glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
-
+    glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
 }
 
@@ -69,15 +66,16 @@ void render()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    
+
+
     kam -> place();
-    
+
 
 
     engine -> init_world();
 
-    glColor3ub(0,  0, 255);
-   // p-> render();
+    //glColor3ub(0,  0, 255);
+    // p-> render();
 
     glFlush();   // ******** DO NOT FORGET THIS **********
 
@@ -149,7 +147,8 @@ void key (unsigned char key, int xx, int yy){
 		           break;
 		case 'd': (engine->player1->x)-=0.01;
 		           break;
-
+        case 'x':  engine -> player1->shoot();
+                   break;
         default:
             break;
     }
@@ -192,12 +191,19 @@ void mouseMove(int x, int y){
 
 }
 
-void idle(){
+/*void idle(){
 
     engine -> update_with_time();
     glutPostRedisplay();
-}
+}*/
 
+void timer(int value){
+    engine -> update_with_time();
+    //engine -> init_world();
+    glutPostRedisplay();
+
+    glutTimerFunc(0, timer, 0);
+}
 
 
 
@@ -207,10 +213,15 @@ int main(int argc, char * argv[]) {
 
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
+    //glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
     glutCreateWindow("Astro Crisis");  // Create window with the given title
-    glutIdleFunc(idle);
+
+    //glutIdleFunc(idle);
+    glutTimerFunc(0,timer,0);
+
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
     glutReshapeFunc(reshape);
+
     glutKeyboardFunc(key);
     glutSpecialFunc(arrowKey);
     glutMouseFunc(mouseClick);
