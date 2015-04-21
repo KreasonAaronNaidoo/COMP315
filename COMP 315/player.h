@@ -3,7 +3,6 @@
 
 #include "bullet.h"
 #include <vector>
-#include "cam.h"
 
 using namespace std;
 
@@ -11,15 +10,15 @@ class player
 {
     public:
         player();
-        player(float x, float y, float z, cam *p);
+        player(float x, float y, float z);
         void render();
         void shoot();
-        vector<bullet>* getBulletVector();
+        vector<bullet> getBulletVector();
         float x, y, z; // position
-        cam *q;
 
-    vector<bullet> mag;
+        vector<bullet> v_bullet;
 
+        void mouseClick(int button, int state, int x, int y);
 
     private:
         void drawPlayer();
