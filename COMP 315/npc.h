@@ -35,8 +35,9 @@ public:
     //set
     bool collisionState();
     void setToPoint(float to_x, float to_y, float to_z);
-    
-    
+    double ints;
+
+
 private:
     double radius;
     double x, y, z;        //initial point
@@ -52,6 +53,7 @@ private:
     bool alive = true;            //default true. When false cease rendering
     double dist;           //distance between asteroid position and destination
     void rotate();         //rotate not called externally
+
 };
 
 
