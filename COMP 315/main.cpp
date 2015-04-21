@@ -147,8 +147,7 @@ void key (unsigned char key, int xx, int yy){
 		           break;
 		case 'd': (engine->player1->x)-=0.01;
 		           break;
-        case 'x':  engine -> player1->shoot();
-                   break;
+
         default:
             break;
     }
@@ -171,7 +170,7 @@ void arrowKey(int key, int xx, int y){
 void mouseClick(int button, int state, int x, int y){
 
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
-        engine -> player1->shoot();
+        engine -> player1->shoot(x,y);
 
     glutPostRedisplay();
 

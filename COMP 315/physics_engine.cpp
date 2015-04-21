@@ -6,12 +6,6 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-
 #include "physics_engine.h"
 #include <iostream>
 #include <GL/glut.h>  // GLUT, include glu.h and gl.h
@@ -32,7 +26,7 @@ double bulletDist;
 
 physics_engine::physics_engine(){
 
-    *level = 20;
+    *level = 15;
 
     this -> init_level_map();
     this -> init_npc_loc();

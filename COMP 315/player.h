@@ -12,7 +12,7 @@ class player
         player();
         player(float x, float y, float z);
         void render();
-        void shoot();
+        void shoot(int x, int y);
         vector<bullet> getBulletVector();
         float x, y, z; // position
 

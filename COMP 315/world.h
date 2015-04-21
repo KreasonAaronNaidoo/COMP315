@@ -6,37 +6,34 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
-#include <GL/glut.h>
-#endif
-
 #ifndef __COMP_315__world__
 #define __COMP_315__world__
+
 #include <stdio.h>
 #include "npc.h"
+
+#include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <vector>
 
 
 class world{
-    
+
 private:
-    
+
 public:
     void int_empty_world();
 
-    
+
     GLuint LoadTexture( const char * filename );
 
-    
-    world(); 
-    
-    
+
+    world();
+
+
     GLuint texture;
- 
-    
-    
+
+
+
 };
 
 #endif /* defined(__COMP_315__world__) */

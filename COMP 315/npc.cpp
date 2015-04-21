@@ -35,10 +35,10 @@ npc::npc(double x, double y, double z){
 
 
     float t = rand() %10;
-    this->velocity = t/100;
+    this->velocity = t/1000;
 
-    if (this -> velocity < 0.03) {
-        this -> velocity = 0.03;
+    if (this -> velocity < 0.003) {
+        this -> velocity = 0.003;
     }
 
     size = 1 + rand() % 3;

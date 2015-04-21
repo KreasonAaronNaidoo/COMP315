@@ -5,7 +5,7 @@
 //  Created by Shaherin Dehaloo on 2015/03/31.
 //  Copyright (c) 2015 Shaherin Dehaloo. All rights reserved.
 //
-
+#include <windows.h>
 #ifndef PLANET_H
 #define PLANET_H
 #include "npc.h"
@@ -19,7 +19,7 @@ public:
     void render();
     void update();
     void die();
-    
+
 private:
     float x,y,z;
     float angVelocity;

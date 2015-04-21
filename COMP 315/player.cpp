@@ -15,9 +15,33 @@ player::player(float x, float y, float z){
     this->z = z;
 }
 
-void player::shoot(){
+void player::shoot(int x, int y){
     //cout<<"click"<<endl;
-    v_bullet.push_back(*new bullet(this->x,this->y,this->z,x,y,0));//player position to mouse position
+
+
+    GLfloat winX, winY, winZ;               // Holds Our X, Y and Z Coordinates
+
+    winX = x;                  // Holds The Mouse X Coordinate
+    winY = y;
+
+    GLint viewport[4];
+    GLdouble modelview[16];
+    GLdouble projection[16];
+    GLdouble posX, posY, posZ;
+
+    glGetDoublev( GL_MODELVIEW_MATRIX, modelview );
+    glGetDoublev( GL_PROJECTION_MATRIX, projection );
+    glGetIntegerv( GL_VIEWPORT, viewport );
+
+    winY = (float)viewport[3] - winY;           // Subtract The Current Mouse Y Coordinate From The Screen Height.
+
+    glReadPixels( x, int(winY), 1, 1, GL_DEPTH_COMPONENT, GL_FLOAT, &winZ );
+
+    gluUnProject( winX, winY, winZ, modelview, projection, viewport, &posX, &posY, &posZ);
+
+
+
+    v_bullet.push_back(*new bullet(this->x,this->y,this->z,posX,posY,posZ));//player position to mouse position
 
     /*POINT pt;
     bool result=GetCursorPos(&pt);
