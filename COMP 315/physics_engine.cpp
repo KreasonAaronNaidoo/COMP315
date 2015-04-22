@@ -250,7 +250,7 @@ void physics_engine::col_dec_asteroid_to_planet(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
 
-        float d = sqrt(((home->x - v_asteroid[a].x) * (home->x - v_asteroid[a].x)) + ((home->y - v_asteroid[a].y) * (home->y - v_asteroid[a].y)) + ((home->z - v_asteroid[a].z) * (home->z - v_asteroid[a].z)));
+        float d = sqrt(((home->x - v_asteroid[a].sx) * (home->x - v_asteroid[a].sx)) + ((home->y - v_asteroid[a].sy) * (home->y - v_asteroid[a].sy)) + ((home->z - v_asteroid[a].sz) * (home->z - v_asteroid[a].sz)));
 
         if(d < (v_asteroid[a].radius + 4)){
 
@@ -301,7 +301,7 @@ void physics_engine::col_dec_bullet_to_asteroid(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
         for(int b = 0; b < player1->v_bullet.size(); b++){
-            float d = sqrt(((player1->v_bullet[b].sx - v_asteroid[a].x) * (player1->v_bullet[b].sx - v_asteroid[a].x)) + ((player1->v_bullet[b].sy - v_asteroid[a].y) * (player1->v_bullet[b].sy - v_asteroid[a].y)) + ((player1->v_bullet[b].sz - v_asteroid[a].z) * (player1->v_bullet[b].sz - v_asteroid[a].z)));
+            float d = sqrt(((player1->v_bullet[b].sx - v_asteroid[a].sx) * (player1->v_bullet[b].sx - v_asteroid[a].sx)) + ((player1->v_bullet[b].sy - v_asteroid[a].sy) * (player1->v_bullet[b].sy - v_asteroid[a].sy)) + ((player1->v_bullet[b].sz - v_asteroid[a].sz) * (player1->v_bullet[b].sz - v_asteroid[a].sz)));
 
             // check bullets hitting the world boundry
             if((player1->v_bullet[b].sx * player1->v_bullet[b].sx) + (player1->v_bullet[b].sy * player1->v_bullet[b].sy) + (player1->v_bullet[b].sz * player1->v_bullet[b].sz) >= 10000){
