@@ -186,8 +186,6 @@ void mouseMove(int x, int y){
     kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
                 //^this value denotes the speed of the camera rotation in the y-direction
 
-    cout <<"look x: " << x << " look y : "<< y <<endl;
-
 
 
 }

@@ -15,7 +15,7 @@ public:
     planet();
     planet(float x, float y, float z);
     void rotate();
-    void takeDamage(npc asteroid);
+    void takeDamage(int level);
     void render();
     void update();
     void die();

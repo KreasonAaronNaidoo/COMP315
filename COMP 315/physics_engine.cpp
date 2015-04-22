@@ -146,7 +146,6 @@ void physics_engine::spawn(){
 
 
     for(int n = 1; n <= level_npc_num[*level]; n++ ){
-        cout << "n: "<< n <<endl;
 
         float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(10));
         float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(10));
@@ -167,10 +166,6 @@ void physics_engine::spawn(){
         v_asteroid.push_back(*new npc(tx,ty,tz)); //adding all asteroids to a vector
 
         player1= new player(0.0f, 0.0f, -1.0f);
-
-        cout << "x: " << npc_loc[n]->x<< " y: " << 4-(npc_loc[n] ->y)<< endl;
-
-        cout << "x: "<< tx <<" y: "<< ty <<" z: "<< tz <<endl;
 
     }
 
@@ -256,9 +251,11 @@ void physics_engine::col_dec_asteroid_to_planet(){
         float d = sqrt(((home->x - v_asteroid[a].x) * (home->x - v_asteroid[a].x)) + ((home->y - v_asteroid[a].y) * (home->y - v_asteroid[a].y)) + ((home->z - v_asteroid[a].z) * (home->z - v_asteroid[a].z)));
 
         if(d < (v_asteroid[a].radius + 4)){
-           //planet must take damage
-           v_asteroid[a].alive = false;
-           v_asteroid.erase(v_asteroid.begin()+a);
+
+            home->takeDamage(v_asteroid[a].getSize());
+
+            v_asteroid[a].alive = false;
+            v_asteroid.erase(v_asteroid.begin()+a);
 
 
         }
@@ -312,7 +309,7 @@ void physics_engine::col_dec_bullet_to_asteroid(){
             // detect bullets hitting the npc's
             if(d <= (v_asteroid[a].radius + player1->v_bullet[b].rad)){
 
-                cout <<"collision detected" << endl;
+                cout <<"collision detected : Asteroid shot" << endl;
                 v_asteroid[a].regCollision();
                 v_asteroid[a].takeDamage();
 

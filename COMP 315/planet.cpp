@@ -75,17 +75,23 @@ void planet::rotate(){  //we need to slow this down
     glRotatef(angle,-0.2,1,0);
 }
 
-/*void planet::takeDamage(npc ast){
-    if(collision){
-        if(ast.npc::getSize()==1)
+void planet::takeDamage(int level){
+
+        if(level == 1)
             health-=10;
-        else if(ast.npc::getSize()==1)
+        else if(level == 2)
             health-=20;
-        else if(ast.npc::getSize()==1)
+        else if(level == 3)
             health-=30;
-    }
-}*/
+
+        cout <<"Collision Detected: Planet hit, health reduced to "<<health<<endl;
+
+        if(health <= 0){
+            die();
+        }
+
+}
 
 void planet::die(){
-    cout<<"Death becomes you";  //die shouldn't be handled the same way
+    cout<<"Death becomes you"<<endl;  //die shouldn't be handled the same way
 }
