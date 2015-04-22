@@ -52,7 +52,7 @@ void bullet::render(){
         GLfloat mat_shininess[] = { 50.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glutWireSphere(0.1,25,25);
+        glutWireSphere(rad,25,25);
         //glutWireSphere(radius,25,25);
         glPopMatrix();
     }

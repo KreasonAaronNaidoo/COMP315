@@ -37,7 +37,7 @@ public:
     void move_player(float *px, float *py, float *pz); //co - ordinates to move too
     void move_camera(float *cx, float *cy, float *cz); //co - ordinates of the cam
     void move_look(float *lx, float *ly, float *lz);   //look at of the cam
-
+    void col_dec();
     void kill(); //destroys an asteroid
 
     void update_with_time(); //spinning of the planet and asteroids and health bars

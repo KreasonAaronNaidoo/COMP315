@@ -26,7 +26,7 @@ double bulletDist;
 
 physics_engine::physics_engine(){
 
-    *level = 15;
+    *level = 5;
 
     this -> init_level_map();
     this -> init_npc_loc();
@@ -131,7 +131,8 @@ void physics_engine::update_with_time(){
     //home -> rotate();
     home -> update();
     //asteroidToAsteroidCollision();
-    bulletToAsteroidCollision();
+    //bulletToAsteroidCollision();
+    col_dec();
     render_npc();
     player1->render();
 
@@ -273,3 +274,35 @@ void physics_engine::bulletToAsteroidCollision(){
        }
      }
 }
+
+void physics_engine::col_dec(){
+
+    for(int a = 0; a < v_asteroid.size(); a++){
+        for(int b = 0; b < player1->v_bullet.size(); b++){
+            float d = sqrt(((player1->v_bullet[b].sx - v_asteroid[a].x) * (player1->v_bullet[b].sx - v_asteroid[a].x)) + ((player1->v_bullet[b].sy - v_asteroid[a].y) * (player1->v_bullet[b].sy - v_asteroid[a].y)) + ((player1->v_bullet[b].sz - v_asteroid[a].z) * (player1->v_bullet[b].sz - v_asteroid[a].z)));
+
+            // check bullets hitting the world boundry
+            if((player1->v_bullet[b].sx * player1->v_bullet[b].sx) + (player1->v_bullet[b].sy * player1->v_bullet[b].sy) + (player1->v_bullet[b].sz * player1->v_bullet[b].sz) >= 10000){
+                player1->v_bullet[b].die();
+            }
+
+            // detect bullets hitting the npc's
+            if(d <= (v_asteroid[a].radius + player1->v_bullet[b].rad)){
+
+                cout <<"collision detected" << endl;
+                v_asteroid[a].regCollision();
+                v_asteroid[a].takeDamage();
+                player1->v_bullet[b].die();
+                break;
+            }
+
+
+
+        }
+
+    }
+
+
+
+}
+

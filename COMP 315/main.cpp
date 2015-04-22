@@ -133,6 +133,8 @@ void key (unsigned char key, int xx, int yy){
             cout << "moving level: "<< (engine -> getLevel()) << endl;
             (engine -> setLevel((engine -> getLevel()) +1));
             engine -> start_new_level();
+            glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
+            break;
 
         /*case 'w': (p->y)+=0.01; break;
 		case 's': (p->y)-=0.01; break;

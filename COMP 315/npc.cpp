@@ -165,13 +165,15 @@ void npc::move(){
 void npc::takeDamage(){
     //collision detection will alter bool collision value and begin this statement
     if(collision){
+        collision=false;
         health-=1;
-        if(health==0)  //if health was 1 then a collision must kill the asteroid
+        if(health==0){  //if health was 1 then a collision must kill the asteroid
             die();
-
-        collision=false; //stops  if statement from looping next cycle
+        }
     }
 }
+
+
 
 void npc::split(int size){
     /*Splitting an asteroid should result in generation of two more asteroids which should

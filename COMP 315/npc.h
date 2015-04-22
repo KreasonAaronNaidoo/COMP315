@@ -36,11 +36,11 @@ public:
     bool collisionState();
     void setToPoint(float to_x, float to_y, float to_z);
     double ints;
+    double x, y, z;
+    double radius;
 
 
 private:
-    double radius;
-    double x, y, z;        //initial point
     double to_x,to_y,to_z; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
     float velocity;

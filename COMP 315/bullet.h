@@ -22,10 +22,11 @@ public:
     void move();
     double* getLocation();
     void die();
+    float sx, sy, sz;
+    float rad = 0.1;
 
 
 private:
-    float sx, sy, sz;
     float fx ,fy, fz;
     float velocity;
     bool alive;
