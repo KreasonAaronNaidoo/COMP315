@@ -5,11 +5,8 @@
 //  Created by Kreason Aaron Naidoo on 2015/03/24.
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
+#include <windows.h>
 #include <GL/glut.h>
-#endif
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
@@ -28,36 +25,31 @@ npc::~npc(){
 
 }
 
-npc::npc(double x, double y, double z){
+npc::npc(double sx, double sy, double sz){
     //passed by asteroid genetator
-    this->x = x;
-    this->y = y;
-    this->z = z;
+    this->sx = sx;
+    this->sy = sy;
+    this->sz = sz;
+
     /*These asteroids will always initially move toward the centre of the planet. These values will be changed
      by an external call if collision momentum physics algorithms are programmed successfully.*/
-    this->to_x = 0;
-    this->to_y = 0;
-    this->to_z = 0;
+
+    this->fx = 0;
+    this->fy = 0;
+    this->fz = 0;
 
 
 
     float t = rand() %10;
-    this->velocity = t/1000;
 
+    this->velocity = t/1000;
     if (this -> velocity < 0.003) {
         this -> velocity = 0.003;
     }
 
+    getMovement();
+
     size = 1 + rand() % 3;
-
-
-
-    dist=sqrt(pow((x-to_x),2)+pow((y-to_y),2)+pow((z-to_z),2));   //this is the distance between start location and origin
-    time=dist/velocity;                                           //time is a multiplicative constant applied to resolved vector velocities
-
-    vX=fabs((x-to_x)/time);        //x-component of velocity
-    vY=fabs((y-to_y)/time);        //y-component of velocity
-    vZ=fabs((z-to_z)/time);        //z-component of velocity
 
     angle=0.0;
     angVelocity=rand()%5+1; //random vaue between 1 and 5
@@ -82,7 +74,7 @@ void npc::render(){
     //if alive is false render will cease and the object will cease
     if(alive){
         glPushMatrix();
-        glTranslated(x, y, z); // move to initial position
+        glTranslated(sx, sy, sz); // move to initial position
 
         rotate(); //asteroid rotates on its own axis
         move();   //move toward
@@ -126,47 +118,15 @@ void npc::rotate(){
     glRotatef(angle,0,1,0); //randomise axes? included cstdlib
 }
 
-
 void npc::move(){
+
     //x translation
-    if(x!=to_x){          //if the ojbect is not at destination
-        if(x>to_x){         //checks which side of the x-axis asteroid is currently on
-            x-=vX;            //and increments/decrements accordingly
-            if(x<to_x)      //logic applied to all axes
-                x=to_x;
-        }
-        else if(x<to_x){
-            x+=vX;
-            if(x>to_x)
-                x=to_x;
-        }
-    }
+      sx+=Vx;
     //y translation
-    if(y!=to_y){
-        if(y>to_y){
-            y-=vY;
-            if(y<to_y)
-                y=to_y;
-        }
-        else if(y<to_y){
-            y+=vY;
-            if(y>to_y)
-                y=to_y;
-        }
-    }
+      sy+=Vy;
     //z traslation
-    if(z!=to_z){
-        if(z>to_z){
-            z-=vZ;
-            if(z<to_z)
-                z=to_z;
-        }
-        else if(z<to_z){
-            z+=vZ;
-            if(z>to_z)
-                z=to_z;
-        }
-    }
+      sz+=Vz;
+
 }
 
 void npc::takeDamage(){
@@ -207,7 +167,7 @@ double npc::getVelocity(){
 }
 
 double* npc::getLocation(){
-    double point[3]={x,y,z};
+    double point[3]={sx,sy,sz};
 
     return point;
 }
@@ -217,17 +177,44 @@ void npc::regCollision(){
     //alive =false;
 }
 
-void npc::setToPoint(float to_x, float to_y, float to_z){
-    this->to_x = to_x;
-    this->to_y = to_y;
-    this->to_z = to_z;
+void npc::setToPoint(float fx, float fy, float fz){
+    this->fx= fx;
+    this->fy = fy;
+    this->fz = fz;
 }
 
 double* npc::getToPoint(){
-    double point[3]={to_x,to_y,to_z};
+    double point[3]={fx,fy,fz};
 
     return point;
 }
 bool npc::collisionState(){
+
     return collision;
+}
+
+void npc::getMovement(){
+    //get r
+    dist=sqrt(pow((sx-fx),2)+pow((sy-fy),2)+pow((sz-fz),2));
+
+    //angles in spherical coordinates
+    theta=atan(fabs(sz-fz)/fabs(sx-fx));
+    phi=acos(fabs((sy-fy)/dist));
+
+    /*After bullet reaches its destination is must continue moving past therefore reverse velocity increment
+     (there must be a better way to actually do this)*/
+    if(sx<fx)
+        Vx=velocity*cos(theta)*sin(phi);
+    else if(sx>fx)
+        Vx=-velocity*cos(theta)*sin(phi);
+
+    if(sz<fz)
+        Vz=velocity*sin(theta)*sin(phi);
+    else if(sz>fz)
+        Vz=-velocity*sin(theta)*sin(phi);
+
+    if(sy<fy)
+        Vy=velocity*cos(phi);
+    else if(sy>fy)
+        Vy=-velocity*cos(phi);
 }
