@@ -7,16 +7,18 @@
 //Shaherin Dehaloo
 //Muhammad Bassa
 //and of The University of Kwa-Zulu Natal
-#include <windows.h>
 #include <iostream>
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
 #include <stdio.h>
 #include "physics_engine.h"
 #include "cam.h"
 #include "time.h"
-
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 using namespace std;
 
 

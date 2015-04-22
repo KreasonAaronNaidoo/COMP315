@@ -5,10 +5,13 @@
 //  Created by Kreason Aaron Naidoo on 2015/03/24.
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
-
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
 #include "physics_engine.h"
 #include <iostream>
-#include <GL/glut.h>  // GLUT, include glu.h and gl.h
 #include <stdlib.h>
 #include <cmath>
 #include "vector"
