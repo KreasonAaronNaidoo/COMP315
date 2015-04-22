@@ -27,6 +27,7 @@ public:
     void takeDamage();
     void split(int size);
     void die();
+    void getMovement();
     //get
     int getSize();
     double* getLocation();
@@ -37,16 +38,18 @@ public:
     bool collisionState();
     void setToPoint(float to_x, float to_y, float to_z);
     double ints;
-    double x, y, z;
+    double sx, sy, sz;
     double radius;
     bool alive = true;
 
 
 private:
-    double to_x,to_y,to_z; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
+    double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
     float velocity;
-    double vX,vY,vZ;       //components of velocity  -in order to maintain motion at a constant angle
+    float theta;
+    float phi;
+    double Vx,Vy,Vz;        //components of velocity  -in order to maintain motion at a constant angle
     double angVelocity;    //rotation speed
     double angle;          //iterate and reset
     double time;
