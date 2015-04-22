@@ -60,9 +60,7 @@ void planet::render(){
 }
 
 void planet::update(){
-    if(health==0){
-        die();
-    }
+
 
    this->render();
 }

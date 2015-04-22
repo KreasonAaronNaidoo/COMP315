@@ -134,8 +134,7 @@ void physics_engine::init_world(){
 }
 
 void physics_engine::update_with_time(){
-    //home -> rotate();
-    home -> update();
+   // home -> update();
     //asteroidToAsteroidCollision();
     //bulletToAsteroidCollision();
     col_dec_bullet_to_asteroid();

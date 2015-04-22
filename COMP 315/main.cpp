@@ -206,6 +206,14 @@ void timer(int value){
     glutTimerFunc(0, timer, 0);
 }
 
+void planRot(int value){
+
+    engine->home->update();
+    glutPostRedisplay();
+    glutTimerFunc(30, planRot, 0);
+
+}
+
 
 
 int main(int argc, char * argv[]) {
@@ -219,6 +227,7 @@ int main(int argc, char * argv[]) {
 
     //glutIdleFunc(idle);
     glutTimerFunc(0,timer,0);
+    glutTimerFunc(30,planRot,0);
 
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
     glutReshapeFunc(reshape);

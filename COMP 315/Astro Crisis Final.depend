@@ -585,9 +585,10 @@
 	<stdio.h>
 	<iostream>
 
-1429715867 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
-	"bullet.h"
+1429737636 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
+	<GLUT/glut.h>
 	<GL/glut.h>
+	"bullet.h"
 	<stdio.h>
 	<iostream>
 	<math.h>
@@ -600,10 +601,10 @@
 1428327601 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\point.h
 	<stdio.h>
 
-1428331872 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\cam.cpp
-	<windows.h>
-	<iostream>
+1429737636 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\cam.cpp
+	<GLUT/glut.h>
 	<GL/glut.h>
+	<iostream>
 	<stdlib.h>
 	<cmath>
 	<stdio.h>
@@ -634,10 +635,11 @@
 	"map"
 	"point.h"
 
-1428330940 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\world.h
+1429737636 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\world.h
+	<GLUT/glut.h>
+	<GL/glut.h>
 	<stdio.h>
 	"npc.h"
-	<GL/glut.h>
 	<vector>
 
 1429717290 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.h
@@ -652,8 +654,8 @@
 	"bullet.h"
 	<vector>
 
-1429732105 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.cpp
-	<windows.h>
+1429737636 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.cpp
+	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
 	<math.h>
@@ -681,21 +683,22 @@
 	"planet.h"
 	"npc.h"
 
-1429653765 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
+1429737636 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
 	"player.h"
-	<GL/glut.h>
 	<iostream>
 	<math.h>
 	"npc.h"
 	"point.h"
+	<GLUT/glut.h>
+	<GL/glut.h>
 
 1428327601 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\point.cpp
 	"point.h"
 
-1429656472 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\world.cpp
-	<windows.h>
-	"world.h"
+1429737636 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\world.cpp
+	<GLUT/glut.h>
 	<GL/glut.h>
+	"world.h"
 	<stdlib.h>
 	<iostream>
 	<cmath>
