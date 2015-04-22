@@ -17,6 +17,7 @@ class npc{
 public:
     //constructors
     npc();
+    ~npc();
     npc(double x, double y, double z);
     //void
     void render();
@@ -38,6 +39,7 @@ public:
     double ints;
     double x, y, z;
     double radius;
+    bool alive = true;
 
 
 private:
@@ -50,7 +52,6 @@ private:
     double time;
     int health;
     bool collision;        //until hit detection is finalized
-    bool alive = true;            //default true. When false cease rendering
     double dist;           //distance between asteroid position and destination
     void rotate();         //rotate not called externally
 

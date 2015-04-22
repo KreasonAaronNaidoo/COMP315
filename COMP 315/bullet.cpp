@@ -25,10 +25,15 @@ bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
     this -> fy = fy;
     this -> fz = fz;
 //cout<<fx<<endl;
-    this->velocity=0.02;
+    this->velocity=0.05;
     this->alive=true;
 
     getMovement();
+
+}
+
+bullet::~bullet(){
+
 
 }
 

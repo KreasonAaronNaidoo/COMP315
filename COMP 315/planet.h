@@ -19,9 +19,10 @@ public:
     void render();
     void update();
     void die();
+    float x,y,z;
+
 
 private:
-    float x,y,z;
     float angVelocity;
     int health;
     float angle;

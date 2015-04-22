@@ -21,6 +21,10 @@ npc::npc(){
     npc(0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
+npc::~npc(){
+
+}
+
 npc::npc(double x, double y, double z){
     //passed by asteroid genetator
     this->x = x;

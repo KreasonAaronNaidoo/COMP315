@@ -585,7 +585,7 @@
 	<stdio.h>
 	<iostream>
 
-1429701278 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
+1429715867 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
 	"bullet.h"
 	<GL/glut.h>
 	<stdio.h>
@@ -594,7 +594,7 @@
 	<cstdlib>
 	"point.h"
 
-1429701278 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.h
+1429715388 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.h
 	<stdio.h>
 
 1428327601 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\point.h
@@ -612,7 +612,7 @@
 1428327601 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\cam.h
 	<stdio.h>
 
-1429656126 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
+1429715458 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
 	<windows.h>
 	<iostream>
 	<GL/glut.h>
@@ -623,7 +623,7 @@
 	"cam.h"
 	"time.h"
 
-1429698807 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
+1429731511 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
 	<windows.h>
 	<stdio.h>
 	"world.h"
@@ -640,11 +640,11 @@
 	<GL/glut.h>
 	<vector>
 
-1429700190 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.h
+1429717290 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.h
 	<stdio.h>
 	"point.h"
 
-1428331859 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\planet.h
+1429731057 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\planet.h
 	<windows.h>
 	"npc.h"
 
@@ -652,7 +652,7 @@
 	"bullet.h"
 	<vector>
 
-1429701381 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.cpp
+1429732105 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\npc.cpp
 	<windows.h>
 	<GL/glut.h>
 	<iostream>
@@ -661,7 +661,7 @@
 	"npc.h"
 	"time.h"
 
-1429701015 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
+1429732331 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
 	"physics_engine.h"
 	<iostream>
 	<GL/glut.h>
@@ -671,6 +671,7 @@
 	"npc.h"
 	"bullet.h"
 	"player.h"
+	"planet.h"
 
 1429649516 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\planet.cpp
 	<windows.h>

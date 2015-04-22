@@ -15,6 +15,7 @@
 #include "npc.h"
 #include "bullet.h"
 #include "player.h"
+#include "planet.h"
 
 using namespace std;
 
@@ -31,6 +32,8 @@ physics_engine::physics_engine(){
     this -> init_level_map();
     this -> init_npc_loc();
     this -> start_new_level();
+
+    this->home = new planet(0, -4, 0.01);
 
 }
 
@@ -132,7 +135,8 @@ void physics_engine::update_with_time(){
     home -> update();
     //asteroidToAsteroidCollision();
     //bulletToAsteroidCollision();
-    col_dec();
+    col_dec_bullet_to_asteroid();
+    col_dec_asteroid_to_planet();
     render_npc();
     player1->render();
 
@@ -245,6 +249,25 @@ void physics_engine::split(npc ast1, npc ast2, int i, int j){
 
 }
 
+void physics_engine::col_dec_asteroid_to_planet(){
+
+    for(int a = 0; a < v_asteroid.size(); a++){
+
+        float d = sqrt(((home->x - v_asteroid[a].x) * (home->x - v_asteroid[a].x)) + ((home->y - v_asteroid[a].y) * (home->y - v_asteroid[a].y)) + ((home->z - v_asteroid[a].z) * (home->z - v_asteroid[a].z)));
+
+        if(d < (v_asteroid[a].radius + 4)){
+           //planet must take damage
+           v_asteroid[a].alive = false;
+           v_asteroid.erase(v_asteroid.begin()+a);
+
+
+        }
+
+    }
+
+
+}
+
 void physics_engine::bulletToAsteroidCollision(){
 
      for(int i=0; i<player1->v_bullet.size() ;i++){
@@ -275,7 +298,7 @@ void physics_engine::bulletToAsteroidCollision(){
      }
 }
 
-void physics_engine::col_dec(){
+void physics_engine::col_dec_bullet_to_asteroid(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
         for(int b = 0; b < player1->v_bullet.size(); b++){
@@ -292,8 +315,15 @@ void physics_engine::col_dec(){
                 cout <<"collision detected" << endl;
                 v_asteroid[a].regCollision();
                 v_asteroid[a].takeDamage();
+
+                if(v_asteroid[a].alive == false){
+                    v_asteroid.erase(v_asteroid.begin()+a);
+                }
+
                 player1->v_bullet[b].die();
+                player1->v_bullet.erase(player1->v_bullet.begin() + b);
                 break;
+
             }
 
 

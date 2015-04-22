@@ -37,7 +37,8 @@ public:
     void move_player(float *px, float *py, float *pz); //co - ordinates to move too
     void move_camera(float *cx, float *cy, float *cz); //co - ordinates of the cam
     void move_look(float *lx, float *ly, float *lz);   //look at of the cam
-    void col_dec();
+    void col_dec_bullet_to_asteroid();
+    void col_dec_asteroid_to_planet();
     void kill(); //destroys an asteroid
 
     void update_with_time(); //spinning of the planet and asteroids and health bars
@@ -58,7 +59,7 @@ public:
     void setLevel(int l);
 
     world *uni = new world();
-    planet *home = new planet(0, -4, 0.01);
+    planet *home;
     player *player1; //= new player();
 
     //std::vector <std::vector<npc*> > V_npc; // 2d vector
@@ -66,9 +67,9 @@ public:
 
     npc *v [7][5];
 
-   void asteroidToAsteroidCollision();
-   void split(npc ast1,npc ast2,int i,int j);
-   void bulletToAsteroidCollision();
+    void asteroidToAsteroidCollision();
+    void split(npc ast1,npc ast2,int i,int j);
+    void bulletToAsteroidCollision();
 
     point *init_npc_point = new point(-30, -15, 92.29);
     float *npc_init_loc_inc = new float();

@@ -16,7 +16,7 @@ class bullet {
 
 public:
     bullet(float sx,float sy,float sz,float fx ,float fy,float fz);
-
+    ~bullet();
     void render();
     void update();
     void move();
