@@ -14,6 +14,7 @@
 #include "physics_engine.h"
 #include "cam.h"
 #include "time.h"
+#include "imageloader.h"
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -26,6 +27,23 @@ cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
 //player *p = new player(0.0f, 0.01f, 0.0f);
 
+//Makes the image into a texture, and returns the id of the texture
+GLuint loadTexture(Image* image) {
+	GLuint textureId;
+	glGenTextures(1, &textureId); //Make room for our texture
+	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+	//Map the image to the texture
+	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+				 0,                            //0 for now
+				 GL_RGB,                       //Format OpenGL uses for image
+				 image->width, image->height,  //Width and height
+				 0,                            //The border of the image
+				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+				                   //as unsigned numbers
+				 image->pixels);               //The actual pixel data
+	return textureId; //Returns the id of the texture
+}
 
 /* Initialize OpenGL Graphics */
 void initGL()
@@ -42,16 +60,20 @@ void initGL()
 
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
-    glEnable(GL_COLOR_MATERIAL);
+    glEnable(GL_LIGHT1);
 
+    glEnable(GL_NORMALIZE);
+    //glEnable(GL_COLOR_MATERIAL); //this ruins everything. yes everything.
 
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    GLfloat mat_shininess[] = { 50.0 };
-    GLfloat light_ambient[] = { 0.0, 0.0, 10.0, 0.0000001 };//position
+    //GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    //GLfloat mat_shininess[] = { 50.0 };
+    //glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    //glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-    glLightfv(GL_LIGHT0, GL_POSITION, light_ambient);
+    //GLfloat light_ambient0[] = { 0.0, 0.0, 10.0, 0.0000001 };//position
+    GLfloat light_ambient1[] = { 0.0, 0.0, -6.0, 1.0 };
+    //glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
+    glLightfv(GL_LIGHT1, GL_POSITION, light_ambient1);
 
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
@@ -215,7 +237,6 @@ void planRot(int value){
 }
 
 
-
 int main(int argc, char * argv[]) {
 
     glutInit(&argc, argv);          // Initialize GLUT
@@ -240,6 +261,8 @@ int main(int argc, char * argv[]) {
     glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
 
     initGL();                       // Our own OpenGL initialization
+    engine->home->initPlanet();
+    //engine->npc->initNpc();
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;
