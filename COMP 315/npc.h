@@ -11,7 +11,8 @@
 
 #include <stdio.h>
 #include "point.h"
-
+#include "imageloader.h"
+#include <GL/glut.h>
 
 class npc{
 public:
@@ -42,7 +43,6 @@ public:
     double radius;
     bool alive = true;
 
-
 private:
     double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
@@ -57,7 +57,6 @@ private:
     bool collision;        //until hit detection is finalized
     double dist;           //distance between asteroid position and destination
     void rotate();         //rotate not called externally
-
 };
 
 

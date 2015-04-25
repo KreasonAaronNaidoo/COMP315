@@ -262,7 +262,6 @@ int main(int argc, char * argv[]) {
 
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();
-    //engine->npc->initNpc();
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;

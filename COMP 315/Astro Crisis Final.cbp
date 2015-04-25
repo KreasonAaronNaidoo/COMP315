@@ -46,6 +46,8 @@
 		<Unit filename="bullet.h" />
 		<Unit filename="cam.cpp" />
 		<Unit filename="cam.h" />
+		<Unit filename="imageloader.cpp" />
+		<Unit filename="imageloader.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="npc.cpp" />
 		<Unit filename="npc.h" />

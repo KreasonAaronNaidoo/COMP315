@@ -39,7 +39,7 @@ void planet::initPlanet() {
 
 	quad = gluNewQuadric();
 
-	Image* image = loadBMP("C:\\Users\\user\\Dropbox\\2015 Semester 1\\Comp315\\Project\\COMP315-masterV3\\COMP315-master\\earth.bmp");
+	Image* image = loadBMP("F:\\Shaherin\\Dropbox\\2015 Semester 1\\Comp315\\Project\\COMP315-masterV3\\COMP315-master\\earth.bmp");
     _textureId = loadTexture(image);
 	delete image;
 }
