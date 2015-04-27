@@ -19,14 +19,14 @@
 using namespace std;
 
 npc::npc(){
-    npc(0,0,0); //spawns an asteroid at the very core of our home planet
+    npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
 npc::~npc(){
 
 }
 
-npc::npc(double sx, double sy, double sz){
+npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
     //passed by asteroid genetator
     this->sx = sx;
     this->sy = sy;
@@ -35,9 +35,9 @@ npc::npc(double sx, double sy, double sz){
     /*These asteroids will always initially move toward the centre of the planet. These values will be changed
      by an external call if collision momentum physics algorithms are programmed successfully.*/
 
-    this->fx = 0;
-    this->fy = 0;
-    this->fz = 0;
+    this->fx = fx;
+    this->fy = fy;
+    this->fz = fz;
 
 
 

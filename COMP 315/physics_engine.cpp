@@ -154,22 +154,13 @@ void physics_engine::spawn(){
         float tz = init_npc_point -> z ;
 
 
-        if(((init_npc_point -> x) + (npc_loc[n]->x)*(0.1)) == 0){
-            tx = 0.0;
-        }
+        float fx = -1 + (rand() % (int)(1 + 1 + 1));
 
-        if (((init_npc_point -> y) + (4-(npc_loc[n]->y))*(0.1)) == 0) {
-            ty = 0.0;
-        }
+        v_asteroid.push_back(*new npc(tx,ty,tz,fx,0,0)); //adding all asteroids to a vector
 
-
-        //v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz);
-
-        v_asteroid.push_back(*new npc(tx,ty,tz)); //adding all asteroids to a vector
-
-        player1= new player(0.0f, 0.0f, -1.0f);
 
     }
+    player1= new player(0.0f, 0.0f, -1.0f);
 
 }
 

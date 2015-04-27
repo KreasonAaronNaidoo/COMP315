@@ -19,7 +19,7 @@ public:
     //constructors
     npc();
     ~npc();
-    npc(double x, double y, double z);
+    npc(double x, double y, double z, double fx, double fy, double fz);
     //void
     void render();
     void update();
