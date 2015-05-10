@@ -90,17 +90,17 @@ void npc::render(){
         takeDamage();
 
         //sets colour of material
-        GLfloat ambient[] = { 1.0, 0.0, 0.0, 1};
+        GLfloat ambient[] = { 1.0, 0.0, 0.0, 1.0};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+        GLfloat mat_specular[] = { 1.0, 0.5, 0.5, 1.0 };
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
         GLfloat mat_shininess[] = { 10.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        //glutWireSphere(radius,25,25);
-        glutSolidSphere(radius,25,25);
+        glutWireSphere(radius,25,25);
+        //glutSolidSphere(radius,25,25);
 
         glPopMatrix();
     }
