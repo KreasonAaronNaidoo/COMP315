@@ -84,8 +84,7 @@ void initGL()
 
 }
 
-void render()
-{
+void render(){
 
     // GL_DEPTH_BUFFER_BIT - resets the depth test values for hidden surface removal
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
@@ -97,14 +96,9 @@ void render()
 
 
     kam -> place();
-
-
-
     engine -> init_world();
-
-
-
-    glFlush();   // ******** DO NOT FORGET THIS **********
+    //glFlush();
+    glutSwapBuffers();   // ******** DO NOT FORGET THIS **********
 
 }
 
@@ -217,12 +211,10 @@ void mouseMove(int x, int y){
 
 
 void timer(int value){
-    engine->home->update();
     engine -> update_with_time();
     //engine -> init_world();
     glutPostRedisplay();
-
-    glutTimerFunc(30, timer, 0);
+    glutTimerFunc(40, timer, 0);
 }
 
 
@@ -231,7 +223,7 @@ void timer(int value){
 int main(int argc, char * argv[]) {
 
     glutInit(&argc, argv);          // Initialize GLUT
-
+    glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
     //glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);

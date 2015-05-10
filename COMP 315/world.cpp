@@ -47,27 +47,14 @@ void world::int_empty_world(){
 
 
 
-    //glColor3ub(0,60,67); // green
-
-    //GLUquadricObj *quadric;
-    //quadric=gluNewQuadric();
-    //gluQuadricNormals(quadric, GLU_SMOOTH);
-    //gluQuadricTexture(quadric, GL_TRUE);
-
-
-    //glEnable(GL_TEXTURE_2D);
-
-    //glBindTexture(GL_TEXTURE_2D, texture); //will add the texture once i figure out how...
-
-    //gluSphere(quadric,10, 50, 50);
 
     glPushMatrix();
      //sets colour of material
-    GLfloat ambient[] = { 0.0, 0.22, 0.25, 1};
+    GLfloat ambient[] = { 0.0, 0.5, 1.0, 0.8};
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
 
     // sets specular properties of the material
-    GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+    GLfloat mat_specular[] = { 0.0, 0.5, 1.0, 0.8 };
     glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 
     // sets the shininess of the material

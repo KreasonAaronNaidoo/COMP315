@@ -155,10 +155,10 @@ void physics_engine::update_with_time(){ //runs every frame
     if(check_all_dead() == true){
 
         setLevel(getLevel() + 1);
-
         start_new_level();
 
     }
+    home->update();
     render_npc();
     player1->render();
 
@@ -238,16 +238,28 @@ void physics_engine::level_display(){ //doesn't work
 }
 
 void physics_engine::render_npc(){
+    //for the asteroids
+     for(int a = 0; a < v_asteroid.size(); a++){
+
+       if(v_asteroid[a]->alive == false){
+            delete v_asteroid[a];
+            v_asteroid.erase(v_asteroid.begin()+a);
+            a = a - 1;//to compensate for the shift up
+       }
+    }
+
 
     for(int i=0; i<v_asteroid.size() ;i++){
         v_asteroid[i]->update();
     }
 
+
+    //for the explosions
     for(int a = 0; a < v_ex.size(); a++){
        v_ex[a]->checkLife();
 
        if(v_ex[a]->alive == false){
-
+            delete v_ex[a];
             v_ex.erase(v_ex.begin()+a);
             a = a - 1;//to compensate for the shift up
        }

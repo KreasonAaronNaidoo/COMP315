@@ -96,11 +96,11 @@ void npc::render(){
         GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
-        GLfloat mat_shininess[] = { 50.0 };
+        GLfloat mat_shininess[] = { 10.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glutWireSphere(radius,25,25);
-        //glutSolidSphere(radius,25,25);
+        //glutWireSphere(radius,25,25);
+        glutSolidSphere(radius,25,25);
 
         glPopMatrix();
     }
