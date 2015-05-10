@@ -211,7 +211,6 @@ int main(int argc, char * argv[]) {
     glutPassiveMotionFunc(mouseMove);
 
     initGL();                       // Our own OpenGL initialization
-    engine -> home -> initPlanet(); //added. check where it went
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;

@@ -28,15 +28,18 @@ explosions::~explosions()
 
 void explosions::render(){
 
-    if(alive){
+
+    if(alive==true){
         glPushMatrix();
         glTranslated(x, y, z); // move to asteroid final position
 
-        //sets colour of material
-        GLfloat ambient[] = { 1.0, 0.0, 0.0, 1.0};
+
+
+        //sets light of material
+        GLfloat ambient[] = { 1.0, 1.0, 1.0, trans};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
+        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, trans};
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
         GLfloat mat_shininess[] = { 50.0 };
@@ -47,7 +50,8 @@ void explosions::render(){
 
         glPopMatrix();
 
-        RC = RC + 0.01;
+       RC = RC + 0.001;
+       trans = trans - 0.002 ;
     }
 
 }

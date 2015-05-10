@@ -10,6 +10,8 @@ class explosions
         bool alive = true;
         void update();
         void checkLife();
+        float trans = 1;
+
 
     private:
         float x,y,z,RF,RC;

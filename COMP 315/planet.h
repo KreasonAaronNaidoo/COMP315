@@ -21,6 +21,8 @@ public:
     void update();
     void die();
     float x,y,z;
+    int health;
+
 
     //texture variables
     GLuint _textureId; //The id of the texture
@@ -28,7 +30,6 @@ public:
 
 private:
     float angVelocity;
-    int health;
     float angle;
     bool collision;
     GLuint loadTexture(Image* image);

@@ -20,6 +20,7 @@
 #include <vector>
 #include "map"
 #include "point.h"
+#include "hud.h"
 
 
 class physics_engine{
@@ -33,6 +34,8 @@ public:
 
     void init_level_map();
     void init_npc_loc();
+    void npc_final_loc();
+
 
     void init_world(); // sets up the basic empty world.
 
@@ -45,7 +48,7 @@ public:
 
     void update_with_time(); //spinning of the planet and asteroids and health bars
 
-    void check_all_dead(); //check if all asteroids are destroid
+    bool check_all_dead(); //check if all asteroids are dead
 
     void spawn (); //spawns asteroids according to the level
 
@@ -55,16 +58,18 @@ public:
 
     void start_new_level();
 
-    void render_explosions();
-
     void render_npc();
 
     int getLevel();
+
     void setLevel(int l);
 
+    void level_display();
+
     world *uni = new world();
+    HUD *hud = new HUD();
     planet *home;
-    player *player1; //= new player();
+    player *player1;
 
     //std::vector <std::vector<npc*> > V_npc; // 2d vector
     //void init_vector();
@@ -75,7 +80,7 @@ public:
     void split(npc ast1,npc ast2,int i,int j);
     void bulletToAsteroidCollision();
 
-    point *init_npc_point = new point(-30, -15, 92.29);
+    point *init_npc_point = new point(-30, -15, 50);
     float *npc_init_loc_inc = new float();
 
 

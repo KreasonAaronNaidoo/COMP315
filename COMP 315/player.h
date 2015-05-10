@@ -13,10 +13,10 @@ class player
         player(float x, float y, float z);
         void render();
         void shoot(int x, int y);
-        vector<bullet> getBulletVector();
+        vector<bullet*> getBulletVector();
         float x, y, z; // position
 
-        vector<bullet> v_bullet;
+        vector<bullet*> v_bullet;
 
         void mouseClick(int button, int state, int x, int y);
 

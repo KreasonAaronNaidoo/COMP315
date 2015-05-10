@@ -5,11 +5,8 @@
 //  Created by Kreason Aaron Naidoo on 2015/03/24.
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
-#ifdef __APPLE__
-#include <GLUT/glut.h>
-#else
+
 #include <GL/glut.h>
-#endif
 #include "physics_engine.h"
 #include <iostream>
 #include <stdlib.h>
@@ -20,25 +17,27 @@
 #include "player.h"
 #include "planet.h"
 #include "explosions.h"
+#include <time.h>
 
 using namespace std;
 
-/*For whatever reason I can't declare these in the header file. Immediate crash. C++ pls*/
-vector<npc> v_asteroid;
-vector<explosions*> v_ex;
+vector<npc*> v_asteroid;
 double dist;
 //<bullet> v_bullet;
 double bulletDist;
+vector<explosions*> v_ex;
 
 physics_engine::physics_engine(){
 
-    *level = 5;
+    *level = 1;
 
     this -> init_level_map();
     this -> init_npc_loc();
     this -> start_new_level();
 
-    this->home = new planet(0, -4, 0.0);
+
+
+    this->home = new planet(0, -4, 0);
 
 }
 
@@ -47,7 +46,16 @@ int physics_engine::getLevel(){
 }
 
 void physics_engine::setLevel(int l){
-    *level = l;
+
+    if(l > 20)
+    {
+        *level = 20;
+    }
+    else
+    {
+        *level = l;
+    }
+
 }
 
 void physics_engine::init_npc_loc(){
@@ -115,11 +123,10 @@ void physics_engine::init_level_map(){
 
 }
 
-
 void physics_engine::init_world(){
 
     glPushMatrix();
-        uni -> int_empty_world(); //uses the world class
+        uni -> int_empty_world();
     glPopMatrix();
 
     glPushMatrix();
@@ -131,46 +138,49 @@ void physics_engine::init_world(){
     glPopMatrix();
 
     glPushMatrix();
-        player1->render();
+        player1 -> render();
     glPopMatrix();
 }
 
-void physics_engine::update_with_time(){
-   // home -> update();
-    //asteroidToAsteroidCollision();
-    //bulletToAsteroidCollision();
+void physics_engine::update_with_time(){ //runs every frame
+
+
+
+    //3D
     col_dec_bullet_to_asteroid();
     col_dec_asteroid_to_planet();
+
+    if(check_all_dead() == true){
+
+        setLevel(getLevel() + 1);
+
+        start_new_level();
+
+    }
     render_npc();
-    render_explosions();
     player1->render();
+
+
+    //2D
+    //hud -> update(getLevel(), (this->home)->health);
+
 
 }
 
 void physics_engine::spawn(){
 
-
-    for(int n = 1; n <= level_npc_num[*level]; n++ ){
+    for(int n = 1; n <= level_npc_num[*level]; n++){
 
         float tx = (init_npc_point -> x) + (float)((npc_loc[n]->x)*(10));
         float ty = (init_npc_point -> y) + (float)((4-(npc_loc[n]->y))*(10));
-        float tz = init_npc_point -> z ;
+        float tz = init_npc_point -> z;
+
+        float fx = -1 + (rand() % (int)(2 + 1 + 1));
 
 
-        if(((init_npc_point -> x) + (npc_loc[n]->x)*(0.1)) == 0){
-            tx = 0.0;
-        }
+        v_asteroid.push_back(new npc(tx,ty,tz,fx,0,0)); //adding all asteroids to a vector
 
-        if (((init_npc_point -> y) + (4-(npc_loc[n]->y))*(0.1)) == 0) {
-            ty = 0.0;
-        }
-
-
-        //v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz);
-
-        v_asteroid.push_back(*new npc(tx,ty,tz)); //adding all asteroids to a vector
-
-        player1= new player(0.0f, 0.0f, -1.0f);
+        player1 = new player(0.0f, 0.5f, -1.0f);
 
     }
 
@@ -183,40 +193,68 @@ void physics_engine::start_new_level(){
 
         for (int m = 0; m < 5; m++) {
 
-
             delete v[n][m];
             v[n][m] = NULL;
         }
 
     }
 
+    for(int i = 0; i < v_asteroid.size(); i++){
+
+        delete v_asteroid[i];//deallocated the memory
+    }
+
+    v_asteroid.clear(); //removes the pointers
+
+    //render level announcment and delay spawn.
+
     this -> spawn();
 
 }
 
-void physics_engine::render_explosions(){
+void physics_engine::level_display(){ //doesn't work
 
-    for(int a = 0; a < v_ex.size();a++){ //removes expired explosions
+    glPushMatrix();
 
-        v_ex[a]->checkLife();
+     //sets light of material
+        GLfloat ambient[] = { 1.0, 1.0, 1.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+        //sets specular properties of the material
+        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 50.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        if(v_ex[a]->alive == false){
-            v_ex.erase(v_ex.begin()+a);
-        }
-    }
+        glScaled(5,1,1);
+       // glutSolidCube(5);
 
-    for(int a = 0; a < v_ex.size();a++){
 
-        v_ex[a]->update();
+    glPopMatrix();
 
-    }
 
 }
 
 void physics_engine::render_npc(){
+
     for(int i=0; i<v_asteroid.size() ;i++){
-        v_asteroid[i].update();
+        v_asteroid[i]->update();
     }
+
+    for(int a = 0; a < v_ex.size(); a++){
+       v_ex[a]->checkLife();
+
+       if(v_ex[a]->alive == false){
+
+            v_ex.erase(v_ex.begin()+a);
+            a = a - 1;//to compensate for the shift up
+       }
+    }
+
+    for(int a = 0; a < v_ex.size(); a++){
+        v_ex[a]->update();
+    }
+
 }
 
 void physics_engine::asteroidToAsteroidCollision(){
@@ -225,13 +263,13 @@ void physics_engine::asteroidToAsteroidCollision(){
       for(int j=i; j<v_asteroid.size() ;j++){
           if(i!=j){ //we dont want the distance between an asteroid and itself
               //get co-ordinates of asteroid i
-              double x_loc_i=*(v_asteroid[i].getLocation());
-              double y_loc_i=*(v_asteroid[i].getLocation()+1);
-              double z_loc_i=*(v_asteroid[i].getLocation()+2);
+              double x_loc_i=*(v_asteroid[i]->getLocation());
+              double y_loc_i=*(v_asteroid[i]->getLocation()+1);
+              double z_loc_i=*(v_asteroid[i]->getLocation()+2);
               //get co-ordinates of asteroid j
-              double x_loc_j=*(v_asteroid[j].getLocation());
-              double y_loc_j=*(v_asteroid[j].getLocation()+1);
-              double z_loc_j=*(v_asteroid[j].getLocation()+2);
+              double x_loc_j=*(v_asteroid[j]->getLocation());
+              double y_loc_j=*(v_asteroid[j]->getLocation()+1);
+              double z_loc_j=*(v_asteroid[j]->getLocation()+2);
               //calculate distance between them
               dist=sqrt(pow(x_loc_i-x_loc_j,2)
                        +pow(y_loc_i-y_loc_j,2)
@@ -240,14 +278,14 @@ void physics_engine::asteroidToAsteroidCollision(){
 //cout<<"x_loc: "<<x_loc<<endl;
 //cout<<"true"<<endl;
 
-            if( dist< (v_asteroid[i].getRadius()+v_asteroid[j].getRadius()) ){ //if dist is less than sum of radii
+            if( dist< (v_asteroid[i]->getRadius()+v_asteroid[j]->getRadius()) ){ //if dist is less than sum of radii
 //cout<<"i: "<<v_asteroid[i].getRadius()<<endl;
 //cout<<"j: "<<v_asteroid[j].getRadius()<<endl;
 //cout<<"Dist: "<<getDistance(v_asteroid[i],v_asteroid[j])<<endl;
 
                 //register collisions
-                v_asteroid[i].regCollision();
-                v_asteroid[j].regCollision();
+                v_asteroid[i]->regCollision();
+                v_asteroid[j]->regCollision();
 //cout<<"i: "<<i<<" j: "<<j<<endl;
                 //split(v_asteroid[i],v_asteroid[j],i,j);
 //ERASING IS A PROBLEM
@@ -272,16 +310,16 @@ void physics_engine::col_dec_asteroid_to_planet(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
 
-        float d = sqrt(((home->x - v_asteroid[a].sx) * (home->x - v_asteroid[a].sx)) + ((home->y - v_asteroid[a].sy) * (home->y - v_asteroid[a].sy)) + ((home->z - v_asteroid[a].sz) * (home->z - v_asteroid[a].sz)));
+        float d = sqrt(((home->x - v_asteroid[a]->sx) * (home->x - v_asteroid[a]->sx)) + ((home->y - v_asteroid[a]->sy) * (home->y - v_asteroid[a]->sy)) + ((home->z - v_asteroid[a]->sz) * (home->z - v_asteroid[a]->sz)));
 
-        if(d < (v_asteroid[a].radius + 4)){
+        if(d < (v_asteroid[a]->radius + 4)){
 
-            home->takeDamage(v_asteroid[a].getSize());
+            home->takeDamage(v_asteroid[a]->getSize());
 
-            v_asteroid[a].alive = false;
-            v_ex.push_back(new explosions(v_asteroid[a].radius,v_asteroid[a].sx,v_asteroid[a].sy,v_asteroid[a].sz));
-
+            v_asteroid[a]->alive = false;
+            v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz));
             v_asteroid.erase(v_asteroid.begin()+a);
+            a = a - 1;
 
 
         }
@@ -296,21 +334,21 @@ void physics_engine::bulletToAsteroidCollision(){
      for(int i=0; i<player1->v_bullet.size() ;i++){
        for(int j=0; j<v_asteroid.size() ;j++){
               //get co-ordinates of bullet i
-              double x_loc_i=*(player1->v_bullet[i].getLocation());
-              double y_loc_i=*(player1->v_bullet[i].getLocation()+1);
-              double z_loc_i=*(player1->v_bullet[i].getLocation()+2);
+              double x_loc_i=*(player1->v_bullet[i]->getLocation());
+              double y_loc_i=*(player1->v_bullet[i]->getLocation()+1);
+              double z_loc_i=*(player1->v_bullet[i]->getLocation()+2);
               //get co-ordinates of asteroid j
-              double x_loc_j=*(v_asteroid[j].getLocation());
-              double y_loc_j=*(v_asteroid[j].getLocation()+1);
-              double z_loc_j=*(v_asteroid[j].getLocation()+2);
+              double x_loc_j=*(v_asteroid[j]->getLocation());
+              double y_loc_j=*(v_asteroid[j]->getLocation()+1);
+              double z_loc_j=*(v_asteroid[j]->getLocation()+2);
               //calculate distance between them
               bulletDist=sqrt(pow(x_loc_i-x_loc_j,2)
                        +pow(y_loc_i-y_loc_j,2)
                        +pow(z_loc_i-z_loc_j,2));
 
-              if( bulletDist< (0.1+v_asteroid[j].getRadius()) ){   //dist less than bullet radius+asteroid radius
-                  player1->v_bullet[i].die();
-                  v_asteroid[j].regCollision();
+              if( bulletDist< (0.1+v_asteroid[j]->getRadius()) ){   //dist less than bullet radius+asteroid radius
+                  player1->v_bullet[i]->die();
+                  v_asteroid[j]->regCollision();
 
                   player1->v_bullet.erase(player1->v_bullet.begin()+j);
                   v_asteroid.erase(v_asteroid.begin()+i);
@@ -325,27 +363,29 @@ void physics_engine::col_dec_bullet_to_asteroid(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
         for(int b = 0; b < player1->v_bullet.size(); b++){
-            float d = sqrt(((player1->v_bullet[b].sx - v_asteroid[a].sx) * (player1->v_bullet[b].sx - v_asteroid[a].sx)) + ((player1->v_bullet[b].sy - v_asteroid[a].sy) * (player1->v_bullet[b].sy - v_asteroid[a].sy)) + ((player1->v_bullet[b].sz - v_asteroid[a].sz) * (player1->v_bullet[b].sz - v_asteroid[a].sz)));
+            float d = sqrt(((player1->v_bullet[b]->sx - v_asteroid[a]->sx) * (player1->v_bullet[b]->sx - v_asteroid[a]->sx)) + ((player1->v_bullet[b]->sy - v_asteroid[a]->sy) * (player1->v_bullet[b]->sy - v_asteroid[a]->sy)) + ((player1->v_bullet[b]->sz - v_asteroid[a]->sz) * (player1->v_bullet[b]->sz - v_asteroid[a]->sz)));
 
             // check bullets hitting the world boundry
-            if((player1->v_bullet[b].sx * player1->v_bullet[b].sx) + (player1->v_bullet[b].sy * player1->v_bullet[b].sy) + (player1->v_bullet[b].sz * player1->v_bullet[b].sz) >= 10000){
-                player1->v_bullet[b].die();
+            if((player1->v_bullet[b]->sx * player1->v_bullet[b]->sx) + (player1->v_bullet[b]->sy * player1->v_bullet[b]->sy) + (player1->v_bullet[b]->sz * player1->v_bullet[b]->sz) >= 10000){
+                player1->v_bullet[b]->die();
             }
 
             // detect bullets hitting the npc's
-            if(d <= (v_asteroid[a].radius + player1->v_bullet[b].rad)){
+            if(d <= (v_asteroid[a]->radius + player1->v_bullet[b]->rad)){
 
                 cout <<"collision detected : Asteroid shot" << endl;
-                v_asteroid[a].regCollision();
-                v_asteroid[a].takeDamage();
+                v_asteroid[a]->regCollision();
+                v_asteroid[a]->takeDamage();
 
-                if(v_asteroid[a].alive == false){
-                    v_ex.push_back(new explosions(v_asteroid[a].radius,v_asteroid[a].sx,v_asteroid[a].sy,v_asteroid[a].sz));
+                if(v_asteroid[a]->alive == false){
+                    v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz));
                     v_asteroid.erase(v_asteroid.begin()+a);
+                    a = a - 1;
                 }
 
-                player1->v_bullet[b].die();
+                player1->v_bullet[b]->die();
                 player1->v_bullet.erase(player1->v_bullet.begin() + b);
+                b = b - 1;
                 break;
 
             }
@@ -359,4 +399,26 @@ void physics_engine::col_dec_bullet_to_asteroid(){
 
 
 }
+
+bool physics_engine::check_all_dead(){
+
+    for(int i=0; i<v_asteroid.size() ;i++){
+
+        if(v_asteroid[i]->alive == true){
+            return false;
+        }
+    }
+
+    for(int i=0; i<v_ex.size() ;i++){
+
+        if(v_ex[i]->alive == true){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
+
 

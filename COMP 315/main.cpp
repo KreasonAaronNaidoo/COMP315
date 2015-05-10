@@ -23,7 +23,7 @@
 using namespace std;
 
 
-cam *kam = new cam(0.0, 1.5, -4.0, 0, 0.1, 10);
+cam *kam = new cam(0.0, 1.0, -2.0, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
 //player *p = new player(0.0f, 0.01f, 0.0f);
 
@@ -53,7 +53,7 @@ void initGL()
 
 
     // Set "clearing" or background color
-    glClearColor(0, 0, 0, 1); // White and opaque
+    glClearColor(0, 0, 0, 1); // Black and opaque
 
     gluOrtho2D(-10.0,10.0,-10.0,10.0);
 
@@ -66,7 +66,7 @@ void initGL()
     glEnable(GL_NORMALIZE);
     //glEnable(GL_COLOR_MATERIAL); //this ruins everything. yes everything.
 
-    GLfloat light_ambient0[] = { 0.0, 0.0, -10.0, 0.0 };//position
+    GLfloat light_ambient0[] = { 0.0, 0.0, -10.0, 1.0};//position
     //GLfloat light_ambient1[] = { 0.0, 0.0, -6.0, 0.0 };//w=0.0 defines a directional light
 
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
@@ -79,8 +79,10 @@ void initGL()
 
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
-}
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
+}
 
 void render()
 {
@@ -100,22 +102,13 @@ void render()
 
     engine -> init_world();
 
-    //glColor3ub(0,  0, 255);
-    // p-> render();
+
 
     glFlush();   // ******** DO NOT FORGET THIS **********
 
 }
 
-void display()
-{
-    render();
-    glutPostRedisplay();
-
-}
-
-void reshape(int w, int h)
-{
+void reshape(int w, int h){
 
     // Prevent a divide by zero, when window is too short
     // (you cant make a window of zero width).
@@ -137,7 +130,12 @@ void reshape(int w, int h)
 
 }
 
+void display(){
 
+    render();
+    glutPostRedisplay();
+
+}
 void key (unsigned char key, int xx, int yy){
 
     switch (key) {
@@ -161,20 +159,29 @@ void key (unsigned char key, int xx, int yy){
             engine -> start_new_level();
             glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
             break;
+
+        /*case 'w': (p->y)+=0.01; break;
+		case 's': (p->y)-=0.01; break;
+		case 'a': (p->x)+=0.01; break;
+		case 'd': (p->x)-=0.01; break;*/
+
+		case 'w': (engine->player1->y)+=0.01;
+		           break;
+		case 's': (engine->player1->y)-=0.01;
+		           break;
+		case 'a': (engine->player1->x)+=0.01;
+		           break;
+		case 'd': (engine->player1->x)-=0.01;
+		           break;
+
         default:
             break;
-        }
-
-        if (GetKeyState('w') & 0x80)
-            (engine->player1->y)+=0.01;
-        if (GetKeyState('s') & 0x80)
-            (engine->player1->y)-=0.01;
-        if (GetKeyState('a') & 0x80)
-            (engine->player1->y)+=0.01;
-        if (GetKeyState('d') & 0x80)
-            (engine->player1->y)-=0.01;
+    }
 
     glutPostRedisplay();
+
+
+
 }
 
 
@@ -207,27 +214,18 @@ void mouseMove(int x, int y){
 
 }
 
-/*void idle(){
 
-    engine -> update_with_time();
-    glutPostRedisplay();
-}*/
 
 void timer(int value){
+    engine->home->update();
     engine -> update_with_time();
     //engine -> init_world();
     glutPostRedisplay();
 
-    glutTimerFunc(0, timer, 0);
+    glutTimerFunc(30, timer, 0);
 }
 
-void planRot(int value){
 
-    engine->home->update();
-    glutPostRedisplay();
-    glutTimerFunc(30, planRot, 0);
-
-}
 
 
 int main(int argc, char * argv[]) {
@@ -239,9 +237,7 @@ int main(int argc, char * argv[]) {
     //glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
     glutCreateWindow("Astro Crisis");  // Create window with the given title
 
-    //glutIdleFunc(idle);
     glutTimerFunc(0,timer,0);
-    glutTimerFunc(30,planRot,0);
 
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
     glutReshapeFunc(reshape);

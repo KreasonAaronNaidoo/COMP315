@@ -45,12 +45,8 @@ void player::shoot(int x, int y){
 
 
 
-    v_bullet.push_back(*new bullet(this->x,this->y,this->z,posX,posY,posZ));//player position to mouse position
+    v_bullet.push_back(new bullet(this->x,this->y,this->z,posX,posY,posZ));//player position to mouse position
 
-    /*POINT pt;
-    bool result=GetCursorPos(&pt);
-    cout<<pt.x<<endl;
-    mag.push_back(new bullet(x,y,z,pt.x-650,pt.y-400,50));*/
 
 }
 
@@ -68,7 +64,7 @@ void player::render(){
 
 void player::drawBullets(){
     for(int i=0 ; i<v_bullet.size() ; i++){
-        v_bullet[i].render();
+        v_bullet[i]->render();
     }
 }
 
@@ -98,6 +94,6 @@ void collisionCheck(){
 
 }
 
-vector<bullet> player::getBulletVector(){
+vector<bullet*> player::getBulletVector(){
     return v_bullet;
 }

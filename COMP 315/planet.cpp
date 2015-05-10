@@ -40,7 +40,7 @@ void planet::initPlanet() {
 
 	quad = gluNewQuadric();
 
-	Image* image = loadBMP("C:\\earth.bmp");
+	Image* image = loadBMP("resources\\earth.bmp");
     _textureId = loadTexture(image);
 	delete image;
 }

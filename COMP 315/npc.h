@@ -19,7 +19,7 @@ public:
     //constructors
     npc();
     ~npc();
-    npc(double x, double y, double z);
+    npc(double sx, double sy, double sz, double fx, double fy, double fz);
     //void
     void render();
     void update();
@@ -42,10 +42,10 @@ public:
     double sx, sy, sz;
     double radius;
     bool alive = true;
+    double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
 
 
 private:
-    double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int size;              //size 1,2,3     -sizes respond to radii. Possibly redundant
     float velocity;
     float theta;

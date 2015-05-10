@@ -19,14 +19,14 @@
 using namespace std;
 
 npc::npc(){
-    npc(0,0,0); //spawns an asteroid at the very core of our home planet
+    npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
 npc::~npc(){
 
 }
 
-npc::npc(double sx, double sy, double sz){
+npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
     //passed by asteroid genetator
     this->sx = sx;
     this->sy = sy;
@@ -35,15 +35,15 @@ npc::npc(double sx, double sy, double sz){
     /*These asteroids will always initially move toward the centre of the planet. These values will be changed
      by an external call if collision momentum physics algorithms are programmed successfully.*/
 
-    this->fx = 0;
-    this->fy = 0;
-    this->fz = 0;
+    this->fx = fx;
+    this->fy = fy;
+    this->fz = fz;
 
 
 
     float t = rand() %10;
 
-    this->velocity = t/1000;
+    this->velocity = t/10000; //this needs to be tweaked.
     if (this -> velocity < 0.003) {
         this -> velocity = 0.003;
     }
@@ -66,14 +66,21 @@ npc::npc(double sx, double sy, double sz){
         radius=0.2;
     else if(size==3)
         radius=0.3;
-
-
+    //cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
 
 
 }
 
 void npc::render(){
-    //if alive is false render will cease and the object will cease
+
+    if((this -> sz) < -10){
+        this -> alive = false;
+    }
+
+    if(((this -> sx)*(this -> sx) + (this -> sy)*(this -> sy) + (this -> sz)*(this -> sz)) > 10000){
+        this -> alive = false;//this is just a back up
+    }
+
     if(alive){
         glPushMatrix();
         glTranslated(sx, sy, sz); // move to initial position
@@ -97,8 +104,6 @@ void npc::render(){
 
         glPopMatrix();
     }
-
-
 }
 
 //update is not currently useful
@@ -154,7 +159,7 @@ void npc::split(int size){
 }
 
 void npc::die(){
-    alive=false;     //do not render asteroid next cycle
+    alive=false;     //do not render next cycle
 }
 
 int npc::getSize(){
