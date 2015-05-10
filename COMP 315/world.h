@@ -26,14 +26,15 @@ private:
 public:
     void int_empty_world();
 
+    //texture variables
+    GLuint _textureId; //The id of the texture
+    GLUquadric *quad = gluNewQuadric();
 
-    GLuint LoadTexture( const char * filename );
+    GLuint loadTexture(Image* image);
 
+    void initWorld();
 
     world();
-
-
-    GLuint texture;
 
 
 

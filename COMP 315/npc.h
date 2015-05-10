@@ -19,7 +19,7 @@ public:
     //constructors
     npc();
     ~npc();
-    npc(double x, double y, double z, double fx, double fy, double fz);
+    npc(double x, double y, double z);
     //void
     void render();
     void update();
@@ -42,6 +42,7 @@ public:
     double sx, sy, sz;
     double radius;
     bool alive = true;
+
 
 private:
     double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined

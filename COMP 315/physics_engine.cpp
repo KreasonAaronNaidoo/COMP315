@@ -19,11 +19,13 @@
 #include "bullet.h"
 #include "player.h"
 #include "planet.h"
+#include "explosions.h"
 
 using namespace std;
 
 /*For whatever reason I can't declare these in the header file. Immediate crash. C++ pls*/
 vector<npc> v_asteroid;
+vector<explosions*> v_ex;
 double dist;
 //<bullet> v_bullet;
 double bulletDist;
@@ -36,7 +38,7 @@ physics_engine::physics_engine(){
     this -> init_npc_loc();
     this -> start_new_level();
 
-    this->home = new planet(0, -4, 0.01);
+    this->home = new planet(0, -4, 0.0);
 
 }
 
@@ -140,6 +142,7 @@ void physics_engine::update_with_time(){
     col_dec_bullet_to_asteroid();
     col_dec_asteroid_to_planet();
     render_npc();
+    render_explosions();
     player1->render();
 
 }
@@ -154,13 +157,22 @@ void physics_engine::spawn(){
         float tz = init_npc_point -> z ;
 
 
-        float fx = -1 + (rand() % (int)(1 + 1 + 1));
+        if(((init_npc_point -> x) + (npc_loc[n]->x)*(0.1)) == 0){
+            tx = 0.0;
+        }
 
-        v_asteroid.push_back(*new npc(tx,ty,tz,fx,0,0)); //adding all asteroids to a vector
+        if (((init_npc_point -> y) + (4-(npc_loc[n]->y))*(0.1)) == 0) {
+            ty = 0.0;
+        }
 
+
+        //v[(int)(npc_loc[n]->x)][(int)(npc_loc[n] ->y)] = new npc(tx,ty,tz);
+
+        v_asteroid.push_back(*new npc(tx,ty,tz)); //adding all asteroids to a vector
+
+        player1= new player(0.0f, 0.0f, -1.0f);
 
     }
-    player1= new player(0.0f, 0.0f, -1.0f);
 
 }
 
@@ -179,6 +191,25 @@ void physics_engine::start_new_level(){
     }
 
     this -> spawn();
+
+}
+
+void physics_engine::render_explosions(){
+
+    for(int a = 0; a < v_ex.size();a++){ //removes expired explosions
+
+        v_ex[a]->checkLife();
+
+        if(v_ex[a]->alive == false){
+            v_ex.erase(v_ex.begin()+a);
+        }
+    }
+
+    for(int a = 0; a < v_ex.size();a++){
+
+        v_ex[a]->update();
+
+    }
 
 }
 
@@ -248,6 +279,8 @@ void physics_engine::col_dec_asteroid_to_planet(){
             home->takeDamage(v_asteroid[a].getSize());
 
             v_asteroid[a].alive = false;
+            v_ex.push_back(new explosions(v_asteroid[a].radius,v_asteroid[a].sx,v_asteroid[a].sy,v_asteroid[a].sz));
+
             v_asteroid.erase(v_asteroid.begin()+a);
 
 
@@ -307,6 +340,7 @@ void physics_engine::col_dec_bullet_to_asteroid(){
                 v_asteroid[a].takeDamage();
 
                 if(v_asteroid[a].alive == false){
+                    v_ex.push_back(new explosions(v_asteroid[a].radius,v_asteroid[a].sx,v_asteroid[a].sy,v_asteroid[a].sz));
                     v_asteroid.erase(v_asteroid.begin()+a);
                 }
 

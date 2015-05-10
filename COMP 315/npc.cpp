@@ -19,14 +19,14 @@
 using namespace std;
 
 npc::npc(){
-    npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
+    npc(0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
 npc::~npc(){
 
 }
 
-npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
+npc::npc(double sx, double sy, double sz){
     //passed by asteroid genetator
     this->sx = sx;
     this->sy = sy;
@@ -35,9 +35,9 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
     /*These asteroids will always initially move toward the centre of the planet. These values will be changed
      by an external call if collision momentum physics algorithms are programmed successfully.*/
 
-    this->fx = fx;
-    this->fy = fy;
-    this->fz = fz;
+    this->fx = 0;
+    this->fy = 0;
+    this->fz = 0;
 
 
 
@@ -66,7 +66,8 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
         radius=0.2;
     else if(size==3)
         radius=0.3;
-    //cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
+
+
 
 
 }
@@ -96,6 +97,8 @@ void npc::render(){
 
         glPopMatrix();
     }
+
+
 }
 
 //update is not currently useful
@@ -151,7 +154,7 @@ void npc::split(int size){
 }
 
 void npc::die(){
-    alive=false;     //do not render next cycle
+    alive=false;     //do not render asteroid next cycle
 }
 
 int npc::getSize(){

@@ -59,21 +59,23 @@ void initGL()
 
 
     glEnable(GL_LIGHTING);
+    //this light simulates the sun. Directional with no attenuation
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
 
     glEnable(GL_NORMALIZE);
     //glEnable(GL_COLOR_MATERIAL); //this ruins everything. yes everything.
 
-    //GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    //GLfloat mat_shininess[] = { 50.0 };
-    //glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    //glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    GLfloat light_ambient0[] = { 0.0, 0.0, -10.0, 0.0 };//position
+    //GLfloat light_ambient1[] = { 0.0, 0.0, -6.0, 0.0 };//w=0.0 defines a directional light
 
-    //GLfloat light_ambient0[] = { 0.0, 0.0, 10.0, 0.0000001 };//position
-    GLfloat light_ambient1[] = { 0.0, 0.0, -6.0, 1.0 };
-    //glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
-    glLightfv(GL_LIGHT1, GL_POSITION, light_ambient1);
+    glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
+    //glLightfv(GL_LIGHT1, GL_POSITION, light_ambient1);
+
+
+    //global ambient lighting
+    GLfloat lmodel_ambient[] = {0.5,0.5,0.5,1.0};
+    glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
 
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
 
@@ -253,6 +255,7 @@ int main(int argc, char * argv[]) {
 
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();
+    //engine->uni->initWorld();
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;

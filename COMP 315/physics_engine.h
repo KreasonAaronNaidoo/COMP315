@@ -55,6 +55,8 @@ public:
 
     void start_new_level();
 
+    void render_explosions();
+
     void render_npc();
 
     int getLevel();

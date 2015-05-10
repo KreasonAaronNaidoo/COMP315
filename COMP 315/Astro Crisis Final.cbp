@@ -46,6 +46,9 @@
 		<Unit filename="bullet.h" />
 		<Unit filename="cam.cpp" />
 		<Unit filename="cam.h" />
+		<Unit filename="earth.bmp" />
+		<Unit filename="explosions.cpp" />
+		<Unit filename="explosions.h" />
 		<Unit filename="imageloader.cpp" />
 		<Unit filename="imageloader.h" />
 		<Unit filename="main.cpp" />
@@ -59,6 +62,7 @@
 		<Unit filename="player.h" />
 		<Unit filename="point.cpp" />
 		<Unit filename="point.h" />
+		<Unit filename="space.bmp" />
 		<Unit filename="world.cpp" />
 		<Unit filename="world.h" />
 		<Extensions>
