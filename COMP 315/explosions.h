@@ -11,6 +11,9 @@ class explosions
         void update();
         void checkLife();
         float trans = 1;
+        float r = 1;
+        float g = 1;
+        float b = 1;
 
 
     private:

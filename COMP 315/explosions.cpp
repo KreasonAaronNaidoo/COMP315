@@ -36,13 +36,13 @@ void explosions::render(){
 
 
         //sets light of material
-        GLfloat ambient[] = { 1.0, 1.0, 1.0, trans};
+        GLfloat ambient[] = {r, g, b, trans};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, trans};
+        GLfloat mat_specular[] = {r, g, b, trans};
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
-        GLfloat mat_shininess[] = { 50.0 };
+        GLfloat mat_shininess[] = { 40.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
         //glutWireSphere(RC,25,25);
@@ -51,7 +51,10 @@ void explosions::render(){
         glPopMatrix();
 
        RC = RC + 0.001;
-       trans = trans - 0.002 ;
+       trans = trans - 0.004 ;
+       r = r - 0.005;
+       g = g - 0.01;
+       b = b - 0.025;
     }
 
 }

@@ -22,9 +22,11 @@
 using namespace std;
 
 vector<npc*> v_asteroid;
+
 double dist;
-//<bullet> v_bullet;
+
 double bulletDist;
+
 vector<explosions*> v_ex;
 
 physics_engine::physics_engine(){
@@ -99,7 +101,7 @@ void physics_engine::init_npc_loc(){
 }
 
 void physics_engine::init_level_map(){
-
+    level_npc_num[0] = 0;
     level_npc_num[1] = 4;
     level_npc_num[2] = 5;
     level_npc_num[3] = 7;

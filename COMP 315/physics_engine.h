@@ -21,6 +21,7 @@
 #include "map"
 #include "point.h"
 #include "hud.h"
+#include "explosions.h"
 
 
 class physics_engine{
@@ -29,21 +30,27 @@ private:
 
 public:
 
-
+    //functions
     physics_engine();
 
     void init_level_map();
-    void init_npc_loc();
-    void npc_final_loc();
 
+    void init_npc_loc();
+
+    void npc_final_loc();
 
     void init_world(); // sets up the basic empty world.
 
     void move_player(float *px, float *py, float *pz); //co - ordinates to move too
+
     void move_camera(float *cx, float *cy, float *cz); //co - ordinates of the cam
+
     void move_look(float *lx, float *ly, float *lz);   //look at of the cam
+
     void col_dec_bullet_to_asteroid();
+
     void col_dec_asteroid_to_planet();
+
     void kill(); //destroys an asteroid
 
     void update_with_time(); //spinning of the planet and asteroids and health bars
@@ -66,28 +73,34 @@ public:
 
     void level_display();
 
-    world *uni = new world();
-    HUD *hud = new HUD();
-    planet *home;
-    player *player1;
+     void asteroidToAsteroidCollision();
 
-    //std::vector <std::vector<npc*> > V_npc; // 2d vector
-    //void init_vector();
+    void split(npc ast1,npc ast2,int i,int j);
+
+    void bulletToAsteroidCollision();
+
+
+    //objects
+    world *uni = new world();
+
+    HUD *hud = new HUD();
+
+    planet *home;
+
+    player *player1;
 
     npc *v [7][5];
 
-    void asteroidToAsteroidCollision();
-    void split(npc ast1,npc ast2,int i,int j);
-    void bulletToAsteroidCollision();
-
     point *init_npc_point = new point(-30, -15, 50);
+
     float *npc_init_loc_inc = new float();
 
-
     int *level = new int(); //set this to one initialy
+
     bool *all_dead = new bool(); //set this to false
 
     std::map <int, int> level_npc_num;
+
     std::map <int, point*> npc_loc;
 
 };

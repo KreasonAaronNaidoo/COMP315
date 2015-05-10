@@ -23,7 +23,7 @@
 using namespace std;
 
 
-cam *kam = new cam(0.0, 1.0, -2.0, 0, 0.1, 10);
+cam *kam = new cam(0.0, 1.0, -2.5, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
 //player *p = new player(0.0f, 0.01f, 0.0f);
 

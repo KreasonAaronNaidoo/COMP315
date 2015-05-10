@@ -70,20 +70,32 @@ void player::drawBullets(){
 
 void player::drawPlayer(){
     glScalef(0.1f,0.1f,0.1f);
+
+     //sets light of material
+        GLfloat ambient[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+        //sets specular properties of the material
+        GLfloat mat_specular[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+
     glBegin(GL_TRIANGLES);
-        glColor3d(255,0,255);
+        //glColor3d(255,0,255);
 		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f,-1.0f, 1.0f);
 		glVertex3f( 1.0f,-1.0f, 1.0f);
-		glColor3d(0,255,0);
+		//glColor3d(0,255,0);
 		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f( 1.0f,-1.0f, 1.0f);
 		glVertex3f( 1.0f,-1.0f, -1.0f);
-		glColor3d(255,255,0);
+		//glColor3d(255,255,0);
 		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f( 1.0f,-1.0f, -1.0f);
 		glVertex3f(-1.0f,-1.0f, -1.0f);
-		glColor3d(0,0,255);
+		//glColor3d(0,0,255);
 		glVertex3f( 0.0f, 1.0f, 0.0f);
 		glVertex3f(-1.0f,-1.0f,-1.0f);
 		glVertex3f(-1.0f,-1.0f, 1.0f);
