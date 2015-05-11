@@ -9,10 +9,15 @@
 #ifndef __COMP_315__npc__
 #define __COMP_315__npc__
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
+#include <GL/glut.h>
+#endif
+
 #include <stdio.h>
 #include "point.h"
 #include "imageloader.h"
-#include <GL/glut.h>
 
 class npc{
 public:

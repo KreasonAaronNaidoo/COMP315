@@ -17,6 +17,7 @@
 #include "imageloader.h"
 #ifdef __APPLE__
 #include <GLUT/glut.h>
+#include "CoreFoundation/CoreFoundation.h"
 #else
 #include <GL/glut.h>
 #endif
@@ -81,6 +82,12 @@ void initGL()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+    
+    
+    
+    
+    
+ 
 
 }
 
@@ -239,7 +246,7 @@ int main(int argc, char * argv[]) {
     glutMouseFunc(mouseClick);
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
-    glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
+    //glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
 
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();

@@ -9,6 +9,9 @@
 #define PLANET_H
 #include "npc.h"
 #include "imageloader.h"
+#include <string.h>
+
+using namespace std;
 
 class planet{
 public:
@@ -22,6 +25,7 @@ public:
     void die();
     float x,y,z;
     int health;
+
 
 
     //texture variables

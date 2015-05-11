@@ -6,6 +6,8 @@
 //  Copyright (c) 2015 Shaherin Dehaloo. All rights reserved.
 //
 
+
+
 #ifdef __APPLE__
 #include <GLUT/glut.h>
 #else
@@ -39,7 +41,7 @@ planet::planet(float x, float y, float z){
 void planet::initPlanet() {
 
 	quad = gluNewQuadric();
-
+    
 	Image* image = loadBMP("resources\\earth.bmp");
     _textureId = loadTexture(image);
 	delete image;

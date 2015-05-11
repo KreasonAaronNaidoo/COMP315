@@ -6,7 +6,11 @@
 //  Copyright (c) 2015 Kreason Aaron Naidoo. All rights reserved.
 //
 
+#ifdef __APPLE__
+#include <GLUT/glut.h>
+#else
 #include <GL/glut.h>
+#endif
 #include "physics_engine.h"
 #include <iostream>
 #include <stdlib.h>
