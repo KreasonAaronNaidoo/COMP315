@@ -10,6 +10,7 @@
 #include "npc.h"
 #include "imageloader.h"
 #include <string.h>
+#include "explosions.h"
 
 using namespace std;
 
@@ -23,8 +24,10 @@ public:
     void render();
     void update();
     void die();
+    bool alive = true;
     float x,y,z;
     int health;
+    explosions *boom;
 
 
 

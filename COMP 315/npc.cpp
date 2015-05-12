@@ -102,8 +102,8 @@ void npc::render(){
         GLfloat mat_shininess[] = { 10.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glutWireSphere(radius,25,25);
-        //glutSolidSphere(radius,25,25);
+        // glutWireSphere(radius,25,25);
+        glutSolidSphere(radius,25,25);
 
         glPopMatrix();
     }

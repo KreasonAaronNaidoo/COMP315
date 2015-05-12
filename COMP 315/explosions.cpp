@@ -9,14 +9,15 @@
 using namespace std;
 
 
-explosions::explosions(float r, float sx, float sy, float sz)
+explosions::explosions(float r, float sx, float sy, float sz, float f, float exv)
 {
 
     RC = r;
-    RF = r*3;
+    RF = r*f;
     x = sx;
     y = sy;
     z = sz;
+    this -> exv = exv;
     alive = true;
     cout <<"new explosion created at :("<<x<<","<<y<<","<<z<<") with radius : "<<RC<< endl;
 
@@ -50,11 +51,12 @@ void explosions::render(){
 
         glPopMatrix();
 
-       RC = RC + 0.001;
-       trans = trans - 0.004 ;
-       r = r - 0.005;
-       g = g - 0.01;
-       b = b - 0.025;
+       RC = RC + 0.001*exv;
+       trans = trans - 0.004*exv;
+       r = r - 0.005*exv;
+       g = g - 0.01*exv;
+       b = b - 0.025*exv;
+
     }
 
 }

@@ -168,7 +168,7 @@ void physics_engine::update_with_time(){ //runs every frame
 
 
     //2D
-    //hud -> update(getLevel(), (this->home)->health);
+    hud -> update(getLevel(), (this->home)->health);
 
 
 }
@@ -267,6 +267,7 @@ void physics_engine::render_npc(){
             v_ex.erase(v_ex.begin()+a);
             a = a - 1;//to compensate for the shift up
        }
+
     }
 
     for(int a = 0; a < v_ex.size(); a++){
@@ -335,7 +336,7 @@ void physics_engine::col_dec_asteroid_to_planet(){
             home->takeDamage(v_asteroid[a]->getSize());
 
             v_asteroid[a]->alive = false;
-            v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz));
+            v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz,3,1));
             v_asteroid.erase(v_asteroid.begin()+a);
             a = a - 1;
 
@@ -396,7 +397,7 @@ void physics_engine::col_dec_bullet_to_asteroid(){
                 v_asteroid[a]->takeDamage();
 
                 if(v_asteroid[a]->alive == false){
-                    v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz));
+                    v_ex.push_back(new explosions(v_asteroid[a]->radius,v_asteroid[a]->sx,v_asteroid[a]->sy,v_asteroid[a]->sz,3,1));
                     v_asteroid.erase(v_asteroid.begin()+a);
                     a = a - 1;
                 }

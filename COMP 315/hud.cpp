@@ -33,42 +33,45 @@ void HUD::update(int l, int h){
 
 void HUD::render(){
 
-    //go to 2D
-    glDepthMask(GL_FALSE);                  // disable writes to Z-Buffer
+    glDisable( GL_LIGHTING );
     glDisable(GL_DEPTH_TEST);
-    glDisable(GL_LIGHTING);
-    glMatrixMode(GL_PROJECTION);			// Select Projection
+    glDepthMask(GL_FALSE);
+
+    glMatrixMode(GL_PROJECTION);					// Select Projection
 	glPushMatrix();							// Push The Matrix
 	glLoadIdentity();						// Reset The Matrix
-	glOrtho(0, glutGet(GLUT_WINDOW_WIDTH), glutGet(GLUT_WINDOW_HEIGHT), 0, -1, 100);		    // Select Ortho Mode
-	glMatrixMode(GL_MODELVIEW);				// Select Modelview Matrix
+	//glOrtho( 0, glutGet(GLUT_WINDOW_WIDTH) , glutGet(GLUT_WINDOW_HEIGHT) , 0, -1, 1 );				// Select Ortho Mode
+	glOrtho( -100.0f, 100.0f, -100.0f, 100.0f, -100.0f, 100.0f );
+	glMatrixMode(GL_MODELVIEW);					// Select Modelview Matrix
 	glPushMatrix();							// Push The Matrix
-	glLoadIdentity();						// Reset The Matrix
+	glLoadIdentity();
 
 
-    glPushMatrix();
-    glColor3d(1,0,0);
-    glBegin(GL_QUADS);      // try drawing a quad
-        glVertex2f(0.0, 0.0);
-        glVertex2f(5.0, 0.0);
-        glVertex2f(5.0, 5.0);
-        glVertex2f(0.0, 5.0);
-    glEnd();
 
-    glPopMatrix();
+    //sets colour of material
+    GLfloat ambient[] = { 1.0, 0.0, 0.0, 1.0};
+    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+    //sets specular properties of the material
+    GLfloat mat_specular[] = { 1.0, 0.5, 0.5, 1.0 };
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    // sets the shininess of the material
+    GLfloat mat_shininess[] = { 10.0 };
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
+        glTranslated(0,5,4);
+        glBegin(GL_TRIANGLES);
+            glVertex2d(0,10);
+            glVertex2d(10,0);
+            glVertex2d(0,0);
+        glEnd();
+        //try putting this code in render npc
 
-    //go back to 3D
-    glMatrixMode( GL_PROJECTION );			// Select Projection
+    glEnable( GL_LIGHTING );
+    glEnable(GL_DEPTH_TEST);
+    glDepthMask(GL_TRUE);
+
+    glMatrixMode( GL_PROJECTION );					// Select Projection
 	glPopMatrix();							// Pop The Matrix
-	glMatrixMode( GL_MODELVIEW );			// Select Modelview
-	glPopMatrix();							// Pop The Matrix
-	glEnable(GL_DEPTH_TEST);
-	glEnable(GL_LIGHTING);
-	glDepthMask(GL_TRUE);  // disable writes to Z-Buffer
-
-
-
-
-
+	glMatrixMode( GL_MODELVIEW );					// Select Modelview
+	glPopMatrix();
 }

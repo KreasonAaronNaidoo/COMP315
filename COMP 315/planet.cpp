@@ -34,6 +34,7 @@ planet::planet(float x, float y, float z){
     angVelocity=0.1;
     health=100;
     collision=false;
+    boom = new explosions(4,x,y,z,10,1);
 
 }
 
@@ -41,13 +42,16 @@ planet::planet(float x, float y, float z){
 void planet::initPlanet() {
 
 	quad = gluNewQuadric();
-    
+
 	Image* image = loadBMP("resources\\earth.bmp");
     _textureId = loadTexture(image);
 	delete image;
 }
 
 void planet::render(){
+
+    if (alive == true){
+
     glPushMatrix();
 
     glTranslatef(x, y, z); // move to this position
@@ -79,6 +83,21 @@ void planet::render(){
     gluSphere(quad,4,25,25);//radius 0.5, 25 slices and stacks
     //glutWireSphere(4.0,25,25); //using the wire for demo reasons, untill textures are done
     glPopMatrix();
+
+    }
+
+    if(alive == false){
+
+        boom->checkLife();
+
+        if(boom->alive == false){
+            delete boom;
+        }
+
+        boom -> update();
+    }
+
+
 }
 
 void planet::update(){
@@ -116,6 +135,7 @@ void planet::takeDamage(int level){
 
 void planet::die(){
     cout<<"Death becomes you"<<endl;  //die shouldn't be handled the same way
+    //alive = false;
 }
 
 //Makes the image into a texture, and returns the id of the texture

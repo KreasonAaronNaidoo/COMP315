@@ -23,6 +23,9 @@
 #endif
 using namespace std;
 
+float curx;
+float cury;
+
 
 cam *kam = new cam(0.0, 1.0, -2.5, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
@@ -47,8 +50,8 @@ GLuint loadTexture(Image* image) {
 }
 
 /* Initialize OpenGL Graphics */
-void initGL()
-{
+
+void initGL(){
 
     srand((int)time(NULL));
 
@@ -82,34 +85,33 @@ void initGL()
 
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    
-    
-    
-    
-    
- 
+
+
+
+
+
+
 
 }
 
 void render(){
 
-    // GL_DEPTH_BUFFER_BIT - resets the depth test values for hidden surface removal
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-    // Reset transformations
-    glMatrixMode(GL_MODELVIEW);
+
+    //glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
-
-
 
     kam -> place();
     engine -> init_world();
+
+
     //glFlush();
     glutSwapBuffers();   // ******** DO NOT FORGET THIS **********
 
 }
 
 void reshape(int w, int h){
+
 
     // Prevent a divide by zero, when window is too short
     // (you cant make a window of zero width).
@@ -126,6 +128,9 @@ void reshape(int w, int h){
 
     // Set the clipping volume
     gluPerspective(45, ratio, 0.00001, 500);
+
+
+
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
@@ -133,10 +138,15 @@ void reshape(int w, int h){
 
 void display(){
 
+
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     render();
+    engine -> update_with_time();
     glutPostRedisplay();
 
 }
+
 void key (unsigned char key, int xx, int yy){
 
     switch (key) {
@@ -174,6 +184,10 @@ void key (unsigned char key, int xx, int yy){
 		           break;
 		case 'd': (engine->player1->x)-=0.01;
 		           break;
+        case 'r': (engine -> player1->shoot(curx,cury));
+                   break;
+
+
 
         default:
             break;
@@ -184,7 +198,6 @@ void key (unsigned char key, int xx, int yy){
 
 
 }
-
 
 void arrowKey(int key, int xx, int y){
 
@@ -205,6 +218,8 @@ void mouseClick(int button, int state, int x, int y){
 
 void mouseMove(int x, int y){
 
+    curx = x;
+    cury = y;
 
     kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
                 //^this value denotes the speed of the camera rotation in the x-direction
@@ -214,8 +229,6 @@ void mouseMove(int x, int y){
 
 
 }
-
-
 
 void timer(int value){
     engine -> update_with_time();
@@ -233,7 +246,7 @@ int main(int argc, char * argv[]) {
     glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
-    //glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
+    glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
     glutCreateWindow("Astro Crisis");  // Create window with the given title
 
     glutTimerFunc(0,timer,0);
@@ -246,11 +259,11 @@ int main(int argc, char * argv[]) {
     glutMouseFunc(mouseClick);
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
-    //glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
+    glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
 
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();
-    //engine->uni->initWorld();
+    engine->uni->initWorld();
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;

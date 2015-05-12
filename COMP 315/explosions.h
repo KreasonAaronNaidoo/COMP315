@@ -5,7 +5,7 @@
 class explosions
 {
     public:
-        explosions(float r, float sx, float sy, float sz);
+        explosions(float r, float sx, float sy, float sz, float f, float exv);
         ~explosions();
         bool alive = true;
         void update();
@@ -14,6 +14,7 @@ class explosions
         float r = 1;
         float g = 1;
         float b = 1;
+        float exv;
 
 
     private:

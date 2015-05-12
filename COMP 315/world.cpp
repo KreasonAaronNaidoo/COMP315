@@ -35,7 +35,7 @@ void world::initWorld() {
     gluQuadricTexture(quad, GL_TRUE);
     gluQuadricOrientation(quad, GLU_INSIDE);
 
-	Image* image = loadBMP("F:\\Shaherin\\Dropbox\\2015 Semester 1\\Comp315\\Project\\COMP315-masterV3\\COMP315-master\\COMP 315\\universe.bmp");
+	Image* image = loadBMP("resources\\universe.bmp");
     _textureId = loadTexture(image);
 	delete image;
 
@@ -70,9 +70,9 @@ void world::int_empty_world(){
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-    //gluQuadricTexture(quad,1);
-    //gluSphere(quad,100,50,50);//radius 0.5, 25 slices and stacks
-    glutWireSphere(100, 50, 50);
+    gluQuadricTexture(quad,1);
+    gluSphere(quad,100,50,50);//radius 0.5, 25 slices and stacks
+    //glutWireSphere(100, 50, 50);
 
     glPopMatrix();
 
