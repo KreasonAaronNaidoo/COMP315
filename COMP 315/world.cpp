@@ -8,8 +8,10 @@
 
 #ifdef __APPLE__
 #include <GLUT/glut.h>
+char *s = "resources/universe.bmp";
 #else
 #include <GL/glut.h>
+char *s = "resources\\universe.bmp";
 #endif
 #include "world.h"
 #include <stdlib.h>
@@ -35,7 +37,7 @@ void world::initWorld() {
     gluQuadricTexture(quad, GL_TRUE);
     gluQuadricOrientation(quad, GLU_INSIDE);
 
-	Image* image = loadBMP("resources\\universe.bmp");
+	Image* image = loadBMP(s);
     _textureId = loadTexture(image);
 	delete image;
 

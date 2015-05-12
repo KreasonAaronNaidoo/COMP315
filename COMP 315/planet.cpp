@@ -10,8 +10,10 @@
 
 #ifdef __APPLE__
 #include <GLUT/glut.h>
+char *t = "resources/earth.bmp";
 #else
 #include <GL/glut.h>
+char *t = "resources\\earth.bmp";
 #endif
 #include <iostream>
 #include <math.h>
@@ -43,7 +45,7 @@ void planet::initPlanet() {
 
 	quad = gluNewQuadric();
 
-	Image* image = loadBMP("resources\\earth.bmp");
+	Image* image = loadBMP(t);
     _textureId = loadTexture(image);
 	delete image;
 }

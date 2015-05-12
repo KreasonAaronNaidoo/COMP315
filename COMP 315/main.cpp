@@ -243,7 +243,7 @@ void timer(int value){
 int main(int argc, char * argv[]) {
 
     glutInit(&argc, argv);          // Initialize GLUT
-    glutInitDisplayMode (GLUT_DOUBLE);
+    //glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
     glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
