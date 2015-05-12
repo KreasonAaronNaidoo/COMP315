@@ -58,7 +58,6 @@
 		93C219191AAED9CE0085642E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		93C219201AAEDA0C0085642E /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = System/Library/Frameworks/OpenGL.framework; sourceTree = SDKROOT; };
 		93C219221AAEDA100085642E /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = System/Library/Frameworks/GLUT.framework; sourceTree = SDKROOT; };
-		93DDF1701ACDA20900004D25 /* space.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = space.bmp; sourceTree = "<group>"; };
 		93ECCD4C1AFFD85B00402613 /* Astro Crisis Final.cbp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Astro Crisis Final.cbp"; sourceTree = "<group>"; };
 		93ECCD4D1AFFD85B00402613 /* Astro Crisis Final.depend */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Astro Crisis Final.depend"; sourceTree = "<group>"; };
 		93ECCD4E1AFFD85B00402613 /* Astro Crisis Final.layout */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Astro Crisis Final.layout"; sourceTree = "<group>"; };
@@ -72,13 +71,8 @@
 		93ECCD561AFFD85B00402613 /* main.o */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.objfile"; path = main.o; sourceTree = "<group>"; };
 		93ECCD571AFFD85B00402613 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		93ECCD581AFFD85B00402613 /* obj */ = {isa = PBXFileReference; lastKnownFileType = folder; path = obj; sourceTree = "<group>"; };
-		93ECCD591AFFD85B00402613 /* phobosmirror.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = phobosmirror.bmp; sourceTree = "<group>"; };
 		93ECCD5A1AFFD85B00402613 /* planet.cpp~ */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "planet.cpp~"; sourceTree = "<group>"; };
 		93ECCD5B1AFFD85B00402613 /* resources */ = {isa = PBXFileReference; lastKnownFileType = folder; path = resources; sourceTree = "<group>"; };
-		93ECCD5C1AFFD85B00402613 /* stars.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = stars.bmp; sourceTree = "<group>"; };
-		93ECCD5D1AFFD85B00402613 /* stars.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = stars.jpg; sourceTree = "<group>"; };
-		93ECCD5E1AFFD85B00402613 /* universe.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = universe.bmp; sourceTree = "<group>"; };
-		93ECCD5F1AFFD85B00402613 /* universe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = universe.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,13 +123,8 @@
 				93ECCD561AFFD85B00402613 /* main.o */,
 				93ECCD571AFFD85B00402613 /* Makefile */,
 				93ECCD581AFFD85B00402613 /* obj */,
-				93ECCD591AFFD85B00402613 /* phobosmirror.bmp */,
 				93ECCD5A1AFFD85B00402613 /* planet.cpp~ */,
 				93ECCD5B1AFFD85B00402613 /* resources */,
-				93ECCD5C1AFFD85B00402613 /* stars.bmp */,
-				93ECCD5D1AFFD85B00402613 /* stars.jpg */,
-				93ECCD5E1AFFD85B00402613 /* universe.bmp */,
-				93ECCD5F1AFFD85B00402613 /* universe.png */,
 				93C219191AAED9CE0085642E /* main.cpp */,
 				93ABCF561AC1608F009E8BF8 /* point.cpp */,
 				93ABCF571AC1608F009E8BF8 /* point.h */,
@@ -148,7 +137,6 @@
 				93ABCF5F1AC160BA009E8BF8 /* planet.cpp */,
 				93ABCF601AC160BA009E8BF8 /* planet.h */,
 				93ABCF621AC160CA009E8BF8 /* world.cpp */,
-				93DDF1701ACDA20900004D25 /* space.bmp */,
 				93ABCF631AC160CA009E8BF8 /* world.h */,
 				93ABCF651AC160E5009E8BF8 /* physics_engine.cpp */,
 				937B5B7F1AD1DD7400100294 /* cam.cpp */,

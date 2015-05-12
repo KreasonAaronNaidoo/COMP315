@@ -35,7 +35,7 @@ vector<explosions*> v_ex;
 
 physics_engine::physics_engine(){
 
-    *level = 1;
+    *level = 0;
 
     this -> init_level_map();
     this -> init_npc_loc();
@@ -129,24 +129,6 @@ void physics_engine::init_level_map(){
 
 }
 
-void physics_engine::init_world(){
-
-    glPushMatrix();
-        uni -> int_empty_world();
-    glPopMatrix();
-
-    glPushMatrix();
-        home -> render();
-    glPopMatrix();
-
-    glPushMatrix();
-        render_npc();
-    glPopMatrix();
-
-    glPushMatrix();
-        player1 -> render();
-    glPopMatrix();
-}
 
 void physics_engine::update_with_time(){ //runs every frame
 
@@ -162,13 +144,14 @@ void physics_engine::update_with_time(){ //runs every frame
         start_new_level();
 
     }
+    uni -> int_empty_world();
     home->update();
     render_npc();
     player1->render();
 
 
     //2D
-    hud -> update(getLevel(), (this->home)->health);
+    //hud -> update(getLevel(), (this->home)->health);
 
 
 }

@@ -29,7 +29,6 @@ float cury;
 
 cam *kam = new cam(0.0, 1.0, -2.5, 0, 0.1, 10);
 physics_engine *engine = new physics_engine();
-//player *p = new player(0.0f, 0.01f, 0.0f);
 
 //Makes the image into a texture, and returns the id of the texture
 GLuint loadTexture(Image* image) {
@@ -98,11 +97,11 @@ void render(){
 
 
 
-    //glMatrixMode(GL_MODELVIEW);
+    glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
     kam -> place();
-    engine -> init_world();
+    engine -> update_with_time();
 
 
     //glFlush();
@@ -142,7 +141,6 @@ void display(){
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     render();
-    engine -> update_with_time();
     glutPostRedisplay();
 
 }

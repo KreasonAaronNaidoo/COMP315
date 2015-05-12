@@ -39,8 +39,6 @@ public:
 
     void npc_final_loc();
 
-    void init_world(); // sets up the basic empty world.
-
     void move_player(float *px, float *py, float *pz); //co - ordinates to move too
 
     void move_camera(float *cx, float *cy, float *cz); //co - ordinates of the cam
