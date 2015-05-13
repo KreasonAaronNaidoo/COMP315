@@ -229,10 +229,9 @@ void mouseMove(int x, int y){
 }
 
 void timer(int value){
-    engine -> update_with_time();
-    //engine -> init_world();
+    //engine -> update_with_time();
     glutPostRedisplay();
-    glutTimerFunc(40, timer, 0);
+    glutTimerFunc(30, timer, 0);
 }
 
 

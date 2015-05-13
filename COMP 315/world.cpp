@@ -47,6 +47,7 @@ void world::initWorld() {
 void world::int_empty_world(){
 
 
+    
 
 
 
@@ -69,7 +70,7 @@ void world::int_empty_world(){
     //Bottom
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
     gluQuadricTexture(quad,1);
@@ -95,7 +96,9 @@ GLuint world::loadTexture(Image* image) {
 				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
 				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
 				                   //as unsigned numbers
-				 image->pixels);               //The actual pixel data
+				 image->pixels);//The actual pixel data
+    
+    
 	return textureId; //Returns the id of the texture
 }
 

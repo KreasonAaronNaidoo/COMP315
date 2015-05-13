@@ -30,7 +30,7 @@ bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
     this -> fx = fx;
     this -> fy = fy;
     this -> fz = fz;
-//cout<<fx<<endl;
+
     this->velocity=0.05;
     this->alive=true;
 
@@ -63,7 +63,7 @@ void bullet::render(){
         GLfloat mat_shininess[] = { 50.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        glutWireSphere(rad,25,25);
+        glutSolidSphere(rad,25,25);
         //glutWireSphere(radius,25,25);
         glPopMatrix();
     }
