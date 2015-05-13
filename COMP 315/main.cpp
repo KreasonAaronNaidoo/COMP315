@@ -168,28 +168,18 @@ void key (unsigned char key, int xx, int yy){
             engine -> start_new_level();
             glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
             break;
-
-        /*case 'w': (p->y)+=0.01; break;
-		case 's': (p->y)-=0.01; break;
-		case 'a': (p->x)+=0.01; break;
-		case 'd': (p->x)-=0.01; break;*/
-
-		case 'w': (engine->player1->y)+=0.01;
-		           break;
-		case 's': (engine->player1->y)-=0.01;
-		           break;
-		case 'a': (engine->player1->x)+=0.01;
-		           break;
-		case 'd': (engine->player1->x)-=0.01;
-		           break;
-        case 'r': (engine -> player1->shoot(curx,cury));
-                   break;
-
-
-
-        default:
+    	default:
             break;
     }
+
+        if (GetKeyState('w') & 0x80)
+            (engine->player1->y)+=0.03;
+        if (GetKeyState('s') & 0x80)
+            (engine->player1->y)-=0.03;
+        if (GetKeyState('a') & 0x80)
+            (engine->player1->y)+=0.03;
+        if (GetKeyState('d') & 0x80)
+            (engine->player1->y)-=0.03;
 
     glutPostRedisplay();
 
