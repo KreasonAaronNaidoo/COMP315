@@ -21,14 +21,22 @@
 #else
 #include <GL/glut.h>
 #endif
+#include <windows.h>
+#include <mmsystem.h>
+
 using namespace std;
 
-float curx;
-float cury;
+float curx = 0;
+float cury = 0;
+int H;
+int W;
 
 
-cam *kam = new cam(0.0, 1.0, -2.5, 0, 0.1, 10);
+
+
 physics_engine *engine = new physics_engine();
+cam *kam = new cam(0.0, 0.7, -1.5, 0, -2.0, 10);
+
 
 //Makes the image into a texture, and returns the id of the texture
 GLuint loadTexture(Image* image) {
@@ -52,13 +60,13 @@ GLuint loadTexture(Image* image) {
 
 void initGL(){
 
+
+
     srand((int)time(NULL));
 
 
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // Black and opaque
-
-    gluOrtho2D(-10.0,10.0,-10.0,10.0);
 
 
     glEnable(GL_LIGHTING);
@@ -90,18 +98,105 @@ void initGL(){
 
 
 
+}
+
+void orthogonalEnd () {
+
+    glEnable(GL_DEPTH_TEST);
+    //Switch back to our projection mode
+    glMatrixMode(GL_PROJECTION);
+    //Finish our calls above
+    glPopMatrix();
+    //Switch back to our model matrix to continue with out 3D scene
+    glMatrixMode(GL_MODELVIEW);
+
+}
+
+void orthogonalStart () {
+
+    glDisable(GL_DEPTH_TEST);
+    //First of all, we need to switch to our projection matrix
+    glMatrixMode(GL_PROJECTION);
+    //Start our projection modifications
+    glPushMatrix();
+    //Then we need to clear it of all previous information
+    glLoadIdentity();
+    //Now I am calling: gluOrtho2D instead of the previous gluPerspective
+    //which was in our reshape function. This takes our parameters which
+    //set the view space from 0,0 in the window, to the width and height of the
+    //window which we collect in our reshape function
+    gluOrtho2D(0, W, 0, H);
+    //Now we need to flip our scene upside down
+    glScalef(1, -1, 1);
+    //And translate it to display our scene correctly
+    glTranslatef(0, -H, 0);
+    //Now we switch back to our model matrix so we can draw our 2D shapes
+    glMatrixMode(GL_MODELVIEW);
+}
+
+void renderHUD(){
+
+    int healthcent = 3*(engine->home->health);
+
+    engine->getLevel();
+    engine->home->health;
+
+            //sets light of material
+        GLfloat ambient[] = {1.0, 0.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+        //sets specular properties of the material
+        GLfloat mat_specular[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+    glBegin(GL_QUADS);
+
+    glVertex2f(0, 0);
+    glVertex2f(0, 75);
+    glVertex2f(305, 75);
+    glVertex2f(305, 0);
+    glVertex2f(0, 0);
+
+    glEnd();
+
+//sets light of material
+        GLfloat ambient1[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient1);
+        //sets specular properties of the material
+        GLfloat mat_specular1[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular1);
+        // sets the shininess of the material
+        GLfloat mat_shininess1[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess1);
+
+    glBegin(GL_QUADS);
+    glVertex2f(5, 5);
+    glVertex2f(5, 70);
+    glVertex2f(healthcent, 70);
+    glVertex2f(healthcent, 5);
+    glEnd();
 
 }
 
 void render(){
 
-
-
     glMatrixMode(GL_MODELVIEW);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
     glLoadIdentity();
 
+    orthogonalStart();
+
+        renderHUD();
+
+    orthogonalEnd();
+
     kam -> place();
+
     engine -> update_with_time();
+
 
 
     //glFlush();
@@ -128,21 +223,17 @@ void reshape(int w, int h){
     // Set the clipping volume
     gluPerspective(45, ratio, 0.00001, 500);
 
-
+    W = w;
+    H = h;
 
     glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
 
 }
 
 void display(){
 
-
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     render();
     glutPostRedisplay();
-
 }
 
 void key (unsigned char key, int xx, int yy){
@@ -172,14 +263,23 @@ void key (unsigned char key, int xx, int yy){
             break;
     }
 
-        if (GetKeyState('w') & 0x80)
+        if (GetKeyState('W') & 0x80){
             (engine->player1->y)+=0.03;
-        if (GetKeyState('s') & 0x80)
+            kam ->y +=0.03;
+        }
+        else if (GetKeyState('S') & 0x80){
             (engine->player1->y)-=0.03;
-        if (GetKeyState('a') & 0x80)
-            (engine->player1->y)+=0.03;
-        if (GetKeyState('d') & 0x80)
-            (engine->player1->y)-=0.03;
+            kam ->y -=0.03;
+        }
+        else if (GetKeyState('A') & 0x80){
+            (engine->player1->x)+=0.03;
+            kam ->x +=0.03;
+        }
+        else if (GetKeyState('D') & 0x80){
+            (engine->player1->x)-=0.03;
+            kam ->x -=0.03;
+
+        }
 
     glutPostRedisplay();
 
@@ -209,25 +309,47 @@ void mouseMove(int x, int y){
     curx = x;
     cury = y;
 
-    kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
-                //^this value denotes the speed of the camera rotation in the x-direction
-    kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
-                //^this value denotes the speed of the camera rotation in the y-direction
 
 
+        kam -> lx = 0.1*(glutGet(GLUT_WINDOW_WIDTH)/2 - x);
+              //^this value denotes the speed of the camera rotation in the x-direction
+        kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
+              //^this value denotes the speed of the camera rotation in the y-direction
+
+
+        /*
+        if(kam -> lx > 2){
+            kam -> lx = 2;
+        }
+
+        if(kam -> lx < -2){
+            kam -> lx = -2;
+        }
+
+        if(kam -> ly > 2.5){
+            kam -> ly = 2.5;
+        }
+
+        if(kam -> ly < -1.5){
+            kam -> ly = -1.5;
+        }
+        */
+        //glutWarpPointer((int)kam -> lx,(int)kam -> ly);
 
 }
 
 void timer(int value){
-    //engine -> update_with_time();
     glutPostRedisplay();
-    glutTimerFunc(30, timer, 0);
+    glutTimerFunc(60, timer, 0);
 }
 
 
 
 
 int main(int argc, char * argv[]) {
+
+    //PlaySound("resources\\catch.wav", NULL, SND_ASYNC);
+
 
     glutInit(&argc, argv);          // Initialize GLUT
     //glutInitDisplayMode (GLUT_DOUBLE);
@@ -247,6 +369,7 @@ int main(int argc, char * argv[]) {
     glutPassiveMotionFunc(mouseMove);
     glutSetCursor(GLUT_CURSOR_CROSSHAIR);
     glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
+
 
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();

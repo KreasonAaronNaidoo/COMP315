@@ -613,7 +613,7 @@
 1431276026 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\cam.h
 	<stdio.h>
 
-1431475434 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
+1431721274 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
 	<iostream>
 	<stdlib.h>
 	<cmath>
@@ -625,8 +625,10 @@
 	<GLUT/glut.h>
 	"CoreFoundation/CoreFoundation.h"
 	<GL/glut.h>
+	<windows.h>
+	<mmsystem.h>
 
-1431473550 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
+1431718143 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>
@@ -673,7 +675,7 @@
 	"time.h"
 	"imageloader.h"
 
-1431473666 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
+1431716643 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"physics_engine.h"
@@ -688,7 +690,7 @@
 	"explosions.h"
 	<time.h>
 
-1431471889 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\planet.cpp
+1431721374 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\planet.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
@@ -996,7 +998,7 @@
 
 1431333837 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\imageloader.h
 
-1431370813 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\explosions.cpp
+1431714043 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\explosions.cpp
 	"explosions.h"
 	<GLUT/glut.h>
 	<GL/glut.h>
@@ -1004,11 +1006,15 @@
 
 1431359576 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\explosions.h
 
-1431380651 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\hud.cpp
+1431716264 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\hud.cpp
 	"hud.h"
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
 
 1431276026 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\hud.h
+
+1431538251 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\sounds.h
+
+1431538923 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\resource.h
 

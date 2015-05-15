@@ -33,45 +33,16 @@ void HUD::update(int l, int h){
 
 void HUD::render(){
 
-    glDisable( GL_LIGHTING );
-    glDisable(GL_DEPTH_TEST);
-    glDepthMask(GL_FALSE);
+    glPushMatrix();
 
-    glMatrixMode(GL_PROJECTION);					// Select Projection
-	glPushMatrix();							// Push The Matrix
-	glLoadIdentity();						// Reset The Matrix
-	//glOrtho( 0, glutGet(GLUT_WINDOW_WIDTH) , glutGet(GLUT_WINDOW_HEIGHT) , 0, -1, 1 );				// Select Ortho Mode
-	glOrtho( -100.0f, 100.0f, -100.0f, 100.0f, -100.0f, 100.0f );
-	glMatrixMode(GL_MODELVIEW);					// Select Modelview Matrix
-	glPushMatrix();							// Push The Matrix
-	glLoadIdentity();
-
-
-
-    //sets colour of material
-    GLfloat ambient[] = { 1.0, 0.0, 0.0, 1.0};
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
-    //sets specular properties of the material
-    GLfloat mat_specular[] = { 1.0, 0.5, 0.5, 1.0 };
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-    // sets the shininess of the material
-    GLfloat mat_shininess[] = { 10.0 };
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-        glTranslated(0,5,4);
-        glBegin(GL_TRIANGLES);
-            glVertex2d(0,10);
-            glVertex2d(10,0);
-            glVertex2d(0,0);
+        glBegin(GL_QUADS);
+            glVertex2f(125, 125);
+            glVertex2f(125, 375);
+            glVertex2f(375, 375);
+            glVertex2f(375, 125);
         glEnd();
-        //try putting this code in render npc
 
-    glEnable( GL_LIGHTING );
-    glEnable(GL_DEPTH_TEST);
-    glDepthMask(GL_TRUE);
+    glPopMatrix();
+    glutSwapBuffers();
 
-    glMatrixMode( GL_PROJECTION );					// Select Projection
-	glPopMatrix();							// Pop The Matrix
-	glMatrixMode( GL_MODELVIEW );					// Select Modelview
-	glPopMatrix();
 }

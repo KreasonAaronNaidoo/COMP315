@@ -130,6 +130,7 @@ void planet::takeDamage(int level){
         cout <<"Collision Detected: Planet hit, health reduced to "<<health<<endl;
 
         if(health <= 0){
+            health = 0;
             die();
         }
 

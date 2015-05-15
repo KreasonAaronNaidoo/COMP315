@@ -9,8 +9,7 @@
 using namespace std;
 
 
-explosions::explosions(float r, float sx, float sy, float sz, float f, float exv)
-{
+explosions::explosions(float r, float sx, float sy, float sz, float f, float exv){
 
     RC = r;
     RF = r*f;
@@ -23,8 +22,7 @@ explosions::explosions(float r, float sx, float sy, float sz, float f, float exv
 
 }
 
-explosions::~explosions()
-{
+explosions::~explosions(){
 }
 
 void explosions::render(){

@@ -33,6 +33,7 @@ double bulletDist;
 
 vector<explosions*> v_ex;
 
+
 physics_engine::physics_engine(){
 
     *level = 0;
@@ -129,6 +130,14 @@ void physics_engine::init_level_map(){
 
 }
 
+void physics_engine::update_frame(int W, int H){
+
+    this -> h = H;
+    this -> w = W;
+
+    cout <<"H: "<<h<<" W: "<<w<<endl;
+
+}
 
 void physics_engine::update_with_time(){ //runs every frame
 
@@ -151,8 +160,7 @@ void physics_engine::update_with_time(){ //runs every frame
 
 
     //2D
-    //hud -> update(getLevel(), (this->home)->health);
-
+   // this->hud_display();
 
 }
 
@@ -169,7 +177,6 @@ void physics_engine::spawn(){
 
         v_asteroid.push_back(new npc(tx,ty,tz,fx,0,0)); //adding all asteroids to a vector
 
-        player1 = new player(0.0f, 0.5f, -1.0f);
 
     }
 
@@ -198,29 +205,6 @@ void physics_engine::start_new_level(){
     //render level announcment and delay spawn.
 
     this -> spawn();
-
-}
-
-void physics_engine::level_display(){ //doesn't work
-
-    glPushMatrix();
-
-     //sets light of material
-        GLfloat ambient[] = { 1.0, 1.0, 1.0, 1.0};
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
-        //sets specular properties of the material
-        GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0};
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        // sets the shininess of the material
-        GLfloat mat_shininess[] = { 50.0 };
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-        glScaled(5,1,1);
-       // glutSolidCube(5);
-
-
-    glPopMatrix();
-
 
 }
 
@@ -420,6 +404,7 @@ bool physics_engine::check_all_dead(){
 
     return true;
 }
+
 
 
 

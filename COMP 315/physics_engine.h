@@ -53,6 +53,8 @@ public:
 
     void update_with_time(); //spinning of the planet and asteroids and health bars
 
+    void update_frame(int W, int H);
+
     bool check_all_dead(); //check if all asteroids are dead
 
     void spawn (); //spawns asteroids according to the level
@@ -69,23 +71,26 @@ public:
 
     void setLevel(int l);
 
-    void level_display();
+    void hud_display();
 
-     void asteroidToAsteroidCollision();
+    void asteroidToAsteroidCollision();
 
     void split(npc ast1,npc ast2,int i,int j);
 
     void bulletToAsteroidCollision();
 
+    void orthogonalStart();
+
+    void orthogonalEnd ();
+
+
 
     //objects
     world *uni = new world();
 
-    HUD *hud = new HUD();
-
     planet *home;
 
-    player *player1;
+    player *player1 = new player(0.0f, 0.5f, -1.0f);;
 
     npc *v [7][5];
 
@@ -100,6 +105,10 @@ public:
     std::map <int, int> level_npc_num;
 
     std::map <int, point*> npc_loc;
+
+    int h;
+
+    int w;
 
 };
 
