@@ -22,7 +22,6 @@
 #include "planet.h"
 #include "explosions.h"
 #include <time.h>
-
 using namespace std;
 
 vector<npc*> v_asteroid;
@@ -130,14 +129,7 @@ void physics_engine::init_level_map(){
 
 }
 
-void physics_engine::update_frame(int W, int H){
 
-    this -> h = H;
-    this -> w = W;
-
-    cout <<"H: "<<h<<" W: "<<w<<endl;
-
-}
 
 void physics_engine::update_with_time(){ //runs every frame
 
@@ -159,8 +151,7 @@ void physics_engine::update_with_time(){ //runs every frame
     player1->render();
 
 
-    //2D
-   // this->hud_display();
+
 
 }
 

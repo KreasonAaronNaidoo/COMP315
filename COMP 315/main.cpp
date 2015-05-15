@@ -26,10 +26,10 @@
 
 using namespace std;
 
-float curx = 0;
-float cury = 0;
-int H;
-int W;
+float *curx = new float(0);
+float *cury = new float(0);
+int *H = new int();
+int *W = new int();
 
 
 
@@ -125,24 +125,29 @@ void orthogonalStart () {
     //which was in our reshape function. This takes our parameters which
     //set the view space from 0,0 in the window, to the width and height of the
     //window which we collect in our reshape function
-    gluOrtho2D(0, W, 0, H);
+    gluOrtho2D(0, *W, 0, *H);
     //Now we need to flip our scene upside down
     glScalef(1, -1, 1);
     //And translate it to display our scene correctly
-    glTranslatef(0, -H, 0);
+    glTranslatef(0, -(*H), 0);
     //Now we switch back to our model matrix so we can draw our 2D shapes
     glMatrixMode(GL_MODELVIEW);
 }
 
 void renderHUD(){
 
-    int healthcent = 3*(engine->home->health);
+    int *healthcent = new int(3*(engine->home->health));
+    int *Min = new int(5);
+
+    if(*healthcent == 0){
+        *Min = 0;
+    }
 
     engine->getLevel();
     engine->home->health;
 
             //sets light of material
-        GLfloat ambient[] = {1.0, 0.0, 0.0, 1.0};
+        GLfloat ambient[] = {2.0, 0.0, 0.0, 1.0};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
         GLfloat mat_specular[] = {0.0, 1.0, 0.0, 1.0};
@@ -157,12 +162,11 @@ void renderHUD(){
     glVertex2f(0, 75);
     glVertex2f(305, 75);
     glVertex2f(305, 0);
-    glVertex2f(0, 0);
 
     glEnd();
 
 //sets light of material
-        GLfloat ambient1[] = {0.0, 1.0, 0.0, 1.0};
+        GLfloat ambient1[] = {0.0, 2.0, 0.0, 1.0};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient1);
         //sets specular properties of the material
         GLfloat mat_specular1[] = {0.0, 1.0, 0.0, 1.0};
@@ -172,10 +176,10 @@ void renderHUD(){
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess1);
 
     glBegin(GL_QUADS);
-    glVertex2f(5, 5);
-    glVertex2f(5, 70);
-    glVertex2f(healthcent, 70);
-    glVertex2f(healthcent, 5);
+    glVertex2f(*Min, 5);
+    glVertex2f(*Min, 70);
+    glVertex2f(*healthcent, 70);
+    glVertex2f(*healthcent, 5);
     glEnd();
 
 }
@@ -223,8 +227,8 @@ void reshape(int w, int h){
     // Set the clipping volume
     gluPerspective(45, ratio, 0.00001, 500);
 
-    W = w;
-    H = h;
+    *W = w;
+    *H = h;
 
     glMatrixMode(GL_MODELVIEW);
 
@@ -259,6 +263,11 @@ void key (unsigned char key, int xx, int yy){
             engine -> start_new_level();
             glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
             break;
+
+        case 'r':
+                engine -> player1->shoot(*curx,*cury);
+            break;
+
     	default:
             break;
     }
@@ -306,8 +315,8 @@ void mouseClick(int button, int state, int x, int y){
 
 void mouseMove(int x, int y){
 
-    curx = x;
-    cury = y;
+    *curx = (float)x;
+    *cury = (float)y;
 
 
 
@@ -340,7 +349,7 @@ void mouseMove(int x, int y){
 
 void timer(int value){
     glutPostRedisplay();
-    glutTimerFunc(60, timer, 0);
+    glutTimerFunc(30, timer, 0);
 }
 
 
