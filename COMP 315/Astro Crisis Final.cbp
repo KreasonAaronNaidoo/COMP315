@@ -10,7 +10,7 @@
 				<Option output="bin/Debug/Astro Crisis Final" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="\\psf\Home\Dropbox\Work\Comp\COMP 315\C++\COMP 315\COMP 315" />
 				<Option object_output="obj/Debug/" />
-				<Option type="1" />
+				<Option type="0" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />

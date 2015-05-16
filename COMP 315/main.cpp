@@ -23,6 +23,10 @@
 #endif
 #include <windows.h>
 #include <mmsystem.h>
+#include <stdarg.h>
+#include <string>
+#include <sstream>
+
 
 using namespace std;
 
@@ -169,6 +173,20 @@ void renderHUD(){
     glVertex2f(*healthcent+1, 71);
     glVertex2f(*healthcent+1, 6);
     glEnd();
+
+    int number = engine->getLevel();
+    stringstream convert; // stringstream used for the conversion
+    convert << number;
+
+    //text
+    string level = "Level: "+ convert.str();
+    glRasterPos2f(*W - 200, 50);
+
+
+    int len = level.length();
+    for (int i = 0; i < len; i++) {
+        glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, level[i]);
+    }
 
 }
 
@@ -352,15 +370,14 @@ int main(int argc, char * argv[]) {
     //glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
-    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB
-                        | GLUT_ALPHA | GLUT_DEPTH);
-    glutCreateWindow("Astro Crisis");  // Create window with the given title
+    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB| GLUT_ALPHA | GLUT_DEPTH);
+    glutCreateWindow("Astro Crisis, Still a better love story than Twilight");  // Create window with the given title
 
     glutTimerFunc(0,timer,0);
 
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
     glutReshapeFunc(reshape);
-    //glutFullScreen(); //takes to game into full screen
+    //glutFullScreen(); //takes to game into full screen also i got rid of the console
     glutKeyboardFunc(key);
     glutSpecialFunc(arrowKey);
     glutMouseFunc(mouseClick);
