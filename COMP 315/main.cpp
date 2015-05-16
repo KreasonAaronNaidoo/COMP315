@@ -315,6 +315,7 @@ void mouseClick(int button, int state, int x, int y){
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN){
         engine -> player1->shoot(x,y);
         PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
+
     }
 
     glutPostRedisplay();
