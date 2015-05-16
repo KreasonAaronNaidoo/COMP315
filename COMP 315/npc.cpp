@@ -46,7 +46,7 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
 
     float t = rand() %10;
 
-    this->velocity = t/50; //this needs to be tweaked.
+    this->velocity = t/100; //this needs to be tweaked.
     if (this -> velocity < 0.003) {
         this -> velocity = 0.005;
     }
