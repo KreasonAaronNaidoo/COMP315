@@ -360,7 +360,7 @@ int main(int argc, char * argv[]) {
 
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
     glutReshapeFunc(reshape);
-
+    //glutFullScreen(); //takes to game into full screen
     glutKeyboardFunc(key);
     glutSpecialFunc(arrowKey);
     glutMouseFunc(mouseClick);
