@@ -35,7 +35,11 @@ int *W = new int();
 
 
 physics_engine *engine = new physics_engine();
+<<<<<<< HEAD
 cam *kam = new cam(0.0, 0.6, -1.5, 0, -2.0, 10);
+=======
+cam *kam = new cam(0.0, 0.7, -1.5, 0, -2.0, 10);
+>>>>>>> COMP315/master
 
 
 /* Initialize OpenGL Graphics */

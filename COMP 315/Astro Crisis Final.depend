@@ -1181,6 +1181,7 @@
 	<stdio.h>
 	<iostream>
 
+<<<<<<< HEAD
 1431792800 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.h
 
 1431792821 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.cpp
@@ -1541,3 +1542,5 @@
 	<stdio.h>
 	<iostream>
 
+=======
+>>>>>>> COMP315/master
