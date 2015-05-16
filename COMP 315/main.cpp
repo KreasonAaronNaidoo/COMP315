@@ -67,7 +67,7 @@ void initGL(){
     glEnable(GL_NORMALIZE);
     //glEnable(GL_COLOR_MATERIAL); //this ruins everything. yes everything.
 
-    GLfloat light_ambient0[] = { 5.0, 5.0, -3.0, 0.0};//position
+    GLfloat light_ambient0[] = { 10.0, 10.0, -0.0, 0.0};//position
     //GLfloat light_ambient1[] = { 0.0, 0.0, 6.0, 0.0 };//w=0.0 defines a directional light
 
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
@@ -312,8 +312,10 @@ void arrowKey(int key, int xx, int y){
 
 void mouseClick(int button, int state, int x, int y){
 
-    if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN)
+    if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN){
         engine -> player1->shoot(x,y);
+        PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
+    }
 
     glutPostRedisplay();
 
@@ -363,7 +365,7 @@ void timer(int value){
 
 int main(int argc, char * argv[]) {
 
-    //PlaySound("resources\\catch.wav", NULL, SND_ASYNC);
+    PlaySound("resources\\catch.wav", NULL, SND_ASYNC);
 
 
     glutInit(&argc, argv);          // Initialize GLUT
