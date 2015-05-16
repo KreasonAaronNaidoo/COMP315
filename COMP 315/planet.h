@@ -32,8 +32,8 @@ public:
 
 
     //texture variables
-    GLuint _textureId; //The id of the texture
-    GLUquadric *quad = gluNewQuadric();
+    GLuint _textureId_PLANET; //The id of the texture
+    GLUquadric *quad_PLANET = gluNewQuadric();
 
 private:
     float angVelocity;

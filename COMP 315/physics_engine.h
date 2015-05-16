@@ -33,6 +33,8 @@ public:
     //functions
     physics_engine();
 
+    void initAsteroid();
+
     void init_level_map();
 
     void init_npc_loc();

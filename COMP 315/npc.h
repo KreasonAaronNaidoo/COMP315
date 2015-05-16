@@ -24,7 +24,7 @@ public:
     //constructors
     npc();
     ~npc();
-    npc(double sx, double sy, double sz, double fx, double fy, double fz);
+    npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId);
     //void
     void render();
     void update();
@@ -48,6 +48,10 @@ public:
     double radius;
     bool alive = true;
     double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
+
+    //texture variables
+    GLuint _textureId_NPC; //The id of the texture
+    GLUquadric *quad_NPC = gluNewQuadric();
 
 
 private:

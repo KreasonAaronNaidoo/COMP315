@@ -47,22 +47,26 @@ void world::initWorld() {
 void world::int_empty_world(){
 
 
-    
+
 
 
 
     glPushMatrix();
      //sets colour of material
-    GLfloat ambient[] = { 0.0, 0.5, 1.0, 0.8};
-    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+    GLfloat ambient[] = { 0.7, 0.7, 0.7, 1};
+    glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE, ambient);
 
     // sets specular properties of the material
-    GLfloat mat_specular[] = { 0.0, 0.5, 1.0, 0.8 };
-    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    GLfloat mat_specular[] = { 1, 1, 1.0, 0.8 };
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, mat_specular);
 
     // sets the shininess of the material
     GLfloat mat_shininess[] = { 50.0 };
-    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    glMaterialfv(GL_FRONT_AND_BACK, GL_SHININESS, mat_shininess);
+
+    //emissivity
+    //GLfloat mat_emission[]={0.3,0.3,0.3,0};
+    //glMaterialfv(GL_FRONT_AND_BACK, GL_EMISSION, mat_emission);
 
     glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, _textureId);
@@ -97,8 +101,8 @@ GLuint world::loadTexture(Image* image) {
 				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
 				                   //as unsigned numbers
 				 image->pixels);//The actual pixel data
-    
-    
+
+
 	return textureId; //Returns the id of the texture
 }
 

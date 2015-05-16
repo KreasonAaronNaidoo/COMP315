@@ -22,14 +22,14 @@
 using namespace std;
 
 npc::npc(){
-    npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
+    //npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
 }
 
 npc::~npc(){
 
 }
 
-npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
+npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId_NPC){
     //passed by asteroid genetator
     this->sx = sx;
     this->sy = sy;
@@ -42,11 +42,11 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz){
     this->fy = fy;
     this->fz = fz;
 
-
+    this->_textureId_NPC=_textureId_NPC;
 
     float t = rand() %10;
 
-    this->velocity = t/8000; //this needs to be tweaked.
+    this->velocity = t/100; //this needs to be tweaked.
     if (this -> velocity < 0.003) {
         this -> velocity = 0.003;
     }
@@ -92,18 +92,33 @@ void npc::render(){
         move();   //move toward
         takeDamage();
 
+
+        glEnable(GL_TEXTURE_2D);
+        glBindTexture(GL_TEXTURE_2D, _textureId_NPC);
+
+	    //Bottom
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+	    glTexParameteri(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);//edited by me
+	    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
         //sets colour of material
-        GLfloat ambient[] = { 1.0, 0.0, 0.0, 1.0};
+        GLfloat ambient[] = { 0.3, 0.3, 0.3, 1};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
-        GLfloat mat_specular[] = { 1.0, 0.5, 0.5, 1.0 };
+        GLfloat mat_specular[] = { 1, 1, 1, 1.0 };
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
         GLfloat mat_shininess[] = { 10.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-        // glutWireSphere(radius,25,25);
-        glutSolidSphere(radius,25,25);
+
+        gluQuadricTexture(quad_NPC,1);
+        gluSphere(quad_NPC,radius,25,25);//radius 0.5, 25 slices and stacks
+
+        //glutWireSphere(radius,25,25);
+        //glutSolidSphere(radius,25,25);*/
 
         glPopMatrix();
     }
