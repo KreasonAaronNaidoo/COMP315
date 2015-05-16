@@ -1181,7 +1181,8 @@
 	<stdio.h>
 	<iostream>
 
-<<<<<<< HEAD
+1431762068 D
+
 1431792800 \\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.h
 
 1431792821 source:\\psf\home\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.cpp
@@ -1370,7 +1371,7 @@
 	<stdio.h>
 	<iostream>
 
-1431797130 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
+1431798150 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"bullet.h"
@@ -1380,7 +1381,7 @@
 	<cstdlib>
 	"point.h"
 
-1431797030 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.h
+1431798150 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\bullet.h
 	<stdio.h>
 
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\point.h
@@ -1398,7 +1399,7 @@
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\cam.h
 	<stdio.h>
 
-1431768232 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\explosions.cpp
+1431798844 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\explosions.cpp
 	"explosions.h"
 	<GLUT/glut.h>
 	<GL/glut.h>
@@ -1414,7 +1415,7 @@
 
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\imageloader.h
 
-1431796044 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
+1431798441 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
 	<iostream>
 	<stdlib.h>
 	<cmath>
@@ -1429,7 +1430,7 @@
 	<windows.h>
 	<mmsystem.h>
 
-1431796237 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
+1431798151 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>
@@ -1462,16 +1463,16 @@
 	<string.h>
 	"explosions.h"
 
-1431792891 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.h
+1431798150 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.h
 	"bullet.h"
 	<vector>
 	"model_obj.h"
 
-1431792800 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.h
+1431798150 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.h
 
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\hud.h
 
-1431792821 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.cpp
+1431798150 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\model_obj.cpp
 	"model_obj.h"
 	<stdio.h>
 	<string.h>
@@ -1495,7 +1496,7 @@
 	"time.h"
 	"imageloader.h"
 
-1431797242 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
+1431798844 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"physics_engine.h"
@@ -1520,7 +1521,7 @@
 	"npc.h"
 	"imageloader.h"
 
-1431797130 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
+1431798150 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
 	"player.h"
 	<iostream>
 	<math.h>
@@ -1542,5 +1543,7 @@
 	<stdio.h>
 	<iostream>
 
-=======
->>>>>>> COMP315/master
+1431768232 
+
+1431768232 P315/master
+

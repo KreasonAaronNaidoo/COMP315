@@ -18,7 +18,6 @@ explosions::explosions(float r, float sx, float sy, float sz, float f, float exv
     z = sz;
     this -> exv = exv;
     alive = true;
-    cout <<"new explosion created at :("<<x<<","<<y<<","<<z<<") with radius : "<<RC<< endl;
 
 }
 
