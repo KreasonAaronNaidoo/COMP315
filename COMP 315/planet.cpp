@@ -138,7 +138,7 @@ void planet::takeDamage(int level){
 
 void planet::die(){
     cout<<"Death becomes you"<<endl;  //die shouldn't be handled the same way
-    //alive = false;
+    alive = false;
 }
 
 //Makes the image into a texture, and returns the id of the texture

@@ -27,6 +27,9 @@
 #include <string>
 #include <sstream>
 
+#define Exit 1
+
+
 
 using namespace std;
 
@@ -83,6 +86,36 @@ void initGL(){
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 
+
+}
+
+
+void processMenuEvents(int option) {
+
+
+
+	switch (option) {
+
+        case Exit :
+
+			exit(1);
+
+        break;
+
+	}
+
+}
+
+
+void create_menu(){
+
+
+    int menu = glutCreateMenu(processMenuEvents);
+
+	glutAddMenuEntry("Exit",Exit);
+
+
+    glutAttachMenu(GLUT_RIGHT_BUTTON);
 
 }
 
@@ -197,17 +230,48 @@ void render(){
 
     glLoadIdentity();
 
-    orthogonalStart();
+     if(engine ->home->health <= 0){
+
+        //game over message
+
+
+        orthogonalStart();
+
+        string s1 = "Home is dead. Only darkness remains.";
+        string s2 = "You have failed your people.";
+
+        glRasterPos2f(*W /2 - 180, *H /2 -30);
+
+
+        int len1 = s1.length();
+        for (int i = 0; i < len1; i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
+        }
+
+        glRasterPos2f(*W /2 - 130, *H /2 + 10);
+
+        for (int i = 0; i < len1; i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
+        }
+
+        orthogonalEnd();
+
+    }
+    else{
+
+
+
+        orthogonalStart();
 
         renderHUD();
 
-    orthogonalEnd();
+        orthogonalEnd();
 
-    kam -> place();
+        kam -> place();
 
-    engine -> update_with_time();
+        engine -> update_with_time();
 
-
+    }
 
     //glFlush();
     glutSwapBuffers();   // ******** DO NOT FORGET THIS **********
@@ -243,6 +307,7 @@ void reshape(int w, int h){
 void display(){
 
     render();
+
     glutPostRedisplay();
 }
 
@@ -365,19 +430,17 @@ void timer(int value){
 
 int main(int argc, char * argv[]) {
 
-    PlaySound("resources\\catch.wav", NULL, SND_ASYNC);
-
-
     glutInit(&argc, argv);          // Initialize GLUT
-    //glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
     glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB| GLUT_ALPHA | GLUT_DEPTH);
-    glutCreateWindow("Astro Crisis, Still a better love story than Twilight");  // Create window with the given title
+    glutCreateWindow("Astro Crisis");  // Create window with the given title
+
 
     glutTimerFunc(0,timer,0);
-
     glutDisplayFunc(display);       // Register callback handler for window re-paint event
+
+
     glutReshapeFunc(reshape);
     //glutFullScreen(); //takes to game into full screen also i got rid of the console
     glutKeyboardFunc(key);

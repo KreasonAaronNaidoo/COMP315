@@ -172,7 +172,7 @@ void physics_engine::update_with_time(){ //runs every frame
     col_dec_bullet_to_asteroid();
     col_dec_asteroid_to_planet();
 
-    if(check_all_dead() == true){
+    if((check_all_dead() == true) && home->alive == true){
 
         setLevel(getLevel() + 1);
         this ->home->health = 100;
