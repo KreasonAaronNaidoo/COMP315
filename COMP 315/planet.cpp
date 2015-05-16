@@ -72,7 +72,7 @@ void planet::render(){
     rotate();
 
     //sets colour of material
-    GLfloat ambient[] = { 0.05, 0.05, 0.05, 1};
+    GLfloat ambient[] = { 0.1, 0.1, 0.1, 1};
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
     // sets specular properties of the material
     GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0 };
