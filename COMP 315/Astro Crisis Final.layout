@@ -1,57 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-<<<<<<< HEAD
-	<File name="physics_engine.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="planet.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="11382" topLine="81" />
-		</Cursor>
-		<Folding>
-			<Collapse line="42" />
-			<Collapse line="60" />
-			<Collapse line="69" />
-			<Collapse line="87" />
-			<Collapse line="100" />
-			<Collapse line="140" />
-			<Collapse line="165" />
-			<Collapse line="190" />
-			<Collapse line="208" />
-			<Collapse line="235" />
-			<Collapse line="270" />
-			<Collapse line="315" />
-			<Collapse line="319" />
-			<Collapse line="342" />
-			<Collapse line="413" />
-		</Folding>
-	</File>
-	<File name="explosions.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="344" topLine="0" />
+			<Cursor1 position="1607" topLine="66" />
 		</Cursor>
 	</File>
-	<File name="npc.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="physics_engine.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3969" topLine="117" />
+			<Cursor1 position="507" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="npc.cpp" open="1" top="1" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9089" topLine="201" />
-=======
+			<Cursor1 position="1459" topLine="81" />
+		</Cursor>
+	</File>
 	<File name="model_obj.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="182" topLine="29" />
->>>>>>> COMP315/master
 		</Cursor>
-		<Folding>
-			<Collapse line="192" />
-			<Collapse line="216" />
-			<Collapse line="242" />
-			<Collapse line="248" />
-			<Collapse line="304" />
-			<Collapse line="312" />
-			<Collapse line="321" />
-			<Collapse line="355" />
-		</Folding>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="910" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="explosions.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="313" topLine="24" />
+		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

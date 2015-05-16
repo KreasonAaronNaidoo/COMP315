@@ -46,7 +46,7 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
 
     float t = rand() %10;
 
-    this->velocity = t/500; //this needs to be tweaked.
+    this->velocity = t/50; //this needs to be tweaked.
     if (this -> velocity < 0.003) {
         this -> velocity = 0.005;
     }
@@ -133,7 +133,7 @@ void npc::update(){
 
 void npc::rotate(){
     //increment the angle and call rotate function
-    angle+= angVelocity/30;
+    angle+= angVelocity;
 
     if(angle>360.f)
     {
@@ -141,7 +141,7 @@ void npc::rotate(){
     }
 
     //rotates to current angle value on y-axis
-    glRotatef(angle,0,rand()%2,rand()%2); //randomise axes
+    glRotatef(angle,0,1,0); //randomise axes
 }
 
 void npc::move(){
