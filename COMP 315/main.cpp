@@ -35,26 +35,8 @@ int *W = new int();
 
 
 physics_engine *engine = new physics_engine();
-cam *kam = new cam(0.0, 0.7, -1.5, 0, -2.0, 10);
+cam *kam = new cam(0.0, 0.6, -1.5, 0, -2.0, 10);
 
-
-//Makes the image into a texture, and returns the id of the texture
-GLuint loadTexture(Image* image) {
-	GLuint textureId;
-	glGenTextures(1, &textureId); //Make room for our texture
-	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
-	//Map the image to the texture
-	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
-				 0,                            //0 for now
-				 GL_RGB,                       //Format OpenGL uses for image
-				 image->width, image->height,  //Width and height
-				 0,                            //The border of the image
-				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
-				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
-				                   //as unsigned numbers
-				 image->pixels);               //The actual pixel data
-	return textureId; //Returns the id of the texture
-}
 
 /* Initialize OpenGL Graphics */
 
@@ -65,6 +47,9 @@ void initGL(){
     srand((int)time(NULL));
 
 
+    glCullFace (GL_BACK);
+    glEnable (GL_CULL_FACE);
+
     // Set "clearing" or background color
     glClearColor(0, 0, 0, 1); // Black and opaque
 
@@ -72,20 +57,20 @@ void initGL(){
     glEnable(GL_LIGHTING);
     //this light simulates the sun. Directional with no attenuation
     glEnable(GL_LIGHT0);
-    glEnable(GL_LIGHT1);
+    //glEnable(GL_LIGHT1);
+    glEnable(GL_LIGHT2);
 
     glEnable(GL_NORMALIZE);
     //glEnable(GL_COLOR_MATERIAL); //this ruins everything. yes everything.
 
-    GLfloat light_ambient0[] = { 0.0, 0.0, -10.0, 1.0};//position
-    //GLfloat light_ambient1[] = { 0.0, 0.0, -6.0, 0.0 };//w=0.0 defines a directional light
+    GLfloat light_ambient0[] = { 5.0, 5.0, -3.0, 0.0};//position
+    //GLfloat light_ambient1[] = { 0.0, 0.0, 6.0, 0.0 };//w=0.0 defines a directional light
 
     glLightfv(GL_LIGHT0, GL_POSITION, light_ambient0);
     //glLightfv(GL_LIGHT1, GL_POSITION, light_ambient1);
 
-
     //global ambient lighting
-    GLfloat lmodel_ambient[] = {0.5,0.5,0.5,1.0};
+    GLfloat lmodel_ambient[] = {1,1,1,0.5};
     glLightModelfv(GL_LIGHT_MODEL_AMBIENT, lmodel_ambient);
 
     glEnable(GL_DEPTH_TEST); // turns on hidden surface removal so that objects behind other objects do not get displayed
@@ -95,14 +80,10 @@ void initGL(){
 
 
 
-
-
-
 }
 
 void orthogonalEnd () {
 
-    glEnable(GL_DEPTH_TEST);
     //Switch back to our projection mode
     glMatrixMode(GL_PROJECTION);
     //Finish our calls above
@@ -114,7 +95,6 @@ void orthogonalEnd () {
 
 void orthogonalStart () {
 
-    glDisable(GL_DEPTH_TEST);
     //First of all, we need to switch to our projection matrix
     glMatrixMode(GL_PROJECTION);
     //Start our projection modifications
@@ -156,12 +136,20 @@ void renderHUD(){
         GLfloat mat_shininess[] = { 70.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-    glBegin(GL_QUADS);
+    glBegin(GL_LINES);
 
-    glVertex2f(0, 0);
-    glVertex2f(0, 75);
-    glVertex2f(305, 75);
-    glVertex2f(305, 0);
+    glVertex2f(1, 1);
+    glVertex2f(1, 76);
+
+    glVertex2f(1, 76);
+    glVertex2f(306, 76);
+
+    glVertex2f(306, 76);
+    glVertex2f(306, 1);
+
+    glVertex2f(306, 1);
+    glVertex2f(1, 1);
+
 
     glEnd();
 
@@ -176,10 +164,10 @@ void renderHUD(){
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess1);
 
     glBegin(GL_QUADS);
-    glVertex2f(*Min, 5);
-    glVertex2f(*Min, 70);
-    glVertex2f(*healthcent, 70);
-    glVertex2f(*healthcent, 5);
+    glVertex2f(*Min+1, 6);
+    glVertex2f(*Min+1, 71);
+    glVertex2f(*healthcent+1, 71);
+    glVertex2f(*healthcent+1, 6);
     glEnd();
 
 }
@@ -364,7 +352,8 @@ int main(int argc, char * argv[]) {
     //glutInitDisplayMode (GLUT_DOUBLE);
     glutInitWindowSize(900, 600);   // Set the window's initial width & height - non-square
     glutInitWindowPosition(200, 100); // Position the window's initial top-left corner
-    glutInitDisplayMode (GLUT_DOUBLE | GLUT_DEPTH);
+    glutInitDisplayMode (GLUT_DOUBLE | GLUT_RGB
+                        | GLUT_ALPHA | GLUT_DEPTH);
     glutCreateWindow("Astro Crisis");  // Create window with the given title
 
     glutTimerFunc(0,timer,0);
@@ -383,6 +372,7 @@ int main(int argc, char * argv[]) {
     initGL();                       // Our own OpenGL initialization
     engine->home->initPlanet();
     engine->uni->initWorld();
+    engine->initAsteroid();
 
     glutMainLoop();                 // Enter the infinite event-processing loop
     return 0;

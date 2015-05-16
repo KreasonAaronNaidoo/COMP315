@@ -13,7 +13,7 @@
 char *t = "resources/earth.bmp";
 #else
 #include <GL/glut.h>
-char *t = "resources\\earth.bmp";
+char *t = "resources\\earth_8k.bmp";
 #endif
 #include <iostream>
 #include <math.h>
@@ -43,11 +43,11 @@ planet::planet(float x, float y, float z){
 //callback function initialises required variables and imports the image
 void planet::initPlanet() {
 
-	quad = gluNewQuadric();
+	quad_PLANET = gluNewQuadric();
 
-	Image* image = loadBMP(t);
-    _textureId = loadTexture(image);
-	delete image;
+	Image* image_PLANET = loadBMP(t);
+    _textureId_PLANET = loadTexture(image_PLANET);
+	delete image_PLANET;
 }
 
 void planet::render(){
@@ -59,7 +59,7 @@ void planet::render(){
     glTranslatef(x, y, z); // move to this position
 
     glEnable(GL_TEXTURE_2D);
-	glBindTexture(GL_TEXTURE_2D, _textureId);
+	glBindTexture(GL_TEXTURE_2D, _textureId_PLANET);
 
     //Bottom
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -72,17 +72,17 @@ void planet::render(){
     rotate();
 
     //sets colour of material
-    //GLfloat ambient[] = { 0.2, 0.4, 0.8, 1};
-    //glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+    GLfloat ambient[] = { 0.05, 0.05, 0.05, 1};
+    glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
     // sets specular properties of the material
-    //GLfloat mat_specular[] = { 1.0, 1.0, 1.0, 1.0 };
-    //glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+    GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0 };
+    glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
     // sets the shininess of the material
-    //GLfloat mat_shininess[] = { 50.0 };
-    //glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+    GLfloat mat_shininess[] = { 20.0 };
+    glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-    gluQuadricTexture(quad,1);
-    gluSphere(quad,4,25,25);//radius 0.5, 25 slices and stacks
+    gluQuadricTexture(quad_PLANET,1);
+    gluSphere(quad_PLANET,4,25,25);//radius 0.5, 25 slices and stacks
     //glutWireSphere(4.0,25,25); //using the wire for demo reasons, untill textures are done
     glPopMatrix();
 

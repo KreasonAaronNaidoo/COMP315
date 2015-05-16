@@ -44,8 +44,14 @@ void explosions::render(){
         GLfloat mat_shininess[] = { 40.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
+        //fixed the issue of bullets not appearing behind explosions
+        glEnable (GL_BLEND);
+        glDepthMask (GL_FALSE);
+        glBlendFunc (GL_SRC_ALPHA, GL_ONE);
         //glutWireSphere(RC,25,25);
         glutSolidSphere(RC,25,25);
+        glDepthMask (GL_TRUE);
+        glDisable (GL_BLEND);
 
         glPopMatrix();
 

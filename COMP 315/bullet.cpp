@@ -52,7 +52,7 @@ void bullet::render(){
         move();   //move toward
 
         //sets colour of material
-        GLfloat ambient[] = { 0.0, 0.0, 1.0, 1};
+        GLfloat ambient[] = { 0.0, 0.0, 6.0, 1.0};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
 
         // sets specular properties of the material
@@ -60,7 +60,7 @@ void bullet::render(){
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
 
         // sets the shininess of the material
-        GLfloat mat_shininess[] = { 50.0 };
+        GLfloat mat_shininess[] = { 100.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
         glutSolidSphere(rad,25,25);

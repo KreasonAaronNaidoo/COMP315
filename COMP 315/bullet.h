@@ -23,7 +23,7 @@ public:
     double* getLocation();
     void die();
     float sx, sy, sz;
-    float rad = 0.05;
+    float rad = 0.03;
 
 
 private:

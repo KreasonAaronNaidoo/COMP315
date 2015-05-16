@@ -33,6 +33,8 @@ public:
     //functions
     physics_engine();
 
+    void initAsteroid();
+
     void init_level_map();
 
     void init_npc_loc();
@@ -83,7 +85,7 @@ public:
 
     planet *home;
 
-    player *player1 = new player(0.0f, 0.5f, -1.0f);;
+    player *player1 = new player(0.0f, 0.5f, -1.4f);;
 
     npc *v [7][5];
 

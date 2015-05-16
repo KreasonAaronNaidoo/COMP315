@@ -17,13 +17,16 @@ player::player(float x, float y, float z){
     this->x = x;
     this->y = y;
     this->z = z;
+    obj.Load("resources\\models\\spaceship.obj");
+
+
 }
 
 void player::shoot(int x, int y){
     //cout<<"click"<<endl;
 
 
-    GLfloat winX, winY, winZ;               // Holds Our X, Y and Z Coordinates
+    GLfloat winX, winY, winZ;  // Holds Our X, Y and Z Coordinates
 
     winX = x;                  // Holds The Mouse X Coordinate
     winY = y;
@@ -45,7 +48,7 @@ void player::shoot(int x, int y){
 
 
 
-    v_bullet.push_back(new bullet(this->x,this->y,this->z,posX,posY,posZ));//player position to mouse position
+    v_bullet.push_back(new bullet((this->x),(this->y)-0.05,(this->z)+0.2,posX,posY,posZ));//player position to mouse position
 
 
 }
@@ -53,8 +56,25 @@ void player::shoot(int x, int y){
 void player::render(){
 
     glPushMatrix();
-    glTranslatef(x, y, z); // move to this position
-    drawPlayer();
+
+
+     //sets light of material
+        GLfloat ambient[] = {0.75294118, 0.75294118, 0.75294118, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
+        //sets specular properties of the material
+        GLfloat mat_specular[] = {1.0, 1.0, 1.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 90.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+
+
+    glTranslatef(x, y, z - 0.05); // move to this position
+    //drawPlayer();
+    glRotated(90,1,0,0);
+    glScaled(0.02,0.02,0.02);
+    obj.Draw();
+
     glPopMatrix();
 
 //    collisionCheck();
@@ -66,40 +86,6 @@ void player::drawBullets(){
     for(int i=0 ; i<v_bullet.size() ; i++){
         v_bullet[i]->render();
     }
-}
-
-void player::drawPlayer(){
-    glScalef(0.1f,0.1f,0.1f);
-
-     //sets light of material
-        GLfloat ambient[] = {0.0, 1.0, 0.0, 1.0};
-        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
-        //sets specular properties of the material
-        GLfloat mat_specular[] = {0.0, 1.0, 0.0, 1.0};
-        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-        // sets the shininess of the material
-        GLfloat mat_shininess[] = { 70.0 };
-        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-
-
-    glBegin(GL_TRIANGLES);
-        //glColor3d(255,0,255);
-		glVertex3f( 0.0f, 1.0f, 0.0f);
-		glVertex3f(-1.0f,-1.0f, 1.0f);
-		glVertex3f( 1.0f,-1.0f, 1.0f);
-		//glColor3d(0,255,0);
-		glVertex3f( 0.0f, 1.0f, 0.0f);
-		glVertex3f( 1.0f,-1.0f, 1.0f);
-		glVertex3f( 1.0f,-1.0f, -1.0f);
-		//glColor3d(255,255,0);
-		glVertex3f( 0.0f, 1.0f, 0.0f);
-		glVertex3f( 1.0f,-1.0f, -1.0f);
-		glVertex3f(-1.0f,-1.0f, -1.0f);
-		//glColor3d(0,0,255);
-		glVertex3f( 0.0f, 1.0f, 0.0f);
-		glVertex3f(-1.0f,-1.0f,-1.0f);
-		glVertex3f(-1.0f,-1.0f, 1.0f);
-	glEnd();
 }
 
 void collisionCheck(){

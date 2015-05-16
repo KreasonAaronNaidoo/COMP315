@@ -50,11 +50,11 @@
 		<Unit filename="cam.h" />
 		<Unit filename="explosions.cpp" />
 		<Unit filename="explosions.h" />
-		<Unit filename="hud.cpp" />
-		<Unit filename="hud.h" />
 		<Unit filename="imageloader.cpp" />
 		<Unit filename="imageloader.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="model_obj.cpp" />
+		<Unit filename="model_obj.h" />
 		<Unit filename="npc.cpp" />
 		<Unit filename="npc.h" />
 		<Unit filename="physics_engine.cpp" />
