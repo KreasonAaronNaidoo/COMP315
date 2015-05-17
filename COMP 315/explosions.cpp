@@ -54,11 +54,11 @@ void explosions::render(){
 
         glPopMatrix();
 
-       RC = RC + 0.001*exv;
-       trans = trans - 0.004*exv;
-       r = r - 0.005*exv;
-       g = g - 0.01*exv;
-       b = b - 0.025*exv;
+        RC = RC + 0.001;
+        trans = trans - 0.004*exv;
+        r = r - 0.005*exv;
+        g = g - 0.01*exv;
+        b = b - 0.025*exv;
 
     }
 

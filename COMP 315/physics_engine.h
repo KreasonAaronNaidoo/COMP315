@@ -101,6 +101,8 @@ public:
 
     std::map <int, point*> npc_loc;
 
+
+
 };
 
 #endif /* defined(__COMP_315__physics_engine__) */

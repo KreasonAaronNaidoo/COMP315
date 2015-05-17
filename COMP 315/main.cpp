@@ -223,6 +223,8 @@ void renderHUD(){
 
 }
 
+
+
 void render(){
 
     glMatrixMode(GL_MODELVIEW);
@@ -230,7 +232,7 @@ void render(){
 
     glLoadIdentity();
 
-     if(engine ->home->health <= 0){
+     if(engine ->home->health <= 0){ //dead dead shonile dead.
 
         //game over message
 
@@ -243,23 +245,21 @@ void render(){
         glRasterPos2f(*W /2 - 180, *H /2 -30);
 
 
-        int len1 = s1.length();
-        for (int i = 0; i < len1; i++) {
+        for (int i = 0; i < s1.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
         }
 
         glRasterPos2f(*W /2 - 130, *H /2 + 10);
 
-        for (int i = 0; i < len1; i++) {
+        for (int i = 0; i < s2.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
         }
 
         orthogonalEnd();
 
     }
-    else{
-
-
+    else
+    {
 
         orthogonalStart();
 
@@ -332,6 +332,7 @@ void key (unsigned char key, int xx, int yy){
             cout << "moving level: "<< (engine -> getLevel()) << endl;
             (engine -> setLevel((engine -> getLevel()) +1));
             engine -> start_new_level();
+            engine->home->health = 100;
             glutWarpPointer(glutGet(GLUT_WINDOW_WIDTH)/2, glutGet(GLUT_WINDOW_HEIGHT)/2 -11);
             break;
 

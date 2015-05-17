@@ -48,7 +48,7 @@ public:
     double radius;
     bool alive = true;
     double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
-
+    int rx,ry,rz;
     //texture variables
     GLuint _textureId_NPC; //The id of the texture
     GLUquadric *quad_NPC = gluNewQuadric();

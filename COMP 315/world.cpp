@@ -77,6 +77,7 @@ void world::int_empty_world(){
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	//glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
+    glRotatef(90,1,0,0);
     gluQuadricTexture(quad,1);
     gluSphere(quad,100,50,50);//radius 0.5, 25 slices and stacks
     //glutWireSphere(100, 50, 50);

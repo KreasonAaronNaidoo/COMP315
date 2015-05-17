@@ -25,9 +25,9 @@ public:
     void update();
     void die();
     bool alive = true;
+    bool plandeath = false;
     float x,y,z;
     int health;
-    explosions *boom;
 
 
 

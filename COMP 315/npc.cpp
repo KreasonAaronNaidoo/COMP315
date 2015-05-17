@@ -72,6 +72,10 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
     //cout << "v : "<<this->velocity<<" r: "<<this->radius<<endl;
 
 
+    rx = (int)rand %2;
+    ry = (int)rand %2;
+    rz = (int)rand %2;
+
 }
 
 void npc::render(){
@@ -104,13 +108,13 @@ void npc::render(){
 	    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
         //sets colour of material
-        GLfloat ambient[] = { 0.3, 0.3, 0.3, 1};
+        GLfloat ambient[] = { 0.6, 0.6, 0.6, 1};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
-        GLfloat mat_specular[] = { 1, 1, 1, 1.0 };
+        GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0};
         glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
         // sets the shininess of the material
-        GLfloat mat_shininess[] = { 10.0 };
+        GLfloat mat_shininess[] = { 30.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 
@@ -141,7 +145,7 @@ void npc::rotate(){
     }
 
     //rotates to current angle value on y-axis
-    glRotatef(angle,0,rand()%2,rand()%2); //randomise axes
+    glRotatef(angle,rx,ry,rz); //randomise axes
 }
 
 void npc::move(){

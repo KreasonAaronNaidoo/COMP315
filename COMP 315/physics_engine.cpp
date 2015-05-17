@@ -34,6 +34,7 @@ double bulletDist;
 
 vector<explosions*> v_ex;
 
+
 //texture variables
 GLuint _textureId; //The id of the texture
 //GLUquadric *quad = gluNewQuadric();
@@ -166,26 +167,21 @@ void physics_engine::init_level_map(){
 
 void physics_engine::update_with_time(){ //runs every frame
 
-
-
-    //3D
     col_dec_bullet_to_asteroid();
     col_dec_asteroid_to_planet();
 
-    if((check_all_dead() == true) && home->alive == true){
+    if(check_all_dead() == true){
 
         setLevel(getLevel() + 1);
         this ->home->health = 100;
         start_new_level();
 
     }
-    uni -> int_empty_world();
-    home->update();
-    render_npc();
-    player1->render();
 
-
-
+        uni -> int_empty_world();
+        home->update();
+        render_npc();
+        player1->render();
 
 }
 
@@ -235,6 +231,7 @@ void physics_engine::start_new_level(){
 }
 
 void physics_engine::render_npc(){
+
     //for the asteroids
      for(int a = 0; a < v_asteroid.size(); a++){
 
@@ -266,6 +263,8 @@ void physics_engine::render_npc(){
     for(int a = 0; a < v_ex.size(); a++){
         v_ex[a]->update();
     }
+
+
 
 }
 

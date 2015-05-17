@@ -36,7 +36,7 @@ planet::planet(float x, float y, float z){
     angVelocity=0.1;
     health=100;
     collision=false;
-    boom = new explosions(4,x,y,z,10,1);
+
 
 }
 
@@ -72,7 +72,7 @@ void planet::render(){
     rotate();
 
     //sets colour of material
-    GLfloat ambient[] = { 0.1, 0.1, 0.1, 1};
+    GLfloat ambient[] = { 0.2, 0.2, 0.2, 1};
     glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
     // sets specular properties of the material
     GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0 };
@@ -88,21 +88,11 @@ void planet::render(){
 
     }
 
-    if(alive == false){
-
-        boom->checkLife();
-
-        if(boom->alive == false){
-            delete boom;
-        }
-
-        boom -> update();
-    }
-
-
 }
 
 void planet::update(){
+
+
 
    this->render();
 }

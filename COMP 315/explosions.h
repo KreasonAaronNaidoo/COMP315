@@ -15,10 +15,10 @@ class explosions
         float g = 1;
         float b = 1;
         float exv;
+        float x,y,z,RF,RC;
 
 
     private:
-        float x,y,z,RF,RC;
         void render();
 };
 
