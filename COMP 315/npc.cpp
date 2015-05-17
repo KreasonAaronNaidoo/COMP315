@@ -44,11 +44,12 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
 
     this->_textureId_NPC=_textureId_NPC;
 
-    float t = rand() %10;
+    float t = rand()%10 +1;
 
-    this->velocity = t/500; //this needs to be tweaked.
-    if (this -> velocity < 0.003) {
-        this -> velocity = 0.005;
+
+    this->velocity = t/8000; //this needs to be tweaked.
+    if (this -> velocity <= 0.004) {
+        this -> velocity = 0.004;
     }
 
     getMovement();
