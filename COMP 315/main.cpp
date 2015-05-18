@@ -107,6 +107,9 @@ void processMenuEvents(int option) {
 
 }
 
+void closeSound(int v){
+    mciSendStringA("close resources/shoot.wav",NULL,0,0);
+}
 
 void create_menu(){
 
@@ -431,7 +434,8 @@ void key (unsigned char key, int xx, int yy){
             break;
 
         case 'r':
-                engine -> player1->shoot(*curx,*cury);
+            engine -> player1->shoot(*curx,*cury);
+            glutTimerFunc(100,closeSound,0);
             break;
 
         case ' ':
@@ -480,9 +484,7 @@ void mouseClick(int button, int state, int x, int y){
 
     if(button==GLUT_LEFT_BUTTON && state==GLUT_DOWN){
         engine -> player1->shoot(x,y);
-        PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
     }
-
     glutPostRedisplay();
 
 }
@@ -557,7 +559,11 @@ int main(int argc, char * argv[]) {
     engine->uni->initWorld();
     engine->initAsteroid();
 
-    glutMainLoop();                 // Enter the infinite event-processing loop
+
+    PlaySound("resources\\test.wav", NULL, SND_LOOP||SND_ASYNC);
+    glutMainLoop();
+
+                    // Enter the infinite event-processing loop
     return 0;
 
 }

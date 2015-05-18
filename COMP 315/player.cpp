@@ -8,6 +8,8 @@
 #else
 #include <GL/glut.h>
 #endif
+#include "windows.h"
+#include <mmsystem.h>
 
 player::player(){
 
@@ -50,6 +52,8 @@ void player::shoot(int x, int y){
 
     v_bullet.push_back(new bullet((this->x),(this->y)-0.05,(this->z)+0.2,posX,posY,posZ));//player position to mouse position
 
+
+    PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
 
 }
 
