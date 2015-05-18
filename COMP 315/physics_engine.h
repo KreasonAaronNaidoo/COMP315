@@ -67,12 +67,6 @@ public:
     void setLevel(int l);
 
 
-
-
-
-
-
-
     //objects
     world *uni = new world();
 
@@ -89,6 +83,8 @@ public:
     int *level = new int(); //set this to one initialy
 
     bool *all_dead = new bool(); //set this to false
+
+    bool victory = false;
 
     std::map <int, int> level_npc_num;
 

@@ -45,6 +45,8 @@
 			<Add library="gdi32" />
 			<Add directory="F:/CodeBlocks/MinGW/lib" />
 		</Linker>
+		<Unit filename="RenderableObject.cpp" />
+		<Unit filename="RenderableObject.h" />
 		<Unit filename="bullet.cpp" />
 		<Unit filename="bullet.h" />
 		<Unit filename="cam.cpp" />

@@ -1,88 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="bullet.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="player.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="581" topLine="9" />
+			<Cursor1 position="497" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="planet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="explosions.cpp" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="590" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="player.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1321" topLine="33" />
-		</Cursor>
-	</File>
-	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14519" topLine="85" />
-		</Cursor>
-		<Folding>
-			<Collapse line="50" />
-			<Collapse line="93" />
-			<Collapse line="113" />
-			<Collapse line="125" />
-			<Collapse line="136" />
-			<Collapse line="157" />
-			<Collapse line="229" />
-			<Collapse line="377" />
-			<Collapse line="403" />
-			<Collapse line="410" />
-			<Collapse line="474" />
-			<Collapse line="482" />
-			<Collapse line="491" />
-			<Collapse line="525" />
-		</Folding>
-	</File>
-	<File name="npc.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1319" topLine="22" />
+			<Cursor1 position="1205" topLine="23" />
 		</Cursor>
 	</File>
 	<File name="physics_engine.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="8842" topLine="253" />
+			<Cursor1 position="728" topLine="2" />
 		</Cursor>
-		<Folding>
-			<Collapse line="44" />
-			<Collapse line="62" />
-			<Collapse line="69" />
-			<Collapse line="293" />
-		</Folding>
-	</File>
-	<File name="bullet.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2219" topLine="51" />
-		</Cursor>
-		<Folding>
-			<Collapse line="24" />
-		</Folding>
-	</File>
-	<File name="npc.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2778" topLine="24" />
-		</Cursor>
-		<Folding>
-			<Collapse line="31" />
-			<Collapse line="81" />
-		</Folding>
-	</File>
-	<File name="planet.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2187" topLine="10" />
-		</Cursor>
-		<Folding>
-			<Collapse line="25" />
-			<Collapse line="29" />
-			<Collapse line="43" />
-		</Folding>
 	</File>
 	<File name="physics_engine.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1310" topLine="39" />
+			<Cursor1 position="1441" topLine="37" />
 		</Cursor>
 	</File>
 	<File name="world.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -95,9 +31,59 @@
 			<Cursor1 position="179" topLine="4" />
 		</Cursor>
 	</File>
-	<File name="explosions.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="npc.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="344" topLine="0" />
+			<Cursor1 position="582" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="explosions.h" open="1" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="main.cpp" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14550" topLine="528" />
+		</Cursor>
+	</File>
+	<File name="bullet.h" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="954" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="npc.cpp" open="1" top="1" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4008" topLine="106" />
+		</Cursor>
+	</File>
+	<File name="planet.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="878" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="RenderableObject.cpp" open="1" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="planet.cpp" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="803" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="RenderableObject.h" open="1" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="480" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="bullet.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1771" topLine="29" />
+		</Cursor>
+	</File>
+	<File name="player.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="243" topLine="0" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

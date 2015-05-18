@@ -234,7 +234,50 @@ void render(){
 
     glLoadIdentity();
 
-    if(splash == true){ //splash screen
+    if(engine->victory == true){
+
+        orthogonalStart();
+
+        GLfloat ambient1[] = {0.0, 2.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient1);
+        //sets specular properties of the material
+        GLfloat mat_specular1[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular1);
+        // sets the shininess of the material
+        GLfloat mat_shininess1[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess1);
+
+
+        string s4 ="Congradulations Player 1!";
+        string s5 ="You have saved Home Planet";
+        string s6 ="You are a worthy Champion";
+
+
+
+
+
+        glRasterPos2f(*W /2 -130, (*H/10)*3 );
+        for (int i = 0; i < s4.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s4[i]);
+        }
+
+        glRasterPos2f(*W /2 - 145 , (*H/10)*5);
+        for (int i = 0; i < s5.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s5[i]);
+        }
+
+        glRasterPos2f(*W /2 - 135, (*H/10)*7);
+        for (int i = 0; i < s6.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s6[i]);
+        }
+
+
+
+        orthogonalEnd();
+
+    }
+
+    else if(splash == true){ //splash screen
 
         orthogonalStart();
 
@@ -316,6 +359,7 @@ void render(){
 
         splash == false;
     }
+
 
     else if(engine ->home->health <= 0){ //dead dead shonile dead
 
