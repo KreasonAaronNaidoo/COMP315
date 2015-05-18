@@ -1,3 +1,0 @@
-#include "sounds.h"
-
-IDR_SOUND           WAVE            "resources\\catch.wav"

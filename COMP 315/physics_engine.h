@@ -20,7 +20,6 @@
 #include <vector>
 #include "map"
 #include "point.h"
-#include "hud.h"
 #include "explosions.h"
 
 

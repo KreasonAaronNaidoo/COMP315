@@ -1417,7 +1417,7 @@
 
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\imageloader.h
 
-1431974814 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
+1431975261 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\main.cpp
 	<iostream>
 	<stdlib.h>
 	<cmath>
@@ -1435,7 +1435,7 @@
 	<string>
 	<sstream>
 
-1431974836 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
+1431975602 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.h
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>
@@ -1445,7 +1445,6 @@
 	<vector>
 	"map"
 	"point.h"
-	"hud.h"
 	"explosions.h"
 
 1431768232 \\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\world.h
@@ -1501,7 +1500,7 @@
 	"time.h"
 	"imageloader.h"
 
-1431974712 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
+1431975261 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\physics_engine.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"physics_engine.h"
@@ -1527,7 +1526,7 @@
 	"npc.h"
 	"imageloader.h"
 
-1431974814 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
+1431975232 source:\\psf\dropbox\work\comp\comp 315\c++\comp 315\comp 315\player.cpp
 	"player.h"
 	<iostream>
 	<math.h>

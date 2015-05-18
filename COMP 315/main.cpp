@@ -560,7 +560,6 @@ int main(int argc, char * argv[]) {
     engine->initAsteroid();
 
 
-    PlaySound("resources\\test.wav", NULL, SND_LOOP||SND_ASYNC);
     glutMainLoop();
 
                     // Enter the infinite event-processing loop
