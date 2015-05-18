@@ -11,25 +11,26 @@
 
 #include <stdio.h>
 #include "imageloader.h"
+#include "RenderableObject.h"
 #include <GL/glut.h>
 
 
 
 
-class bullet {
+class bullet : public renderableObject {
 
 public:
-    bullet(float sx,float sy,float sz,float fx ,float fy,float fz);
+    bullet(float sx,float sy,float sz,float fx ,float fy,float fz, GLuint _textureId_Bullet);
     ~bullet();
-    void render();
-    void update();
+    virtual void render();
+    virtual void update();
     void move();
     double* getLocation();
-    void die();
+    virtual void die();
 
-    GLuint loadTexture(Image* image);
+    void initBullet();
 
-    float sx, sy, sz;
+    //float sx, sy, sz;
     float rad = 0.02;
 
     GLuint _textureId_Bullet; //The id of the texture
@@ -39,14 +40,13 @@ public:
 private:
     float fx ,fy, fz;
     float velocity;
-    bool alive;
+    //bool alive;
     float Vx, Vy, Vz;
     float theta;
     float phi;
     float dist;
 
     void getMovement();
-
 
 };
 

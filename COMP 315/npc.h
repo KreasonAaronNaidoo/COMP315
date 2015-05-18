@@ -18,21 +18,22 @@
 #include <stdio.h>
 #include "point.h"
 #include "imageloader.h"
+#include "RenderableObject.h"
 
-class npc{
+class npc : public renderableObject {
 public:
     //constructors
     npc();
     ~npc();
-    npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId);
+    npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId_NPC);
     //void
-    void render();
-    void update();
+    virtual void render();
+    virtual void update();
     void move();
     void regCollision();
     void takeDamage();
     void split(int size);
-    void die();
+    virtual void die();
     void getMovement();
     //get
     int getSize();
@@ -44,9 +45,9 @@ public:
     bool collisionState();
     void setToPoint(float to_x, float to_y, float to_z);
     double ints;
-    double sx, sy, sz;
+   // double sx, sy, sz;
     double radius;
-    bool alive = true;
+    //bool alive = true;
     double fx,fy,fz; //end point      -this may need to be transferred to a vector class where vector magnitude etc are also defined
     int rx,ry,rz;
     //texture variables

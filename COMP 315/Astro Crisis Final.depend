@@ -1554,7 +1554,7 @@
 
 1431768232 P315/master
 
-1431801980 source:f:\comp315\comp 315\bullet.cpp
+1431990693 source:f:\comp315\comp 315\bullet.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"bullet.h"
@@ -1564,8 +1564,11 @@
 	<cstdlib>
 	"point.h"
 
-1431801980 f:\comp315\comp 315\bullet.h
+1431988648 f:\comp315\comp 315\bullet.h
 	<stdio.h>
+	"imageloader.h"
+	"RenderableObject.h"
+	<GL/glut.h>
 
 1431729890 f:\comp315\comp 315\point.h
 	<stdio.h>
@@ -1582,13 +1585,13 @@
 1431729890 f:\comp315\comp 315\cam.h
 	<stdio.h>
 
-1431801980 source:f:\comp315\comp 315\explosions.cpp
+1431885571 source:f:\comp315\comp 315\explosions.cpp
 	"explosions.h"
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
 
-1431765215 f:\comp315\comp 315\explosions.h
+1431885571 f:\comp315\comp 315\explosions.h
 
 1431729890 source:f:\comp315\comp 315\imageloader.cpp
 	<assert.h>
@@ -1598,7 +1601,7 @@
 
 1431729890 f:\comp315\comp 315\imageloader.h
 
-1431808197 source:f:\comp315\comp 315\main.cpp
+1431989886 source:f:\comp315\comp 315\main.cpp
 	<iostream>
 	<stdlib.h>
 	<cmath>
@@ -1616,7 +1619,7 @@
 	<string>
 	<sstream>
 
-1431801980 f:\comp315\comp 315\physics_engine.h
+1431989673 f:\comp315\comp 315\physics_engine.h
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>
@@ -1626,7 +1629,6 @@
 	<vector>
 	"map"
 	"point.h"
-	"hud.h"
 	"explosions.h"
 
 1431729890 f:\comp315\comp 315\world.h
@@ -1636,20 +1638,22 @@
 	"npc.h"
 	<vector>
 
-1431733244 f:\comp315\comp 315\npc.h
+1431987453 f:\comp315\comp 315\npc.h
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<stdio.h>
 	"point.h"
 	"imageloader.h"
+	"RenderableObject.h"
 
-1431733358 f:\comp315\comp 315\planet.h
+1431986510 f:\comp315\comp 315\planet.h
 	"npc.h"
 	"imageloader.h"
 	<string.h>
 	"explosions.h"
+	"RenderableObject.h"
 
-1431801980 f:\comp315\comp 315\player.h
+1431989827 f:\comp315\comp 315\player.h
 	"bullet.h"
 	<vector>
 	"model_obj.h"
@@ -1672,7 +1676,7 @@
 	<vector>
 	<cmath>
 
-1431808409 source:f:\comp315\comp 315\npc.cpp
+1431985978 source:f:\comp315\comp 315\npc.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
@@ -1682,7 +1686,7 @@
 	"time.h"
 	"imageloader.h"
 
-1431808177 source:f:\comp315\comp 315\physics_engine.cpp
+1431989673 source:f:\comp315\comp 315\physics_engine.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	"physics_engine.h"
@@ -1699,7 +1703,7 @@
 	"imageloader.h"
 	<mmsystem.h>
 
-1431802631 source:f:\comp315\comp 315\planet.cpp
+1431988898 source:f:\comp315\comp 315\planet.cpp
 	<GLUT/glut.h>
 	<GL/glut.h>
 	<iostream>
@@ -1708,7 +1712,7 @@
 	"npc.h"
 	"imageloader.h"
 
-1431801980 source:f:\comp315\comp 315\player.cpp
+1431990594 source:f:\comp315\comp 315\player.cpp
 	"player.h"
 	<iostream>
 	<math.h>
@@ -1716,6 +1720,8 @@
 	"point.h"
 	<GLUT/glut.h>
 	<GL/glut.h>
+	"windows.h"
+	<mmsystem.h>
 
 1431729890 source:f:\comp315\comp 315\point.cpp
 	"point.h"
@@ -1728,5 +1734,11 @@
 	<iostream>
 	<cmath>
 	<stdio.h>
+	<iostream>
+
+1431986554 f:\comp315\comp 315\renderableobject.h
+
+1431984870 source:f:\comp315\comp 315\renderableobject.cpp
+	"RenderableObject.h"
 	<iostream>
 

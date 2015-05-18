@@ -10,6 +10,7 @@
 #include <GLUT/glut.h>
 #else
 #include <GL/glut.h>
+
 #endif
 
 #include "bullet.h"
@@ -22,28 +23,11 @@
 
 using namespace std;
 
-GLuint bullet::loadTexture(Image* image) {
-	GLuint textureId;
-	glGenTextures(1, &textureId); //Make room for our texture
-	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
-	//Map the image to the texture
-	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
-				 0,                            //0 for now
-				 GL_RGB,                       //Format OpenGL uses for image
-				 image->width, image->height,  //Width and height
-				 0,                            //The border of the image
-				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
-				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
-				                   //as unsigned numbers
-				 image->pixels);               //The actual pixel data
-	return textureId; //Returns the id of the texture
-}
-
-bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
+bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz, GLuint _textureId_Bullet) : renderableObject(sx,sy,sz){
 //Uses to and from to essentially create a movement vector
-    this -> sx = sx;
-    this -> sy = sy;
-    this -> sz = sz;
+    //this -> sx = sx;
+    //this -> sy = sy;
+   // this -> sz = sz;
     this -> fx = fx;
     this -> fy = fy;
     this -> fz = fz;
@@ -51,6 +35,7 @@ bullet::bullet(float sx,float sy,float sz,float fx ,float fy,float fz){
     this->velocity=0.05;
     this->alive=true;
 
+    this->_textureId_Bullet=_textureId_Bullet;
     //Image* image_Bullet = loadBMP("resources\\energy.bmp");
     //_textureId_Bullet = loadTexture(image_Bullet);
 	//delete image_Bullet;
@@ -70,12 +55,18 @@ void bullet::render(){
         glPushMatrix();
         glTranslated(sx, sy, sz); // move to position
 
-       // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-	   // glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-	   // glTexParameteri(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+       glEnable(GL_TEXTURE_2D);
+	   glBindTexture(GL_TEXTURE_2D, _textureId_Bullet);
+
+       //Bottom
+	   glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+       glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+       glTexParameteri(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);//edited by me
+	   //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	   //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
          //sets colour of material
-        GLfloat ambient[] = {0.2, 0.3, 0.7, 0.7};
+        GLfloat ambient[] = {0.2, 0.3, 0.7, 0.8};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
         GLfloat mat_specular[] = { 0.5, 0.5, 0.5, 1.0};
@@ -85,16 +76,13 @@ void bullet::render(){
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
 
-       // glEnable(GL_TEXTURE_2D);
-       // glBindTexture(GL_TEXTURE_2D, _textureId_Bullet);
-
-       // gluQuadricTexture(quad_Bullet,1);
 
         move();
 
-       // gluSphere(quad_Bullet,rad,25,25);
 
-        glutSolidSphere(rad,25,25);
+       gluQuadricTexture(quad_Bullet,1);
+       gluSphere(quad_Bullet,rad,25,25);//radius 0.5, 25 slices and stacks
+
         //glutWireSphere(radius,25,25);
         glPopMatrix();
 
@@ -103,7 +91,7 @@ void bullet::render(){
     }
 }
 
-void bullet::update(){
+ void bullet::update(){
 
 }
 
@@ -155,3 +143,5 @@ double* bullet::getLocation(){
 void bullet::die(){
     alive=false;
 }
+
+

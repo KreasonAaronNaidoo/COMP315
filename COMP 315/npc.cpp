@@ -13,6 +13,7 @@
 #include <iostream>
 #include <math.h>
 #include <cstdlib>
+
 #include "npc.h"
 #include "time.h"
 #include "imageloader.h"
@@ -21,15 +22,15 @@
 
 using namespace std;
 
-npc::npc(){
+/*npc::npc(){
     //npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
-}
+}*/
 
 npc::~npc(){
 
 }
 
-npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId_NPC){
+npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuint _textureId_NPC) : renderableObject(sx,sy,sz){
     //passed by asteroid genetator
     this->sx = sx;
     this->sy = sy;
@@ -47,7 +48,7 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
     float t = rand()%10 +1;
 
 
-    this->velocity = t/8000; //this needs to be tweaked.
+    this->velocity = t/8000; // this needs to be tweaked.
     if (this -> velocity <= 0.004) {
         this -> velocity = 0.004;
     }
@@ -76,6 +77,10 @@ npc::npc(double sx, double sy, double sz, double fx, double fy, double fz, GLuin
     rx = (int)rand %2;
     ry = (int)rand %2;
     rz = (int)rand %2;
+
+    //removes chance that all axes may be zero, resulting in unwanted actions
+    if(rx==0 && ry==0 && rz==0)
+        ry=1;
 
 }
 
@@ -138,7 +143,7 @@ void npc::update(){
 
 void npc::rotate(){
     //increment the angle and call rotate function
-    angle+= angVelocity/30;
+    angle+= angVelocity/15;
 
     if(angle>360.f)
     {
@@ -146,7 +151,8 @@ void npc::rotate(){
     }
 
     //rotates to current angle value on y-axis
-    glRotatef(angle,rx,ry,rz); //randomise axes
+    //glRotatef(angle,rx,ry,rz); //randomise axes
+    glRotatef(angle,1,0,0);
 }
 
 void npc::move(){

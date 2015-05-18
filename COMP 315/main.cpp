@@ -254,7 +254,7 @@ void render(){
         string s5 ="The asteroids have been sent by the evil being known as...";
         string s6 ="Story Plot... How evil!";
         string s7 ="The Home Planet sends their champion";
-        string s8 ="the mighty and good looking... Player 1";
+        string s8 ="the Mighty and good looking... Player 1";
         string s9 ="To defeat the evil asteroid army. How Brave!";
         string s10 ="Press Spacebar to begin, Mighty Champion";
 
@@ -558,7 +558,7 @@ int main(int argc, char * argv[]) {
     engine->home->initPlanet();
     engine->uni->initWorld();
     engine->initAsteroid();
-
+    engine->player1->initBullet();
 
     glutMainLoop();
 
