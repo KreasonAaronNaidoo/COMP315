@@ -3,59 +3,11 @@
 	<ActiveTarget name="Debug" />
 	<File name="main.cpp" open="1" top="1" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="5407" topLine="48" />
+			<Cursor1 position="8662" topLine="237" />
 		</Cursor>
 		<Folding>
 			<Collapse line="50" />
-			<Collapse line="93" />
-			<Collapse line="110" />
-			<Collapse line="122" />
-			<Collapse line="133" />
-			<Collapse line="154" />
 		</Folding>
-	</File>
-	<File name="bullet.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2219" topLine="51" />
-		</Cursor>
-		<Folding>
-			<Collapse line="24" />
-		</Folding>
-	</File>
-	<File name="player.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2061" topLine="18" />
-		</Cursor>
-		<Folding>
-			<Collapse line="55" />
-			<Collapse line="84" />
-			<Collapse line="94" />
-		</Folding>
-	</File>
-	<File name="physics_engine.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="997" topLine="63" />
-		</Cursor>
-	</File>
-	<File name="physics_engine.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6871" topLine="40" />
-		</Cursor>
-		<Folding>
-			<Collapse line="44" />
-			<Collapse line="62" />
-			<Collapse line="69" />
-		</Folding>
-	</File>
-	<File name="planet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="590" topLine="10" />
-		</Cursor>
-	</File>
-	<File name="world.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1881" topLine="72" />
-		</Cursor>
 	</File>
 	<File name="npc.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
@@ -71,6 +23,39 @@
 			<Cursor1 position="1319" topLine="22" />
 		</Cursor>
 	</File>
+	<File name="bullet.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2219" topLine="51" />
+		</Cursor>
+		<Folding>
+			<Collapse line="24" />
+		</Folding>
+	</File>
+	<File name="physics_engine.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5776" topLine="184" />
+		</Cursor>
+		<Folding>
+			<Collapse line="44" />
+			<Collapse line="62" />
+			<Collapse line="69" />
+		</Folding>
+	</File>
+	<File name="world.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1881" topLine="72" />
+		</Cursor>
+	</File>
+	<File name="physics_engine.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="997" topLine="63" />
+		</Cursor>
+	</File>
+	<File name="world.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="179" topLine="4" />
+		</Cursor>
+	</File>
 	<File name="planet.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="2187" topLine="10" />
@@ -81,9 +66,9 @@
 			<Collapse line="43" />
 		</Folding>
 	</File>
-	<File name="world.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="planet.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="179" topLine="4" />
+			<Cursor1 position="590" topLine="10" />
 		</Cursor>
 	</File>
 	<File name="bullet.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -95,5 +80,15 @@
 		<Cursor>
 			<Cursor1 position="344" topLine="0" />
 		</Cursor>
+	</File>
+	<File name="player.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2061" topLine="18" />
+		</Cursor>
+		<Folding>
+			<Collapse line="55" />
+			<Collapse line="84" />
+			<Collapse line="94" />
+		</Folding>
 	</File>
 </CodeBlocks_layout_file>

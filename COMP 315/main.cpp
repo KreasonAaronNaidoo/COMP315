@@ -256,55 +256,55 @@ void render(){
         string s10 ="Press Spacebar to begin, Mighty Champion";
 
 
+        int xglob = 12;
 
 
-
-        glRasterPos2f(*W /2 - 190, (*H/10)*1 -15);
+        glRasterPos2f(*W /2 - 190 + xglob, (*H/10)*1 -15);
         for (int i = 0; i < s1.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
         }
 
-        glRasterPos2f(*W /2 - 250, (*H/10)*2 -15);
+        glRasterPos2f(*W /2 - 250+ xglob, (*H/10)*2 -15);
         for (int i = 0; i < s2.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
         }
 
-        glRasterPos2f(*W /2 - 245, (*H/10)*3 -15);
+        glRasterPos2f(*W /2 - 245+ xglob, (*H/10)*3 -15);
         for (int i = 0; i < s3.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s3[i]);
         }
 
-        glRasterPos2f(*W /2 - 310, (*H/10)*4 -15);
+        glRasterPos2f(*W /2 - 310+ xglob, (*H/10)*4 -15);
         for (int i = 0; i < s4.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s4[i]);
         }
 
-        glRasterPos2f(*W /2 - 290, (*H/10)*5 -15);
+        glRasterPos2f(*W /2 - 290+ xglob, (*H/10)*5 -15);
         for (int i = 0; i < s5.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s5[i]);
         }
 
-        glRasterPos2f(*W /2 - 130, (*H/10)*6 -15);
+        glRasterPos2f(*W /2 - 130+ xglob, (*H/10)*6 -15);
         for (int i = 0; i < s6.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s6[i]);
         }
 
-        glRasterPos2f(*W /2 - 220, (*H/10)*7 -15);
+        glRasterPos2f(*W /2 - 220+ xglob, (*H/10)*7 -15);
         for (int i = 0; i < s7.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s7[i]);
         }
 
-        glRasterPos2f(*W /2 - 215, (*H/10)*8 -15);
+        glRasterPos2f(*W /2 - 215+ xglob, (*H/10)*8 -15);
         for (int i = 0; i < s8.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s8[i]);
         }
 
-        glRasterPos2f(*W /2 - 240, (*H/10)*9 -15);
+        glRasterPos2f(*W /2 - 240+ xglob, (*H/10)*9 -15);
         for (int i = 0; i < s9.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s9[i]);
         }
 
-        glRasterPos2f(*W /2 - 235, (*H/10)*10 -15);
+        glRasterPos2f(*W /2 - 235+ xglob, (*H/10)*10 -15);
         for (int i = 0; i < s10.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s10[i]);
         }
