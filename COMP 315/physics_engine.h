@@ -65,12 +65,6 @@ public:
     void setLevel(int l);
 
 
-
-
-
-
-
-
     //objects
     world *uni = new world();
 
