@@ -62,8 +62,6 @@ GLuint loadTexture(Image* image) {
 //callback function initialises required variables and imports the image
 void physics_engine::initAsteroid() {
 
-	//quad = gluNewQuadric();
-
 	Image* image_NPC = loadBMP(tex);
     _textureId = loadTexture(image_NPC);
 	delete image_NPC;
@@ -224,8 +222,6 @@ void physics_engine::start_new_level(){
 
     v_asteroid.clear(); //removes the pointers
 
-    //render level announcment and delay spawn.
-
     this -> spawn();
 
 }
@@ -268,54 +264,6 @@ void physics_engine::render_npc(){
 
 }
 
-void physics_engine::asteroidToAsteroidCollision(){
-//We use a nested loop to select an asteroid, then calculate the distance between it and every other asteroid
-    for(int i=0; i<v_asteroid.size() ;i++){
-      for(int j=i; j<v_asteroid.size() ;j++){
-          if(i!=j){ //we dont want the distance between an asteroid and itself
-              //get co-ordinates of asteroid i
-              double x_loc_i=*(v_asteroid[i]->getLocation());
-              double y_loc_i=*(v_asteroid[i]->getLocation()+1);
-              double z_loc_i=*(v_asteroid[i]->getLocation()+2);
-              //get co-ordinates of asteroid j
-              double x_loc_j=*(v_asteroid[j]->getLocation());
-              double y_loc_j=*(v_asteroid[j]->getLocation()+1);
-              double z_loc_j=*(v_asteroid[j]->getLocation()+2);
-              //calculate distance between them
-              dist=sqrt(pow(x_loc_i-x_loc_j,2)
-                       +pow(y_loc_i-y_loc_j,2)
-                       +pow(z_loc_i-z_loc_j,2));
-//cout<<"dist: "<<dist<<endl;
-//cout<<"x_loc: "<<x_loc<<endl;
-//cout<<"true"<<endl;
-
-            if( dist< (v_asteroid[i]->getRadius()+v_asteroid[j]->getRadius()) ){ //if dist is less than sum of radii
-//cout<<"i: "<<v_asteroid[i].getRadius()<<endl;
-//cout<<"j: "<<v_asteroid[j].getRadius()<<endl;
-//cout<<"Dist: "<<getDistance(v_asteroid[i],v_asteroid[j])<<endl;
-
-                //register collisions
-                v_asteroid[i]->regCollision();
-                v_asteroid[j]->regCollision();
-//cout<<"i: "<<i<<" j: "<<j<<endl;
-                //split(v_asteroid[i],v_asteroid[j],i,j);
-//ERASING IS A PROBLEM
-               v_asteroid.erase(v_asteroid.begin()+j);
-               v_asteroid.erase(v_asteroid.begin()+i);
-               //v_asteroid[j] = v_asteroid.back();
-               //v_asteroid[i] = v_asteroid.back();
-               //v_asteroid.pop_back();
-               //v_asteroid.pop_back();
-               i--;
-            }
-          }
-       }
-    }
-}
-
-void physics_engine::split(npc ast1, npc ast2, int i, int j){
-
-}
 
 void physics_engine::col_dec_asteroid_to_planet(){
 
@@ -342,35 +290,6 @@ void physics_engine::col_dec_asteroid_to_planet(){
 
 }
 
-void physics_engine::bulletToAsteroidCollision(){
-
-     for(int i=0; i<player1->v_bullet.size() ;i++){
-       for(int j=0; j<v_asteroid.size() ;j++){
-              //get co-ordinates of bullet i
-              double x_loc_i=*(player1->v_bullet[i]->getLocation());
-              double y_loc_i=*(player1->v_bullet[i]->getLocation()+1);
-              double z_loc_i=*(player1->v_bullet[i]->getLocation()+2);
-              //get co-ordinates of asteroid j
-              double x_loc_j=*(v_asteroid[j]->getLocation());
-              double y_loc_j=*(v_asteroid[j]->getLocation()+1);
-              double z_loc_j=*(v_asteroid[j]->getLocation()+2);
-              //calculate distance between them
-              bulletDist=sqrt(pow(x_loc_i-x_loc_j,2)
-                       +pow(y_loc_i-y_loc_j,2)
-                       +pow(z_loc_i-z_loc_j,2));
-
-              if( bulletDist< (0.1+v_asteroid[j]->getRadius()) ){   //dist less than bullet radius+asteroid radius
-                  player1->v_bullet[i]->die();
-                  v_asteroid[j]->regCollision();
-
-                  player1->v_bullet.erase(player1->v_bullet.begin()+j);
-                  v_asteroid.erase(v_asteroid.begin()+i);
-                  i--;
-                  j--;
-              }
-       }
-     }
-}
 
 void physics_engine::col_dec_bullet_to_asteroid(){
 

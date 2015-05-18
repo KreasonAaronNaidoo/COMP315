@@ -226,12 +226,15 @@ void renderHUD(){
 
 void render(){
 
+
+    engine ->home->health = 0;
+
     glMatrixMode(GL_MODELVIEW);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
     glLoadIdentity();
 
-    if(splash == true){
+    if(splash == true){ //splash screen
 
         orthogonalStart();
 
@@ -311,13 +314,11 @@ void render(){
 
         orthogonalEnd();
 
-
-
         splash == false;
     }
 
-    else if(engine ->home->health <= 0) //dead dead shonile dead
-    {
+    else if(engine ->home->health <= 0){ //dead dead shonile dead
+
 
         //game over message
 
@@ -338,14 +339,14 @@ void render(){
         string s1 = "Home is dead. Only darkness remains.";
         string s2 = "You have failed your people.";
 
-        glRasterPos2f(*W /2 - 180, *H /2 -30);
+        glRasterPos2f(*W /2 - 185, *H /2 -30);
 
 
         for (int i = 0; i < s1.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
         }
 
-        glRasterPos2f(*W /2 - 200, *H /2 + 10);
+        glRasterPos2f(*W /2 - 130, *H /2 + 10);
 
         for (int i = 0; i < s2.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
@@ -354,8 +355,8 @@ void render(){
         orthogonalEnd();
 
     }
-    else
-    {
+
+    else{               //standard game play
 
         orthogonalStart();
 

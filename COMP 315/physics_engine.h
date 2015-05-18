@@ -51,17 +51,11 @@ public:
 
     void col_dec_asteroid_to_planet();
 
-    void kill(); //destroys an asteroid
-
     void update_with_time(); //spinning of the planet and asteroids and health bars
 
     bool check_all_dead(); //check if all asteroids are dead
 
     void spawn (); //spawns asteroids according to the level
-
-    void collide_with_player(); //checks for and handles collisions with the player
-
-    void collide_with_home(); // checks for and handles collisions with home planet
 
     void start_new_level();
 
@@ -71,11 +65,8 @@ public:
 
     void setLevel(int l);
 
-    void asteroidToAsteroidCollision();
 
-    void split(npc ast1,npc ast2,int i,int j);
 
-    void bulletToAsteroidCollision();
 
 
 
