@@ -37,6 +37,7 @@ float *curx = new float(0);
 float *cury = new float(0);
 int *H = new int();
 int *W = new int();
+bool splash = true;
 
 
 
@@ -223,8 +224,6 @@ void renderHUD(){
 
 }
 
-
-
 void render(){
 
     glMatrixMode(GL_MODELVIEW);
@@ -232,12 +231,109 @@ void render(){
 
     glLoadIdentity();
 
-     if(engine ->home->health <= 0){ //dead dead shonile dead.
+    if(splash == true){
+
+        orthogonalStart();
+
+        GLfloat ambient1[] = {0.0, 2.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient1);
+        //sets specular properties of the material
+        GLfloat mat_specular1[] = {0.0, 1.0, 0.0, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular1);
+        // sets the shininess of the material
+        GLfloat mat_shininess1[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess1);
+
+        string s1 = "A long way away in a far ago time";
+        string s2 = "The Home Planet was a happy and nice place.";
+        string s3 ="But then, one day, deep space scans revealed";
+        string s4 ="A large amount of asteroids heading straight for Home Planet";
+        string s5 ="The asteroids have been sent by the evil being known as...";
+        string s6 ="Story Plot... How evil!";
+        string s7 ="The Home Planet sends their champion";
+        string s8 ="the mighty and good looking... Player 1";
+        string s9 ="To defeat the evil asteroid army. How Brave!";
+        string s10 ="Press Spacebar to begin, Mighty Champion";
+
+
+
+
+
+        glRasterPos2f(*W /2 - 190, (*H/10)*1 -15);
+        for (int i = 0; i < s1.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
+        }
+
+        glRasterPos2f(*W /2 - 250, (*H/10)*2 -15);
+        for (int i = 0; i < s2.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
+        }
+
+        glRasterPos2f(*W /2 - 245, (*H/10)*3 -15);
+        for (int i = 0; i < s3.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s3[i]);
+        }
+
+        glRasterPos2f(*W /2 - 310, (*H/10)*4 -15);
+        for (int i = 0; i < s4.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s4[i]);
+        }
+
+        glRasterPos2f(*W /2 - 290, (*H/10)*5 -15);
+        for (int i = 0; i < s5.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s5[i]);
+        }
+
+        glRasterPos2f(*W /2 - 130, (*H/10)*6 -15);
+        for (int i = 0; i < s6.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s6[i]);
+        }
+
+        glRasterPos2f(*W /2 - 220, (*H/10)*7 -15);
+        for (int i = 0; i < s7.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s7[i]);
+        }
+
+        glRasterPos2f(*W /2 - 215, (*H/10)*8 -15);
+        for (int i = 0; i < s8.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s8[i]);
+        }
+
+        glRasterPos2f(*W /2 - 240, (*H/10)*9 -15);
+        for (int i = 0; i < s9.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s9[i]);
+        }
+
+        glRasterPos2f(*W /2 - 235, (*H/10)*10 -15);
+        for (int i = 0; i < s10.length(); i++) {
+            glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s10[i]);
+        }
+
+        orthogonalEnd();
+
+
+
+        splash == false;
+    }
+
+    else if(engine ->home->health <= 0) //dead dead shonile dead
+    {
 
         //game over message
 
 
         orthogonalStart();
+
+
+        //sets light of material
+        GLfloat ambienti[] = {0.75294118, 0.75294118, 0.75294118, 1.0};
+        glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambienti);
+        //sets specular properties of the material
+        GLfloat mat_speculari[] = {0.75294118, 0.75294118, 0.75294118, 1.0};
+        glMaterialfv(GL_FRONT, GL_SPECULAR, mat_speculari);
+        // sets the shininess of the material
+        GLfloat mat_shininess[] = { 70.0 };
+        glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
         string s1 = "Home is dead. Only darkness remains.";
         string s2 = "You have failed your people.";
@@ -249,7 +345,7 @@ void render(){
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s1[i]);
         }
 
-        glRasterPos2f(*W /2 - 130, *H /2 + 10);
+        glRasterPos2f(*W /2 - 200, *H /2 + 10);
 
         for (int i = 0; i < s2.length(); i++) {
             glutBitmapCharacter(GLUT_BITMAP_TIMES_ROMAN_24, s2[i]);
@@ -339,6 +435,12 @@ void key (unsigned char key, int xx, int yy){
         case 'r':
                 engine -> player1->shoot(*curx,*cury);
             break;
+
+        case ' ':
+                if(splash == true)
+                {
+                    splash = false;
+                }
 
     	default:
             break;

@@ -10,6 +10,10 @@
 #define __COMP_315__bullet__
 
 #include <stdio.h>
+#include "imageloader.h"
+#include <GL/glut.h>
+
+
 
 
 class bullet {
@@ -22,8 +26,14 @@ public:
     void move();
     double* getLocation();
     void die();
+
+    GLuint loadTexture(Image* image);
+
     float sx, sy, sz;
-    float rad = 0.03;
+    float rad = 0.02;
+
+    GLuint _textureId_Bullet; //The id of the texture
+    GLUquadric *quad_Bullet = gluNewQuadric();
 
 
 private:

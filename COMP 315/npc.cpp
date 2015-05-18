@@ -171,8 +171,6 @@ void npc::takeDamage(){
     }
 }
 
-
-
 void npc::split(int size){
     /*Splitting an asteroid should result in generation of two more asteroids which should
      register as seperate objects in the world therefore this split method should be handled
