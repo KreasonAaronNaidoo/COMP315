@@ -82,6 +82,8 @@ public:
 
     bool *all_dead = new bool(); //set this to false
 
+    bool victory = false;
+
     std::map <int, int> level_npc_num;
 
     std::map <int, point*> npc_loc;

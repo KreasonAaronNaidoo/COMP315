@@ -170,6 +170,10 @@ void physics_engine::update_with_time(){ //runs every frame
 
     if(check_all_dead() == true){
 
+        if(getLevel() == 20){ //we just finished level 20
+            victory = true;
+        }
+
         setLevel(getLevel() + 1);
         this ->home->health = 100;
         start_new_level();
