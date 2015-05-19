@@ -11,22 +11,23 @@
 #include "imageloader.h"
 #include <string.h>
 #include "explosions.h"
+#include "RenderableObject.h"
 
 using namespace std;
 
-class planet{
+class planet : public renderableObject {
 public:
     planet();
     planet(float x, float y, float z);
     void initPlanet();  //callback
     void rotate();
     void takeDamage(int level);
-    void render();
-    void update();
-    void die();
-    bool alive = true;
+    virtual void render();
+    virtual void update();
+    virtual void die();
+    //bool alive = true;
     bool plandeath = false;
-    float x,y,z;
+    //float x,y,z;
     int health;
 
 

@@ -11,6 +11,8 @@
 #include "windows.h"
 #include <mmsystem.h>
 
+char *tr = "resources\\plasma.bmp";
+
 player::player(){
 
 }
@@ -21,7 +23,16 @@ player::player(float x, float y, float z){
     this->z = z;
     obj.Load("resources\\models\\spaceship.obj");
 
+}
 
+//callback function initialises required variables and imports the image
+void player::initBullet() {
+
+	quad_Bullet = gluNewQuadric();
+
+	Image* image_Bullet = loadBMP(tr);
+    _textureId_Bullet = loadTexture(image_Bullet);
+	delete image_Bullet;
 }
 
 void player::shoot(int x, int y){
@@ -50,7 +61,7 @@ void player::shoot(int x, int y){
 
 
 
-    v_bullet.push_back(new bullet((this->x),(this->y)-0.05,(this->z)+0.2,posX,posY,posZ));//player position to mouse position
+    v_bullet.push_back(new bullet((this->x),(this->y)-0.05,(this->z)+0.2,posX,posY,posZ,_textureId_Bullet));//player position to mouse position
 
 
     PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
@@ -98,4 +109,22 @@ void collisionCheck(){
 
 vector<bullet*> player::getBulletVector(){
     return v_bullet;
+}
+
+//Makes the image into a texture, and returns the id of the texture
+GLuint player::loadTexture(Image* image) {
+	GLuint textureId;
+	glGenTextures(1, &textureId); //Make room for our texture
+	glBindTexture(GL_TEXTURE_2D, textureId); //Tell OpenGL which texture to edit
+	//Map the image to the texture
+	glTexImage2D(GL_TEXTURE_2D,                //Always GL_TEXTURE_2D
+				 0,                            //0 for now
+				 GL_RGB,                       //Format OpenGL uses for image
+				 image->width, image->height,  //Width and height
+				 0,                            //The border of the image
+				 GL_RGB, //GL_RGB, because pixels are stored in RGB format
+				 GL_UNSIGNED_BYTE, //GL_UNSIGNED_BYTE, because pixels are stored
+				                   //as unsigned numbers
+				 image->pixels);               //The actual pixel data
+	return textureId; //Returns the id of the texture
 }

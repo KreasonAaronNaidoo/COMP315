@@ -23,10 +23,15 @@ class player
 
         Model_OBJ obj;
 
+        void initBullet();
+
+        GLuint _textureId_Bullet; //The id of the texture
+        GLUquadric *quad_Bullet = gluNewQuadric();
+
     private:
         void drawPlayer();
         void drawBullets();
-
+        GLuint loadTexture(Image* image);
 };
 
 #endif

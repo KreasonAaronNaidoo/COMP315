@@ -36,7 +36,7 @@ vector<explosions*> v_ex;
 
 
 //texture variables
-GLuint _textureId; //The id of the texture
+GLuint _textureId_NPC; //The id of the texture
 //GLUquadric *quad = gluNewQuadric();
 
 char *tex = "resources\\asteroid_2k.bmp";
@@ -63,7 +63,7 @@ GLuint loadTexture(Image* image) {
 void physics_engine::initAsteroid() {
 
 	Image* image_NPC = loadBMP(tex);
-    _textureId = loadTexture(image_NPC);
+    _textureId_NPC = loadTexture(image_NPC);
 	delete image_NPC;
 }
 
@@ -74,8 +74,6 @@ physics_engine::physics_engine(){
     this -> init_level_map();
     this -> init_npc_loc();
     this -> start_new_level();
-
-
 
     this->home = new planet(0, -4, 0);
 
@@ -198,7 +196,7 @@ void physics_engine::spawn(){
         float fx = -1 + (rand() % (int)(2 + 1 + 1));
 
 
-        v_asteroid.push_back(new npc(tx,ty,tz,fx,0,0,_textureId)); //adding all asteroids to a vector
+        v_asteroid.push_back(new npc(tx,ty,tz,fx,0,0,_textureId_NPC)); //adding all asteroids to a vector
 
 
     }
@@ -273,7 +271,7 @@ void physics_engine::col_dec_asteroid_to_planet(){
 
     for(int a = 0; a < v_asteroid.size(); a++){
 
-        float d = sqrt(((home->x - v_asteroid[a]->sx) * (home->x - v_asteroid[a]->sx)) + ((home->y - v_asteroid[a]->sy) * (home->y - v_asteroid[a]->sy)) + ((home->z - v_asteroid[a]->sz) * (home->z - v_asteroid[a]->sz)));
+        float d = sqrt(((home->sx - v_asteroid[a]->sx) * (home->sx - v_asteroid[a]->sx)) + ((home->sy - v_asteroid[a]->sy) * (home->sy - v_asteroid[a]->sy)) + ((home->sz - v_asteroid[a]->sz) * (home->sz - v_asteroid[a]->sz)));
 
         if(d < (v_asteroid[a]->radius + 4)){
 

@@ -17,20 +17,22 @@ char *t = "resources\\earth_8k.bmp";
 #endif
 #include <iostream>
 #include <math.h>
+
 #include "planet.h"
 #include "npc.h"
 #include "imageloader.h"
 
+
 using namespace std;
 
-planet::planet(){
+/*planet::planet(){
     planet(0,0,0);
-}
+}*/
 
-planet::planet(float x, float y, float z){
-    this->x = x;
-    this->y = y;
-    this->z = z;
+planet::planet(float x, float y, float z) : renderableObject(x,y,z){
+    //this->x = x;
+    //this->y = y;
+    //this->z = z;
 
     angle=0.0;
     angVelocity=0.1;
@@ -56,7 +58,7 @@ void planet::render(){
 
     glPushMatrix();
 
-    glTranslatef(x, y, z); // move to this position
+    glTranslatef(sx, sy, sz); // move to this position
 
     glEnable(GL_TEXTURE_2D);
 	glBindTexture(GL_TEXTURE_2D, _textureId_PLANET);
@@ -82,7 +84,7 @@ void planet::render(){
     glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
     gluQuadricTexture(quad_PLANET,1);
-    gluSphere(quad_PLANET,4,25,25);//radius 0.5, 25 slices and stacks
+    gluSphere(quad_PLANET,4,40,40);//radius 0.5, 25 slices and stacks
     //glutWireSphere(4.0,25,25); //using the wire for demo reasons, untill textures are done
     glPopMatrix();
 
