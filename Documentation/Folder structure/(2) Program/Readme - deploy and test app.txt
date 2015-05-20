@@ -1,1 +1,0 @@
-For full instructions please see the Comp 315 Deployment Manual
