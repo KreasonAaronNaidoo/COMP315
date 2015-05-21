@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Astro Crisis" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Astro Crisis" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="COMP 315" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Astro Crisis" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="C:/Program Files (x86)/CodeBlocks/MinGW/bin" />
+				<Option object_output="obj/Release/" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/include" />
+		</Compiler>
+		<Linker>
+			<Add library="freeglut" />
+			<Add library="opengl32" />
+			<Add library="glu32" />
+			<Add library="winmm" />
+			<Add library="gdi32" />
+			<Add directory="C:/Program Files (x86)/CodeBlocks/MinGW/lib" />
+		</Linker>
+		<Unit filename="COMP 315/RenderableObject.cpp" />
+		<Unit filename="COMP 315/RenderableObject.h" />
+		<Unit filename="COMP 315/bullet.cpp" />
+		<Unit filename="COMP 315/bullet.h" />
+		<Unit filename="COMP 315/cam.cpp" />
+		<Unit filename="COMP 315/cam.h" />
+		<Unit filename="COMP 315/explosions.cpp" />
+		<Unit filename="COMP 315/explosions.h" />
+		<Unit filename="COMP 315/hud.cpp" />
+		<Unit filename="COMP 315/hud.h" />
+		<Unit filename="COMP 315/imageloader.cpp" />
+		<Unit filename="COMP 315/imageloader.h" />
+		<Unit filename="COMP 315/main.cpp" />
+		<Unit filename="COMP 315/model_obj.cpp" />
+		<Unit filename="COMP 315/model_obj.h" />
+		<Unit filename="COMP 315/npc.cpp" />
+		<Unit filename="COMP 315/npc.h" />
+		<Unit filename="COMP 315/physics_engine.cpp" />
+		<Unit filename="COMP 315/physics_engine.h" />
+		<Unit filename="COMP 315/planet.cpp" />
+		<Unit filename="COMP 315/planet.h" />
+		<Unit filename="COMP 315/player.cpp" />
+		<Unit filename="COMP 315/player.h" />
+		<Unit filename="COMP 315/point.cpp" />
+		<Unit filename="COMP 315/point.h" />
+		<Unit filename="COMP 315/resource.h" />
+		<Unit filename="COMP 315/world.cpp" />
+		<Unit filename="COMP 315/world.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
