@@ -85,7 +85,6 @@ void planet::render(){
 
     gluQuadricTexture(quad_PLANET,1);
     gluSphere(quad_PLANET,4,40,40);//radius 0.5, 25 slices and stacks
-    //glutWireSphere(4.0,25,25); //using the wire for demo reasons, untill textures are done
     glPopMatrix();
 
     }

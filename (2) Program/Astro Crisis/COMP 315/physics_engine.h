@@ -76,7 +76,7 @@ public:
 
     npc *v [7][5];
 
-    point *init_npc_point = new point(-30, -15, 50);
+    point *init_npc_point = new point(-30, -10, 50);
 
     float *npc_init_loc_inc = new float();
 

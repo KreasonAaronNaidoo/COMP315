@@ -8,8 +8,7 @@
 #else
 #include <GL/glut.h>
 #endif
-#include "windows.h"
-#include <mmsystem.h>
+
 
 char *tr = "resources\\plasma.bmp";
 
@@ -36,7 +35,6 @@ void player::initBullet() {
 }
 
 void player::shoot(int x, int y){
-    //cout<<"click"<<endl;
 
 
     GLfloat winX, winY, winZ;  // Holds Our X, Y and Z Coordinates
@@ -64,7 +62,6 @@ void player::shoot(int x, int y){
     v_bullet.push_back(new bullet((this->x),(this->y)-0.05,(this->z)+0.2,posX,posY,posZ,_textureId_Bullet));//player position to mouse position
 
 
-    PlaySound("resources\\shoot.wav", NULL, SND_ASYNC);
 
 }
 

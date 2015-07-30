@@ -22,9 +22,6 @@
 
 using namespace std;
 
-/*npc::npc(){
-    //npc(0,0,0,0,0,0); //spawns an asteroid at the very core of our home planet
-}*/
 
 npc::~npc(){
 
@@ -103,8 +100,11 @@ void npc::render(){
         takeDamage();
 
 
+
         glEnable(GL_TEXTURE_2D);
         glBindTexture(GL_TEXTURE_2D, _textureId_NPC);
+
+
 
 	    //Bottom
 	    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
@@ -113,7 +113,7 @@ void npc::render(){
 	    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 	    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
 
-        //sets colour of material
+ //sets colour of material
         GLfloat ambient[] = { 0.6, 0.6, 0.6, 1};
         glMaterialfv(GL_FRONT, GL_AMBIENT_AND_DIFFUSE, ambient);
         //sets specular properties of the material
@@ -123,12 +123,9 @@ void npc::render(){
         GLfloat mat_shininess[] = { 30.0 };
         glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
 
-
         gluQuadricTexture(quad_NPC,1);
         gluSphere(quad_NPC,radius,25,25);//radius 0.5, 25 slices and stacks
 
-        //glutWireSphere(radius,25,25);
-        //glutSolidSphere(radius,25,25);*/
 
         glPopMatrix();
     }

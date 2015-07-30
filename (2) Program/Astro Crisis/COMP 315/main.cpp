@@ -21,8 +21,7 @@
 #else
 #include <GL/glut.h>
 #endif
-#include <windows.h>
-#include <mmsystem.h>
+
 #include <stdarg.h>
 #include <string>
 #include <sstream>
@@ -107,9 +106,7 @@ void processMenuEvents(int option) {
 
 }
 
-void closeSound(int v){
-    mciSendStringA("close resources/shoot.wav",NULL,0,0);
-}
+
 
 void create_menu(){
 
@@ -479,7 +476,6 @@ void key (unsigned char key, int xx, int yy){
 
         case 'r':
             engine -> player1->shoot(*curx,*cury);
-            glutTimerFunc(100,closeSound,0);
             break;
 
         case ' ':
@@ -544,26 +540,6 @@ void mouseMove(int x, int y){
               //^this value denotes the speed of the camera rotation in the x-direction
         kam -> ly = 0.1*(glutGet(GLUT_WINDOW_HEIGHT)/2 - y);
               //^this value denotes the speed of the camera rotation in the y-direction
-
-
-        /*
-        if(kam -> lx > 2){
-            kam -> lx = 2;
-        }
-
-        if(kam -> lx < -2){
-            kam -> lx = -2;
-        }
-
-        if(kam -> ly > 2.5){
-            kam -> ly = 2.5;
-        }
-
-        if(kam -> ly < -1.5){
-            kam -> ly = -1.5;
-        }
-        */
-        //glutWarpPointer((int)kam -> lx,(int)kam -> ly);
 
 }
 
